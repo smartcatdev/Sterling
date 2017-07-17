@@ -1,0 +1,25 @@
+/*
+--------------------------------------------------------------------------------
+Header
+*/
+/*<editor-fold desc="Header">*/
+.header-icon {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #e5bc6e;
+    border-radius: 100%;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    transition: 0.4s ease-in-out;
+}
+.header-icon:hover {
+    background-color: #b3904d;
+}
+#header-icons {
+    text-align: center;
+}
+/*</editor-fold>*/
