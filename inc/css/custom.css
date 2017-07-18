@@ -16,6 +16,20 @@ Header
     display: inline-block;
     transition: 0.4s ease-in-out;
 }
+#top-bar {
+    font-family: Trirong;
+}
+#main-navigation li {
+    margin: 10px;
+}
+#main-navigation a {
+    color: black;
+    text-decoration: none;
+    transition: 0.4s ease-in-out;
+}
+#main-navigation a:hover {
+    color: #e5bc6e;
+}
 .header-icon:hover {
     background-color: #b3904d;
 }

@@ -4,25 +4,38 @@
  * Enqueue scripts and styles.
  */
 function sterling_scripts() {
-	wp_enqueue_style( 'sterling-style', get_stylesheet_uri() );
-        
-        wp_enqueue_style( 'bootstrap css', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
-        
-        wp_enqueue_style( 'fontawesome css', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
-        
-        wp_enqueue_style( 'custom css', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
+    
+    // Load Fonts from array
+    $fonts = sterling_fonts();
 
-	wp_enqueue_script( 'sterling-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+     // Primary Font Enqueue
+    if( array_key_exists ( get_theme_mod( 'sterling_font_primary', 'Trirong, serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ) ] ), array(), STERLING_VERSION );
+    endif;
+    // Body Font Enqueue
+    if( array_key_exists ( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ) ] ), array(), STERLING_VERSION );
+    endif;
+    
+    wp_enqueue_style( 'sterling-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-        
-        wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', null, STERLING_VERSION );
-        
-        wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', null, STERLING_VERSION );
+    wp_enqueue_style( 'bootstrap css', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    wp_enqueue_style( 'fontawesome css', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
+
+    wp_enqueue_style( 'custom css', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
+
+    wp_enqueue_script( 'sterling-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+    wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+    wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', null, STERLING_VERSION );
+
+    wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', null, STERLING_VERSION );
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+            wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 
@@ -78,6 +91,7 @@ function sterling_fonts(){
         'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
         'Teko, sans-serif'                                  => 'Teko:300,400,600',
         'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
+        'Trirong, serif'                                    => 'Trirong:400,700',
         'Ubuntu, sans-serif'                                => 'Ubuntu',
         'Vollkorn, serif'                                   => 'Vollkorn:400,400i,700',
         'Voltaire, sans-serif'                              => 'Voltaire',

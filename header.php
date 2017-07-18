@@ -26,7 +26,7 @@
 
 	<header id="masthead" class="site-header">
             
-            <div class="container-fluid">
+            <div id="top-bar" class="container-fluid">
                 
                 <div class="row">
             
