@@ -63,6 +63,14 @@ function sterling_setup() {
 		'caption',
 	) );
 
+        // Set up the Wordpress custom header feature
+        $args = array(
+	'width'         => 980,
+	'height'        => 60,
+	'default-image' => get_template_directory_uri() . '/inc/images/header.jpg',);
+                
+        add_theme_support( 'custom-header', $args );
+        
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(
 		'default-color' => 'ffffff',

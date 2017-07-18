@@ -26,6 +26,28 @@
 
 	<header id="masthead" class="site-header">
             
+            <div id="search-menu">
+                
+                <div id="search-menu-box">
+                   
+                    <div id="search-icon">
+                        
+                        <i class="fa fa-search fa-2x"></i>
+                        
+                    </div>
+                    
+                    <input type="text" placeholder="Search">
+                    
+                    <div id="close-search-btn">
+                        
+                        <i class="fa fa-times fa-2x"></i>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
             <div id="top-bar" class="container-fluid">
                 
                 <div class="row">
@@ -64,29 +86,40 @@
                     
                     <div id="header-icons" class="col-sm-3">
                     
-                        <div class="header-icon">
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_location_link', '#') ) ?>">
                             
-                            <i class="fa fa-map-marker"></i>
-                                
-                        </div>
+                            <div class="header-icon">
+
+                                    <i class="fa fa-map-marker"></i>
+
+                            </div>
+                            
+                        </a>
                         
-                        <div class="header-icon">
+                        <div class="header-icon" id="search-btn">
                             
                             <i class="fa fa-search"></i>
                                                        
                         </div>
                         
-                        <div class="header-icon">
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_email_link', '#') ) ?>">
                             
-                            <i class="fa fa-envelope"></i>
+                            <div class="header-icon">
+
+
+                                    <i class="fa fa-envelope"></i>
+
+                            </div>
                             
-                        </div>
+                        </a>
                         
                     </div>
                                   
                 </div>
                 
             </div>
+            
+            <?php sterling_get_header_panel(); ?>
             
 	</header><!-- #masthead -->
 

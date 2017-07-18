@@ -25,6 +25,10 @@ function sterling_customize_register( $wp_customize ) {
 			'render_callback' => 'sterling_customize_partial_blogdescription',
 		) );
 	}
+        
+        include_once get_template_directory() . '/inc/customizer-panels/header.php'; 
+        include_once get_template_directory() . '/inc/customizer-panels/appearance.php'; 
+        
 }
 add_action( 'customize_register', 'sterling_customize_register' );
 
@@ -53,3 +57,15 @@ function sterling_customize_preview_js() {
 	wp_enqueue_script( 'sterling-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'sterling_customize_preview_js' );
+
+function sterling_sanitize_font( $input ) {
+    
+    $valid_keys = sterling_fonts();
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}

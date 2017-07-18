@@ -30,6 +30,8 @@ function sterling_scripts() {
     wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
     wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', null, STERLING_VERSION );
+    
+    wp_enqueue_script( 'sticky js', get_template_directory_uri() . '/inc/js/jquery.sticky.js', null, STERLING_VERSION );
 
     wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', null, STERLING_VERSION );
 
@@ -42,6 +44,13 @@ add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 function sterling_custom_css() { ?>
 
     <style type="text/css">
+        
+        #top-bar, #header-panel *{
+             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
+        }
+        p {
+            font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
+        }
         
     </style>
     
@@ -131,3 +140,76 @@ function sterling_all_posts_array( $include_pages = false ) {
     return $posts_array;
     
 }
+
+/**
+ * Creates header using images from Custom Header
+ * 
+ */
+function sterling_get_header_panel() { ?>
+    
+    <div id="header-panel" class="container-fluid" style="background: url(<?php header_image(); ?>) no-repeat center">
+        
+        <div class="row">
+            
+            <div id="header-panel-content">
+                
+                <h1>Wedding Photography</h1>
+                
+                <div id="header-panel-links">
+                    
+                    <a>Home</a>
+                    <a>All Posts</a>
+                    <h4>Wedding Photography</h4>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+<?php }
+
+/**
+ * Creates blog post output
+ * 
+ */
+function sterling_get_blog_posts() {
+    
+    $blogs = wp_get_recent_posts(); ?>   
+
+<div class="container-fluid" id="blog-posts">
+
+    <?php foreach( $blogs as $blog ) : ?>
+    
+        <div class="row">
+            
+            <div class="col-md-6">
+
+                <h2><?php echo $blog[ "post_title" ]; ?></h2>
+                <i><?php echo $blog[ "post_date" ] ?></i>
+
+                <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+
+                <p><?php echo get_the_excerpt(); ?></p>
+
+                <span class="read-more-btn">Read More</span>
+
+            </div>
+
+            <div class="col-md-6 blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
+
+                <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
+                    <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
+                </a>
+
+            </div>
+            
+        </div>
+    
+    <?php endforeach; ?>    
+
+</div>
+    
+<?php }
