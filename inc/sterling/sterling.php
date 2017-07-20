@@ -177,7 +177,8 @@ function sterling_get_header_panel() { ?>
  */
 function sterling_get_blog_posts() {
     
-    $blogs = wp_get_recent_posts(); ?>   
+    $blogs = wp_get_recent_posts(); 
+    $ctr = 0; ?>   
 
 <div class="container-fluid" id="blog-posts">
 
@@ -185,26 +186,59 @@ function sterling_get_blog_posts() {
     
         <div class="row">
             
-            <div class="col-md-6">
+            <?php if ( $ctr % 2 ) : ?>
+            
+                <div class="col-md-6 blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
 
-                <h2><?php echo $blog[ "post_title" ]; ?></h2>
-                <i><?php echo $blog[ "post_date" ] ?></i>
+                    <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
+                        <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
+                    </a>
 
-                <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+                </div>
+                
+                <div class="col-md-6 blog-info">
 
-                <p><?php echo get_the_excerpt(); ?></p>
+                    <h2><?php echo $blog[ "post_title" ]; ?></h2>
+                    <i><?php echo $blog[ "post_date" ] ?></i>
 
-                <span class="read-more-btn">Read More</span>
+                    <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
 
-            </div>
+                    <p><?php echo get_the_excerpt(); ?></p>
 
-            <div class="col-md-6 blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
+                    <span class="read-more-btn">Read More</span>
 
-                <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
-                    <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
-                </a>
+                </div>
 
-            </div>
+            <?php else: ?>
+            
+                <div class="col-md-6" id="blog-info">
+
+                    <div id="blog-info-content">
+                        
+                        <h2><?php echo $blog[ "post_title" ]; ?></h2>
+                        <i><?php echo $blog[ "post_date" ] ?></i>
+
+                        <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+
+                        <p><?php echo get_the_excerpt(); ?></p>
+
+                        <span class="read-more-btn">Read More</span>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="col-md-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
+
+                    <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
+                        <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
+                    </a>
+
+                </div>
+            
+            <?php endif; ?>
+            
+            <?php $ctr++; ?> 
             
         </div>
     

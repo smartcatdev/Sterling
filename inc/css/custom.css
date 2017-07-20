@@ -138,8 +138,13 @@ Blog FrontPage
 #blog-posts img {
     visibility: hidden;
 }
-.blog-img {
+#blog-img {
     background-size: cover !important;
+    height: 100vh;
+}
+#blog-info {
+    height: 100vh;
+    padding: 7%;
 }
 .read-more-btn {
     cursor: pointer;
