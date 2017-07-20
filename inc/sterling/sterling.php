@@ -3,7 +3,8 @@
 /**
  * Enqueue scripts and styles.
  */
-function sterling_scripts() {
+function sterling_scripts() 
+{
     
     // Load Fonts from array
     $fonts = sterling_fonts();
@@ -29,11 +30,11 @@ function sterling_scripts() {
 
     wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-    wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', null, STERLING_VERSION );
+    wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
     
-    wp_enqueue_script( 'sticky js', get_template_directory_uri() . '/inc/js/jquery.sticky.js', null, STERLING_VERSION );
+    wp_enqueue_script( 'sticky js', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
 
-    wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', null, STERLING_VERSION );
+    wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
             wp_enqueue_script( 'comment-reply' );
@@ -188,7 +189,7 @@ function sterling_get_blog_posts() {
             
             <?php if ( $ctr % 2 ) : ?>
             
-                <div class="col-md-6 blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
+                <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
 
                     <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
                         <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
@@ -196,28 +197,32 @@ function sterling_get_blog_posts() {
 
                 </div>
                 
-                <div class="col-md-6 blog-info">
+                <div class="col-md-6 col-md-pull-6" id="blog-info">
+                    
+                    <div id="blog-info-content">
 
-                    <h2><?php echo $blog[ "post_title" ]; ?></h2>
-                    <i><?php echo $blog[ "post_date" ] ?></i>
+                        <h2><?php echo $blog[ "post_title" ]; ?></h2>
+                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                        <span></span>
+                        <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
 
-                    <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+                        <p><?php echo get_the_excerpt(); ?></p>
 
-                    <p><?php echo get_the_excerpt(); ?></p>
+                        <span class="read-more-btn">Read More</span>
 
-                    <span class="read-more-btn">Read More</span>
-
+                    </div>
+                    
                 </div>
 
             <?php else: ?>
             
-                <div class="col-md-6" id="blog-info">
+                <div class="col-md-6 col-md-pull-6" id="blog-info">
 
                     <div id="blog-info-content">
                         
                         <h2><?php echo $blog[ "post_title" ]; ?></h2>
-                        <i><?php echo $blog[ "post_date" ] ?></i>
-
+                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                        <span></span>
                         <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
 
                         <p><?php echo get_the_excerpt(); ?></p>
@@ -228,7 +233,7 @@ function sterling_get_blog_posts() {
                     
                 </div>
 
-                <div class="col-md-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
+                <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
 
                     <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
                         <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
