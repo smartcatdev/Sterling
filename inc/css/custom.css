@@ -11,6 +11,10 @@ input[type=submit] {
     background-size: 200% 100%;
     background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
     transition: background-position 0.3s;
+    border: none;
+}
+ul {
+    margin: 0;
 }
 th {
     color: #e5bc6e;
