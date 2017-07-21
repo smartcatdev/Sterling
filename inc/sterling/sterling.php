@@ -42,6 +42,35 @@ function sterling_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function sterling_widgets_init() {
+    
+    register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar', 'sterling' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+    
+    register_sidebar( array(
+            'name'          => esc_html__( 'Footer', 'sterling' ),
+            'id'            => 'footer',
+            'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
+    ) );
+}
+add_action( 'widgets_init', 'sterling_widgets_init' );
+
 function sterling_custom_css() { ?>
 
     <style type="text/css">
@@ -178,77 +207,185 @@ function sterling_get_header_panel() { ?>
  */
 function sterling_get_blog_posts() {
     
-    $blogs = wp_get_recent_posts(); 
+    $paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
+    
+    $query_args = array(
+      'post_type'       => 'post',
+      'category_name'   => 'tutorials',
+      'posts_per_page'  => 3,
+      'orderby'         => 'date',
+      'order'           => 'ASC',
+      'paged'           => $paged
+    ); 
+    
+    $the_query = new WP_Query( $query_args );
+    
+//    $blogs = wp_get_recent_posts(); 
     $ctr = 0; ?>   
 
 <div class="container-fluid" id="blog-posts">
 
-    <?php foreach( $blogs as $blog ) : ?>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     
         <div class="row">
             
             <?php if ( $ctr % 2 ) : ?>
             
-                <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
-
-                    <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
-                        <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
-                    </a>
-
-                </div>
-                
-                <div class="col-md-6 col-md-pull-6" id="blog-info">
+                <a href="<?php echo get_the_permalink(); ?>">
                     
-                    <div id="blog-info-content">
+                    <div class="col-md-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
 
-                        <h2><?php echo $blog[ "post_title" ]; ?></h2>
+                           <?php echo get_the_post_thumbnail(); ?>
+
+                    </div>    
+                    
+                </a>
+            
+                <div class="col-md-6" id="blog-info">
+
+                    <div id="blog-info-content">
+                        
+                        <h2><?php echo get_the_title(); ?></h2>
                         <i><?php echo get_the_date('m/d/Y'); ?></i>
                         <span></span>
-                        <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+                        <i><?php echo get_comments_number(); ?> Comments</i>
 
                         <p><?php echo get_the_excerpt(); ?></p>
 
-                        <span class="read-more-btn">Read More</span>
-
+                        <span class="read-more-btn">
+                            <a href="<?php get_the_permalink(); ?>">
+                                Read More
+                            </a>
+                        </span>
+                        
                     </div>
                     
                 </div>
-
+            
             <?php else: ?>
             
-                <div class="col-md-6 col-md-pull-6" id="blog-info">
+                <a href="<?php echo get_the_permalink(); ?>">
+            
+                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
 
+                    
+                        <?php echo get_the_post_thumbnail(); ?>
+                    
+
+                    </div>
+                
+                </a>
+            
+                <div class="col-md-6 col-md-pull-6" id="blog-info">
+                    
                     <div id="blog-info-content">
-                        
-                        <h2><?php echo $blog[ "post_title" ]; ?></h2>
+
+                        <h2><?php echo get_the_title(); ?></h2>
                         <i><?php echo get_the_date('m/d/Y'); ?></i>
                         <span></span>
-                        <i><?php echo $blog[ "comment_count" ] ?> Comments</i>
+                        <i><?php echo get_comments_number(); ?> Comments</i>
 
                         <p><?php echo get_the_excerpt(); ?></p>
 
-                        <span class="read-more-btn">Read More</span>
-                        
+                        <span class="read-more-btn">
+                            <a href="<?php get_the_permalink(); ?>">
+                                Read More
+                            </a>
+                        </span>
+
                     </div>
                     
                 </div>
 
-                <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' )?>) center;">
-
-                    <a href="<?php echo get_permalink( $blog[ "ID" ] ); ?>">
-                        <img src="<?php echo get_the_post_thumbnail_url( $blog[ "ID" ], 'full' ); ?>" >
-                    </a>
-
-                </div>
-            
             <?php endif; ?>
             
             <?php $ctr++; ?> 
             
         </div>
     
-    <?php endforeach; ?>    
+    <?php endwhile; ?>    
+    
+    <?php endif; ?>
 
 </div>
+    
+<?php }
+
+function sterling_get_custom_footer() { ?>
+    <div class="container-fluid" id="custom-footer">
+       
+        <div class="row">
+            
+            <div class="container">
+            
+                <div class="row">
+
+                    <div id="custom-footer-social-icons">
+
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_twitter_link', '#') ) ?> ?>">
+                            <div class="custom-footer-social-icon">
+
+                                <i class="fa fa-twitter fa-2x"></i>
+
+                            </div>
+                        </a>
+                        
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_facebook_link', '#') ) ?> ?>">
+                            <div class="custom-footer-social-icon">
+
+                                <i class="fa fa-facebook fa-2x"></i>
+
+                            </div>
+                        </a>
+                        
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_instagram_link', '#') ) ?> ?>">    
+                            <div class="custom-footer-social-icon">
+
+                                <i class="fa fa-instagram fa-2x"></i>
+
+                            </div>
+                        </a>
+                        
+                        <a href="<?php echo esc_attr( get_theme_mod('sterling_dribbble_link', '#') ) ?> ?>">    
+                            <div class="custom-footer-social-icon">
+
+                                <i class="fa fa-dribbble fa-2x"></i>
+
+                            </div>
+                        </a>
+                        
+                    </div>
+
+                </div>
+
+                <span id="custom-footer-divider"></span>
+                
+                <div class="row">
+
+                    <div id="custom-footer-widgets">
+
+                        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer') ) : 
+
+                        endif; ?>
+
+                    </div>  
+
+                </div>
+            
+            </div>    
+                
+        </div>
+        
+    </div>
+        
+<?php }
+
+function sterling_get_scrolltotop() { ?>
+    
+    <span id="scrolltotop-btn">
+        
+        <i class="fa fa-chevron-up"></i>
+        
+    </span>
     
 <?php }

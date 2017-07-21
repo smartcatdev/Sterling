@@ -53,6 +53,10 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-get_sidebar();
+<?php 
+
+ sterling_get_scrolltotop();
+
+sterling_get_custom_footer();
+
 get_footer();

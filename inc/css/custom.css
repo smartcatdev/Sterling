@@ -1,5 +1,34 @@
 /*
 --------------------------------------------------------------------------------
+Basic Elements
+*/
+/*<editor-fold desc="Basic Elements">*/
+input[type=submit] {
+    background-color: #e5bc6e;
+    border-radius: 0;
+    font-size: inherit;
+    color: white;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
+    transition: background-position 0.3s;
+}
+th {
+    color: #e5bc6e;
+}
+
+input[type=submit]:hover {
+    background-position: -100% 0;
+}
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], 
+input[type="search"], input[type="number"], input[type="tel"], input[type="range"], 
+input[type="date"], input[type="month"], input[type="week"], input[type="time"], 
+input[type="datetime"], input[type="datetime-local"], input[type="color"], 
+textarea {
+    background-color: transparent;
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
 Header
 */
 /*<editor-fold desc="Header">*/
@@ -17,10 +46,11 @@ Header
     transition: 0.4s ease-in-out;
 }
 #site-branding {
-    height: 80px;
+    height: 70px;
 }
 #site-branding img {
-    height: 100%;       
+    max-height: 70px;
+    width: auto;      
 }
 #top-bar {
     font-family: Trirong;
@@ -36,10 +66,9 @@ Header
 #main-navigation {
     margin-top: 15px;
 }
-#main-navigation ul {
-    display: block;
-    margin: auto;
-    width: 70%;
+#main-navigation-wrapper {
+    display: table;
+    margin: 0 auto;
 }
 #main-navigation a {
     color: black;
@@ -135,6 +164,7 @@ body.home.blog.logged-in #top-bar {
 --------------------------------------------------------------------------------
 Blog FrontPage
 */
+/*<editor-fold desc="Blog FrontPage">*/
 #blog-posts img {
     visibility: hidden;
 }
@@ -162,6 +192,10 @@ Blog FrontPage
 .read-more-btn:hover {
     background-position: -100% 0;
 }
+#blog-info-content a {
+    color: white;
+    text-decoration: none;
+}
 #blog-info span:nth-of-type(1) {
     display: inline-block;
     height: 5px;
@@ -178,3 +212,94 @@ Blog FrontPage
     margin-top: 20px;
     margin-bottom: 30px;
 }
+.nav-previous {
+    text-align: right !important;
+}
+.nav-next {
+    text-align: left !important;
+}
+.nav-next a, .nav-previous a {
+    background-color: #e5bc6e;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+.posts-navigation {
+    margin-top: 15px !important;
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+Custom Footer
+*/
+/*<editor-fold desc="Custom Footer">*/
+#custom-footer {
+    color: #a7a7a7;
+    background-color: #1b1a18;
+}
+
+#custom-footer input[type=submit] {
+    color: #1b1a18;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #e5bc6e;
+}
+#custom-footer a {
+    color: #e5bc6e;
+    text-decoration: none;
+}
+#custom-footer-divider {
+    display: block;
+    background: #403f3f;
+    height: 1px;
+    margin-bottom: 50px;
+}
+#custom-footer-social-icons {
+    text-align: center;
+    margin: 50px auto;
+}
+.custom-footer-social-icon {
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #282725;
+    border-radius: 100%;
+    color: #e5bc6e;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    transition: 0.4s ease-in-out;
+}
+.custom-footer-social-icon:hover {
+    background-color: #e5bc6e;
+    color: white;
+}
+#footer {
+    background-color: #11100f;
+    color: #a7a7a7;
+    padding: 20px 0;
+}
+#footer a {
+    color: #e5bc6e;
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+ScrollToTop Button
+*/
+/*<editor-fold desc="ScrollToTop Button">*/
+#scrolltotop-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    margin: 10px;
+    background-color: #e5bc6e;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+#scrolltotop-btn:hover {
+    background-color: #b3904d       
+}
+/*</editor-fold>*/

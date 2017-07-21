@@ -28,6 +28,7 @@ function sterling_customize_register( $wp_customize ) {
         
         include_once get_template_directory() . '/inc/customizer-panels/header.php'; 
         include_once get_template_directory() . '/inc/customizer-panels/appearance.php'; 
+        include_once get_template_directory() . '/inc/customizer-panels/footer.php'; 
         
 }
 add_action( 'customize_register', 'sterling_customize_register' );

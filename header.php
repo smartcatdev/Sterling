@@ -72,15 +72,19 @@
 
                     <div id="main-navigation" class="col-sm-6">
                         
-                        <nav id="site-navigation" class="main-navigation">
-                                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sterling' ); ?></button>
-                                <?php
-                                        wp_nav_menu( array(
-                                                'theme_location' => 'menu-1',
-                                                'menu_id'        => 'primary-menu',
-                                        ) );
-                                ?>
-                        </nav><!-- #site-navigation -->
+                        <div id="main-navigation-wrapper">
+                            
+                            <nav id="site-navigation" class="main-navigation">
+                                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sterling' ); ?></button>
+                                    <?php
+                                            wp_nav_menu( array(
+                                                    'theme_location' => 'menu-1',
+                                                    'menu_id'        => 'primary-menu',
+                                            ) );
+                                    ?>
+                            </nav><!-- #site-navigation -->
+                            
+                        </div>
                         
                     </div>
                     
@@ -105,7 +109,6 @@
                         <a href="<?php echo esc_attr( get_theme_mod('sterling_email_link', '#') ) ?>">
                             
                             <div class="header-icon">
-
 
                                     <i class="fa fa-envelope"></i>
 

@@ -15,6 +15,9 @@ if ( ! function_exists( 'sterling_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+    
+remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );       
+    
 function sterling_setup() {
     
     if ( !defined( 'STERLING_VERSION' ) ):
@@ -106,24 +109,6 @@ function sterling_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'sterling_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function sterling_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'sterling' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'sterling_widgets_init' );
 
 /**
  * Implement the Custom Header feature.
