@@ -25,24 +25,97 @@ get_header(); ?>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 
-			<?php
-			endif;
+			<?php endif; ?>
 
-                        sterling_get_blog_posts();
-                        
-			/* Start the Loop */
-//			while ( have_posts() ) : the_post();
-//
-//				/*
-//				 * Include the Post-Format-specific template for the content.
-//				 * If you want to override this in a child theme, then include a file
-//				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-//				 */
-//				get_template_part( 'template-parts/content', get_post_format() );
-//
-//			endwhile;
+                        <?php $ctr = 0; ?>   
 
-			the_posts_navigation();
+                <div class="container-fluid" id="blog-posts">
+
+                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+                        <div class="row">
+
+                            <?php if ( $ctr % 2 ) : ?>
+
+                                <a href="<?php echo get_the_permalink(); ?>">
+
+                                    <div class="col-md-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
+
+                                           <?php echo get_the_post_thumbnail(); ?>
+
+                                    </div>    
+
+                                </a>
+
+                                <div class="col-md-6" id="blog-info">
+
+                                    <div id="blog-info-content">
+
+                                        <h2><?php echo get_the_title(); ?></h2>
+                                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                                        <span></span>
+                                        <i><?php echo get_comments_number(); ?> Comments</i>
+
+                                        <p><?php echo get_the_excerpt(); ?></p>
+
+                                        <span class="read-more-btn">
+                                            <a href="<?php get_the_permalink(); ?>">
+                                                Read More
+                                            </a>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            <?php else: ?>
+
+                                <a href="<?php echo get_the_permalink(); ?>">
+
+                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
+
+
+                                        <?php echo get_the_post_thumbnail(); ?>
+
+
+                                    </div>
+
+                                </a>
+
+                                <div class="col-md-6 col-md-pull-6" id="blog-info">
+
+                                    <div id="blog-info-content">
+
+                                        <h2><?php echo get_the_title(); ?></h2>
+                                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                                        <span></span>
+                                        <i><?php echo get_comments_number(); ?> Comments</i>
+
+                                        <p><?php echo get_the_excerpt(); ?></p>
+
+                                        <span class="read-more-btn">
+                                            <a href="<?php get_the_permalink(); ?>">
+                                                Read More
+                                            </a>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php $ctr++; ?> 
+
+                        </div>
+
+                    <?php endwhile; ?>    
+
+                    <?php endif; ?>
+
+                </div> <?php
+
+			the_posts_pagination( array( 'mid_size' => 1 ) );
 
 		else :
 
@@ -55,7 +128,7 @@ get_header(); ?>
 
 <?php 
 
- sterling_get_scrolltotop();
+sterling_get_scrolltotop();
 
 sterling_get_custom_footer();
 

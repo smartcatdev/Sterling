@@ -58,11 +58,15 @@ Header
 }
 #top-bar {
     font-family: Trirong;
+    color: black;
     background-color: white;
     box-shadow: 0px 0px 20px #737373;
 }
 #top-bar a {
     color: white;
+}
+#site-branding a {
+    color: black;
 }
 #main-navigation li {
     margin: 10px;
@@ -383,7 +387,7 @@ Single Post
 .comment-list a:visited {
     color: royalblue;
 }
-body.post-template-default.single.single-post.postid-324.single-format-standard.logged-in.admin-bar.wp-custom-logo.customize-support #top-bar {
+body.post-template-default.single.single-post.logged-in.admin-bar #top-bar {
     top: 32px !important;
     z-index: 2 !important;
 }

@@ -53,15 +53,19 @@ get_header(); ?>
 
                                         Tags: 
 
-                                        <?php foreach ( $tags as $tag ) : ?>
+                                        <?php if (get_the_tags()) : ?>
+                                            
+                                            <?php foreach ( $tags as $tag ) : ?>
 
-                                            <a class="btn btn-warning"
-                                               href="<?php bloginfo('url');?>/tag/<?php echo ($tag->slug);?>">
-                                                     <?php echo ($tag->name); ?>
-                                            </a> 
+                                                <a class="btn btn-warning"
+                                                   href="<?php bloginfo('url');?>/tag/<?php echo ($tag->slug);?>">
+                                                         <?php echo ($tag->name); ?>
+                                                </a> 
 
-                                        <?php endforeach; ?>
-
+                                            <?php endforeach; ?>
+                                        
+                                        <?php endif; ?>
+                                        
                                     </div>
 
                                     <div id="single-post-author-info">
