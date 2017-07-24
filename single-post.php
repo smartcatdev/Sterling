@@ -66,7 +66,6 @@ get_header(); ?>
 
                                     <div id="single-post-author-info">
                                         <div id="single-post-author-img" style="background: url(<?php echo ltrim(get_avatar_url(the_author_meta('ID'), 64), '1'); ?>)">
-
                                         </div>
                                     </div>
 
