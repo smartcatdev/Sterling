@@ -13,6 +13,9 @@ input[type=submit] {
     transition: background-position 0.3s;
     border: none;
 }
+a:visited {
+    color: white;
+}
 ul {
     margin: 0;
 }
@@ -305,5 +308,72 @@ ScrollToTop Button
 }
 #scrolltotop-btn:hover {
     background-color: #b3904d       
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+Single Post
+*/
+/*<editor-fold desc="Single Post">*/
+#single-post-title {
+    text-align: center; 
+}
+#single-post-title a, p {
+    color: #999999
+}
+#single-post-title p {
+    display: inline-block;
+}
+#single-post-title span {
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    background: #e5bc6e;
+    border-radius: 2.5px;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+#single-post-title-img img {
+    visibility: hidden;
+}
+#single-post-title-img {
+    height: 300px;
+}
+#single-post-title a:nth-of-type(1) {
+    text-transform: capitalize;
+}
+#single-post-container {
+    margin-top: 100px;
+}
+#content-divider {
+    background: #e5bc6e;
+    height: 2px;
+    width: 100%;
+    display: block;
+    margin: 50px auto;
+}
+#single-post-sidebar section {
+    border: 2px solid #e5bc6e;
+    padding: 20px 20px;
+}
+#single-post-sidebar section:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: -17px;
+    top: -17px;
+    width: 0;
+    height: 0;
+    border: 16px solid transparent;
+    border-top-color: #ddd;
+    transform: rotate(225deg);
+}
+.comment-list > li {
+    padding: 20px;
+    border-bottom: 2px solid #e5bc6e;
+}
+.comment-list {
+    border: 1px solid #e5bc6e;
 }
 /*</editor-fold>*/
