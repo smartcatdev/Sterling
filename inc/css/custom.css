@@ -30,12 +30,24 @@ input[type="datetime"], input[type="datetime-local"], input[type="color"],
 textarea {
     background-color: transparent;
 }
+input[type="search"] {
+    width: 100%;
+}
+a:visited {
+    color: #337ab7;
+}
 /*</editor-fold>*/
 /*
 --------------------------------------------------------------------------------
 Header
 */
 /*<editor-fold desc="Header">*/
+.sterling-site-wrapper {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    background-color: white;
+}
 .header-icon {
     margin: 10px;
     width: 40px;
@@ -119,7 +131,7 @@ Header
 #header-panel-links a:hover {
     color: #e5bc6e;
 }
-body.home.blog.logged-in #top-bar {
+body.logged-in #top-bar {
     top: 32px !important;
     z-index: 2 !important;
 }
@@ -220,20 +232,33 @@ Blog FrontPage
     margin-top: 20px;
     margin-bottom: 30px;
 }
-.nav-previous {
-    text-align: right !important;
+.navigation.pagination {
+    width: 100%;
 }
-.nav-next {
-    text-align: left !important;
+.navigation.pagination > .nav-links {
+    text-align: center;
 }
-.nav-next a, .nav-previous a {
-    background-color: #e5bc6e;
-    padding: 10px;
+.page-numbers.current {
     color: white;
-    text-decoration: none;
+    background: #e5bc6e;
+    padding: 10px 14px;
+    border-radius: 30px;
+    margin: 5px;
 }
-.posts-navigation {
-    margin-top: 15px !important;
+.page-numbers {
+    padding: 10px 14px;
+    background: #d0d0d0;
+    border-radius: 30px;
+    transition: 0.3s ease-in-out;
+}
+.page-numbers:hover {
+    background: #e5bc6e;
+}
+.nav-links a:visited {
+    color: white;
+}
+.nav-links a {
+    text-decoration: none;
 }
 /*</editor-fold>*/
 /*
@@ -291,6 +316,9 @@ h1, h2, h3, h4, h5, h6 {
 #footer a {
     color: #e5bc6e;
 }
+#footer > .row {
+    margin: 0;
+}
 /*</editor-fold>*/
 /*
 --------------------------------------------------------------------------------
@@ -339,6 +367,7 @@ Single Post
 }
 #single-post-title-img {
     height: 300px;
+    background-size: cover !important;
 }
 #single-post-title a:nth-of-type(1) {
     text-transform: capitalize;
@@ -387,14 +416,127 @@ Single Post
 .comment-list a:visited {
     color: royalblue;
 }
-body.post-template-default.single.single-post.logged-in.admin-bar #top-bar {
+body.logged-in.admin-bar #top-bar {
     top: 32px !important;
     z-index: 2 !important;
+}
+#single-post-author-info {
+    margin: 50px 0;
+    background-color: #efefef;
+    padding: 30px 0;
+    margin: 30px 0;
 }
 #single-post-author-img {
     height: 60px;
     width: 60px;
     background-size: cover;
+    display: inline-block;
     border-radius: 30px;
+    margin: 20px;
 }
+#single-post-author-title {
+    display: inline-block;
+    width: 70%;
+}
+#single-post-author-title h4 {
+    display: inline-block;
+    text-transform: capitalize;
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+Mobile Menu
+*/
+/*<editor-fold desc="Mobile Menu">*/
+.panel {
+    position: fixed;
+    right: -15.625em; /*left or right and the width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+}
+#mobile-menu-social-link {
+    text-align: center;
+}
+#menu {
+    top: 46px!important;
+    background-color: #131313;
+    border-radius: 0;
+}
+#menu > .menu-link {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-right: 3px;
+    font-size: 30px;
+    margin-bottom: -50px;
+    color: rgba(255, 255, 255, 0.74);
+}
+#menu a {
+    color: white;
+}
+#menu li {
+    text-align: center;
+    margin: 25px 0;
+    transition: 0.3s ease-in-out;
+}
+#menu li:hover {
+    color: #e5bc6e;
+}
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+#mobile-menu {
+    display: none;
+}
+#mobile-overlay {
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+@media screen and ( max-width:869px ) {
+    #header-icons {
+        display: none;
+    }
+    #main-navigation {
+        float: right;
+    }
+}
+@media screen and ( max-width:782px ) {
+    body.logged-in.admin-bar #top-bar {
+        top: 46px !important;
+    }
+    #main-navigation {
+        width: 10%;
+    }
+    #main-navigation-wrapper {
+        display: none;
+    }
+    #mobile-menu {
+        display: inline-block;
+    }
+    #site-branding {
+        float: left;
+    }
+}
+@media screen and ( max-width:600px ) {
+    #menu {
+        top: 0 !important;
+    }
+}
+@media screen and ( max-width:425px ) {
+    #main-navigation {
+        width: 15%
+    }
+}
+@media screen and ( max-width:381px ) {
+    #header-panel-content {
+        padding-top: 44px;
+    }
+}
+
+
 /*</editor-fold>*/

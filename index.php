@@ -29,7 +29,7 @@ get_header(); ?>
 
                         <?php $ctr = 0; ?>   
 
-                <div class="container-fluid" id="blog-posts">
+                <div class="container-fluid push" id="blog-posts">
 
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -37,11 +37,11 @@ get_header(); ?>
 
                             <?php if ( $ctr % 2 ) : ?>
 
-                                <a href="<?php echo get_the_permalink(); ?>">
+                                <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
+                                    <div class="col-md-6" id="blog-img" style="background: url(<?php the_post_thumbnail_url(); ?>) center;">
 
-                                           <?php echo get_the_post_thumbnail(); ?>
+                                           <?php the_post_thumbnail(); ?>
 
                                     </div>    
 
@@ -51,15 +51,15 @@ get_header(); ?>
 
                                     <div id="blog-info-content">
 
-                                        <h2><?php echo get_the_title(); ?></h2>
-                                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                                        <h2><?php the_title(); ?></h2>
+                                        <i><?php the_date('m/d/Y'); ?></i>
                                         <span></span>
-                                        <i><?php echo get_comments_number(); ?> Comments</i>
+                                        <i><?php comments_number(); ?> Comments</i>
 
-                                        <p><?php echo get_the_excerpt(); ?></p>
+                                        <p><?php the_excerpt(); ?></p>
 
                                         <span class="read-more-btn">
-                                            <a href="<?php get_the_permalink(); ?>">
+                                            <a href="<?php the_permalink(); ?>">
                                                 Read More
                                             </a>
                                         </span>
@@ -70,12 +70,12 @@ get_header(); ?>
 
                             <?php else: ?>
 
-                                <a href="<?php echo get_the_permalink(); ?>">
+                                <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
+                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php the_post_thumbnail_url(); ?>) center;">
 
 
-                                        <?php echo get_the_post_thumbnail(); ?>
+                                        <?php the_post_thumbnail(); ?>
 
 
                                     </div>
@@ -86,15 +86,15 @@ get_header(); ?>
 
                                     <div id="blog-info-content">
 
-                                        <h2><?php echo get_the_title(); ?></h2>
-                                        <i><?php echo get_the_date('m/d/Y'); ?></i>
+                                        <h2><?php the_title(); ?></h2>
+                                        <i><?php the_date('m/d/Y'); ?></i>
                                         <span></span>
-                                        <i><?php echo get_comments_number(); ?> Comments</i>
+                                        <i><?php comments_number(); ?> Comments</i>
 
-                                        <p><?php echo get_the_excerpt(); ?></p>
+                                        <p><?php the_excerpt(); ?></p>
 
                                         <span class="read-more-btn">
-                                            <a href="<?php get_the_permalink(); ?>">
+                                            <a href="<?php the_permalink(); ?>">
                                                 Read More
                                             </a>
                                         </span>

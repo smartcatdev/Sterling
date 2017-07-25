@@ -14,7 +14,7 @@ get_header(); ?>
                                 
                                     <div id="single-post-title">
 
-                                        <div id="single-post-title-img" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) center;">
+                                        <div id="single-post-title-img" style="background: url( <?php echo get_the_post_thumbnail_url(); ?> )">
                                             <?php echo get_the_post_thumbnail(); ?>
                                         </div>
 
@@ -22,13 +22,13 @@ get_header(); ?>
 
                                             <h4><?php echo get_the_title(); ?></h4>
 
-                                            <a href="<?php echo get_the_author_meta('user_url'); ?>">
-                                                By <?php echo get_the_author_meta('display_name'); ?>
+                                            <a href="<?php echo get_the_author_meta( 'user_url' ); ?>">
+                                                By <?php echo get_the_author_meta( 'display_name' ); ?>
                                             </a>
 
                                             <span></span>
 
-                                            <p><?php echo get_the_date('m/d/Y'); ?></p>
+                                            <p><?php echo get_the_date( 'm/d/Y' ); ?></p>
 
                                             <span></span>
 
@@ -53,13 +53,13 @@ get_header(); ?>
 
                                         Tags: 
 
-                                        <?php if (get_the_tags()) : ?>
+                                        <?php if ( get_the_tags() ) : ?>
                                             
                                             <?php foreach ( $tags as $tag ) : ?>
 
                                                 <a class="btn btn-warning"
-                                                   href="<?php bloginfo('url');?>/tag/<?php echo ($tag->slug);?>">
-                                                         <?php echo ($tag->name); ?>
+                                                   href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
+                                                         <?php echo ( $tag->name ); ?>
                                                 </a> 
 
                                             <?php endforeach; ?>
@@ -69,7 +69,11 @@ get_header(); ?>
                                     </div>
 
                                     <div id="single-post-author-info">
-                                        <div id="single-post-author-img" style="background: url(<?php echo ltrim(get_avatar_url(the_author_meta('ID'), 64), '1'); ?>)">
+                                        <div id="single-post-author-img" style="background: url( <?php echo get_avatar_url( get_the_author_meta( 'ID' ), 64 )?> ) center">
+                                        </div>
+                                        <div id="single-post-author-title">
+                                            <h4>About <?php the_author_meta( 'display_name' ); ?></h4>
+                                            <p><?php the_author_meta( 'description' ); ?></p>
                                         </div>
                                     </div>
 

@@ -1,6 +1,27 @@
  jQuery( document ).ready( function( $ ) { 
  
-    $("#top-bar").sticky({ topSpacing:70 });
+
+    if ( $(window).width() > 600 ){
+
+        $("#top-bar").sticky({ topSpacing:70 });
+
+    } else {
+        $("#top-bar").unstick();
+    }
+
+ 
+    $(window).resize(function() {
+        
+        if ( $(window).width() > 600 ){
+            
+            $("#top-bar").sticky({ topSpacing:70 });
+            
+        } else {
+            $("#top-bar").unstick();
+        }
+        
+        
+    });
     
     $("#search-btn").on( 'click', function(){
         $("#search-menu").css("display", "table");
@@ -18,6 +39,12 @@
     $( "#scrolltotop-btn" ).on( 'click', function(){
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     });         
+    
+    $('.menu-link').bigSlide({
+        menu: ('#menu'),
+        side: 'right'
+    });
+    
     
  });
 

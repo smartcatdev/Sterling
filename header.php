@@ -21,7 +21,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="sterling-site-wrapper">
+    
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sterling' ); ?></a>
 
 	<header id="masthead" class="site-header">
@@ -71,6 +72,50 @@
                     </div><!-- .site-branding -->
 
                     <div id="main-navigation" class="col-sm-6">
+                        
+                        
+                        <div id="mobile-overlay" class="push"></div>
+                        
+                        <div id="mobile-menu">
+                            
+                            <a href="#menu" class="menu-link"><i class="fa fa-bars fa-2x"></i></a>
+                            
+                            <nav id="menu" class="panel" role="navigation">
+                                
+                                <a href="#menu" class="menu-link"><i class="fa fa-times"></i></a> 
+                                
+                                <?php wp_nav_menu( array(
+                                     'theme_location' => 'menu-1',
+                                     'menu_id'        => 'primary-menu',
+                                 ) ); ?>
+
+                                <div id="mobile-menu-social-link">
+                                    
+                                    <a href="<?php echo esc_attr( get_theme_mod('sterling_location_link', '#') ) ?>">
+                            
+                                        <div class="header-icon">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                            
+                                     </a>
+                        
+                                    <div class="header-icon" id="search-btn">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+
+                                    <a href="<?php echo esc_attr( get_theme_mod('sterling_email_link', '#') ) ?>">
+
+                                        <div class="header-icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+
+                                    </a>
+
+                                </div>
+
+                            </nav>
+
+                        </div>
                         
                         <div id="main-navigation-wrapper">
                             

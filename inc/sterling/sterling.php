@@ -33,6 +33,8 @@ function sterling_scripts()
     wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
     
     wp_enqueue_script( 'sticky js', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
+    
+    wp_enqueue_script( 'bigSlide js', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
 
     wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
