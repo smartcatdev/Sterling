@@ -30,7 +30,7 @@ get_header(); ?>
                         <?php $ctr = 0; ?>   
 
                 <div class="container-fluid push" id="blog-posts">
-
+                    
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                         <div class="row">
@@ -52,9 +52,9 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php the_date('m/d/Y'); ?></i>
+                                        <i><?php echo get_the_date( 'm/d/Y' ); ?></i>
                                         <span></span>
-                                        <i><?php comments_number(); ?> Comments</i>
+                                        <i><?php comments_number(); ?></i>
 
                                         <p><?php the_excerpt(); ?></p>
 
@@ -87,9 +87,9 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php the_date('m/d/Y'); ?></i>
+                                        <i><?php echo get_the_date( 'm/d/Y' ); ?></i>
                                         <span></span>
-                                        <i><?php comments_number(); ?> Comments</i>
+                                        <i><?php comments_number(); ?></i>
 
                                         <p><?php the_excerpt(); ?></p>
 

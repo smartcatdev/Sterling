@@ -145,6 +145,7 @@ body.logged-in #top-bar {
 }
 #search-menu #search-menu-box { 
     text-align: center;
+    display: none;
     display: table-cell;
     vertical-align: middle;
 }
@@ -394,10 +395,10 @@ Single Post
     display: block;
     position: absolute;
     z-index: 1;
-    right: 0;
+    right: -1px;
     width: 0;
     height: 0;
-    border: 18px solid transparent;
+    border: 19px solid transparent;
     border-top-color: #e5bc6e;
     transform: rotate(-45deg);
 }
@@ -490,6 +491,7 @@ Mobile Menu
 }
 #mobile-overlay {
     z-index: 9999;
+    display: none;
     background-color: rgba(0, 0, 0, 0.85);
     position: fixed;
     top: 0;
@@ -509,6 +511,9 @@ Mobile Menu
     body.logged-in.admin-bar #top-bar {
         top: 46px !important;
     }
+    #search-menu-box input {
+        font-size: 30px;
+    }
     #main-navigation {
         width: 10%;
     }
@@ -525,6 +530,7 @@ Mobile Menu
 @media screen and ( max-width:600px ) {
     #menu {
         top: 0 !important;
+        z-index: 999999;
     }
 }
 @media screen and ( max-width:425px ) {
@@ -539,4 +545,92 @@ Mobile Menu
 }
 
 
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+Page
+*/
+/*<editor-fold desc="Page">*/
+#page-container {
+    margin-top: 50px;
+}
+#page-sidebar section {
+    border: 2px solid #e5bc6e;
+    padding: 20px 20px;
+}
+#page-sidebar section:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: -1px;
+    width: 0;
+    height: 0;
+    border: 19px solid transparent;
+    border-top-color: #e5bc6e;
+    transform: rotate(-45deg);
+}
+#page-title-img-wrapper {
+    height: 270px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+#page-title-img img {
+    visibility: hidden;
+}
+#page-title-img {
+    background-size: cover !important;
+    height: 100%;
+    transition: 0.3s ease-in-out;
+}
+#page-title-img:hover {
+    transform: scale(1.2);
+}
+
+
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+404
+*/
+/*<editor-fold desc="404">*/
+.page-header {
+    border: none;
+}
+.not-found-large h1 {
+    font-size: 200px;
+    float: right;
+}
+.not-found-text a {
+    cursor: pointer;
+    padding: 15px;
+    color: white;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
+    transition: background-position 0.3s;
+}
+.not-found-text a:hover {
+    background-position: -100% 0;
+}
+.not-found-text .page-content {
+    margin-bottom: 50px;
+}
+.not-found-text {
+    margin-top: 30px;
+}
+@media screen and ( max-width:992px ) {
+    .not-found-text {
+        margin-bottom: 50px;
+        text-align: center;
+        width: 100%;
+    }
+    .not-found-large {
+        width: 100%;
+    }
+    .not-found-large h1 {
+        float: none;
+        width: 100% !important;
+        text-align: center;
+    }
+}
 /*</editor-fold>*/

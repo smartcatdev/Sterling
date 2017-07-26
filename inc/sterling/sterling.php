@@ -73,6 +73,39 @@ function sterling_widgets_init() {
 }
 add_action( 'widgets_init', 'sterling_widgets_init' );
 
+function sterling_hex2rgba( $color, $opacity = false ) {
+ 
+    $default = 'rgb(0,0,0)';
+    //Return default if no color provided
+    if ( empty( $color ) )
+        return $default; 
+    //Sanitize $color if "#" is provided 
+    if ( $color[0] == '#' ) {
+        $color = substr( $color, 1 );
+    }
+    //Check if color has 6 or 3 characters and get values
+    if ( strlen( $color ) == 6) {
+        $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+    } elseif ( strlen( $color ) == 3 ) {
+        $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+    } else {
+        return $default;
+    }
+    // Convert hexadec to rgb
+    $rgb =  array_map( 'hexdec', $hex );
+    // Check if opacity is set(rgba or rgb)
+    if( $opacity ){
+        if( abs( $opacity ) > 1 )
+            $opacity = 1.0;
+        $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+    } else {
+        $output = 'rgb('.implode(",",$rgb).')';
+    }
+    //Return rgb(a) color string
+    return $output;
+        
+}
+
 function sterling_custom_css() { ?>
 
     <style type="text/css">
@@ -82,6 +115,12 @@ function sterling_custom_css() { ?>
         }
         p {
             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
+        }
+        
+        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), false ); ?>
+        
+        h1,h2,h3,h4,h5,h6,th {
+            color: rgb(<?php echo $skin_color; ?>);
         }
         
     </style>

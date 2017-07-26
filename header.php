@@ -99,7 +99,7 @@
                             
                                      </a>
                         
-                                    <div class="header-icon" id="search-btn">
+                                    <div class="header-icon search-btn">
                                         <i class="fa fa-search"></i>
                                     </div>
 
@@ -145,7 +145,7 @@
                             
                         </a>
                         
-                        <div class="header-icon" id="search-btn">
+                        <div class="header-icon search-btn">
                             
                             <i class="fa fa-search"></i>
                                                        
