@@ -4,20 +4,13 @@ Basic Elements
 */
 /*<editor-fold desc="Basic Elements">*/
 input[type=submit] {
-    background-color: #e5bc6e;
     border-radius: 0;
     font-size: inherit;
     color: white;
-    background-size: 200% 100%;
-    background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
-    transition: background-position 0.3s;
     border: none;
 }
 ul {
     margin: 0;
-}
-th {
-    color: #e5bc6e;
 }
 
 input[type=submit]:hover {
@@ -94,9 +87,6 @@ Header
     color: black;
     text-decoration: none;
     transition: 0.4s ease-in-out;
-}
-#main-navigation a:hover {
-    color: #e5bc6e;
 }
 .header-icon:hover {
     background-color: #b3904d;
@@ -206,12 +196,7 @@ Blog FrontPage
     cursor: pointer;
     padding: 15px;
     color: white;
-    background-size: 200% 100%;
-    background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
-    transition: background-position 0.3s;
-}
-.read-more-btn:hover {
-    background-position: -100% 0;
+    transition: 0.3s ease-in-out;
 }
 #blog-info-content a {
     color: white;
@@ -251,9 +236,6 @@ Blog FrontPage
     background: #d0d0d0;
     border-radius: 30px;
     transition: 0.3s ease-in-out;
-}
-.page-numbers:hover {
-    background: #e5bc6e;
 }
 .nav-links a:visited {
     color: white;
@@ -313,9 +295,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #11100f;
     color: #a7a7a7;
     padding: 20px 0;
-}
-#footer a {
-    color: #e5bc6e;
 }
 #footer > .row {
     margin: 0;

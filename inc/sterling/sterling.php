@@ -117,10 +117,33 @@ function sterling_custom_css() { ?>
             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
         }
         
-        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), false ); ?>
+        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
+        <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
         
-        h1,h2,h3,h4,h5,h6,th {
-            color: rgb(<?php echo $skin_color; ?>);
+        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a {
+            color: <?php echo $skin_color; ?>;
+        }
+        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit] {
+            background-color: <?php echo $skin_color; ?>;
+            color: white;
+        }
+        #blog-info span:nth-of-type(1), #content-divider, #single-post-title span, #scrolltotop-btn {
+            background: <?php echo $skin_color; ?>;
+        }
+        #scrolltotop-btn:hover {
+            background: <?php echo $skin_hover_color; ?>
+        }
+        #single-post-sidebar section, #page-sidebar section {
+            border: 2px solid <?php echo $skin_color; ?>;
+        }
+        #single-post-sidebar section:after, #page-sidebar section:after {
+            border-top-color:  <?php echo $skin_color; ?>;
+        }
+        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover {
+            background-color: <?php echo $skin_hover_color; ?>
+        }
+        #main-navigation a:hover, #header-panel-links a:hover {
+            color: <?php echo $skin_color; ?>;
         }
         
     </style>
@@ -311,6 +334,18 @@ function sterling_get_custom_footer() { ?>
     </div>
         
 <?php }
+
+function sterling_sanatize_color( $input, $setting ) {
+// Ensure input is a slug
+    $input = sanitize_key( $input );
+    // Get list of choices from the control
+    // associated with the setting
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+    // If the input is a valid key, return it;
+    // otherwise, return the default
+    $keys = array_map( 'sanitize_hex_color_no_hash', array_keys( $choices ) );
+    return ( in_array( $input, $keys ) ? $input : $setting->default );
+}
 
 function sterling_get_scrolltotop() { ?>
     
