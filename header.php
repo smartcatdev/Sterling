@@ -139,7 +139,7 @@
                             
                             <div class="header-icon">
 
-                                    <i class="fa fa-map-marker"></i>
+                                <i class="fa fa-map-marker"></i>
 
                             </div>
                             
@@ -155,7 +155,7 @@
                             
                             <div class="header-icon">
 
-                                    <i class="fa fa-envelope"></i>
+                                <i class="fa fa-envelope"></i>
 
                             </div>
                             
@@ -166,8 +166,21 @@
                 </div>
                 
             </div>
+            <?php 
             
-            <?php sterling_get_header_panel(); ?>
+            $queried_obj = get_queried_object();
+            
+            if (is_a($queried_obj, 'wp_term')) :
+                
+                sterling_get_header_panel($queried_obj->name);
+            
+             else :
+                 
+                sterling_get_header_panel();
+             
+            endif;
+            
+            ?>
             
 	</header><!-- #masthead -->
 

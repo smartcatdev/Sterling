@@ -128,7 +128,7 @@ function sterling_custom_css() { ?>
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
         
-        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a {
+        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span  {
             color: <?php echo $skin_color; ?>;
         }
         .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit], .tag-btn {
@@ -248,9 +248,9 @@ function sterling_all_posts_array( $include_pages = false ) {
 
 /**
  * Creates header using images from Custom Header
- * 
+ * @param string $details Extra info to print into header
  */
-function sterling_get_header_panel() { ?>
+function sterling_get_header_panel( $details='' ) { ?>
     
     <div id="header-panel" class="container-fluid" style="background: url(<?php header_image(); ?>) no-repeat center">
         
@@ -258,13 +258,21 @@ function sterling_get_header_panel() { ?>
             
             <div id="header-panel-content">
                 
-                <h1>Wedding Photography</h1>
+                <?php if ($details == '') : ?>
+                
+                    <h1>Wedding Photography</h1>
+                    
+                <?php else :?>
+                    
+                    <h1>Sorted By<span>: </span> <?php echo esc_attr( $details ); ?></h1>
+                    
+                <?php endif; ?>
                 
                 <div id="header-panel-links">
                     
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
                     
-                    <a>All Posts</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">All Posts</a>
                     <h4>Wedding Photography</h4>
                     
                 </div>

@@ -4,10 +4,8 @@
     if ( $( window ).width() > 600 ){
         if ( $( "#wpadminbar" ).length > 0 ) {
             $( "#top-bar" ).sticky({ topSpacing:70 });
-            console.log("not-null");
         } else {
             $( "#top-bar" ).sticky({ topSpacing:0 });
-            console.log("null");
         }
     } else {
         $( "#top-bar" ).unstick();

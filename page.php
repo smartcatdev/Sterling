@@ -22,7 +22,7 @@ get_header(); ?>
                         
                         <div class="row">
                             
-                            <div class="col-md-9">
+                            <div class="col-md-9 page-title">
                             
                                 <?php while ( have_posts() ) : the_post(); ?>
 
