@@ -57,8 +57,7 @@ get_header(); ?>
                                             
                                             <?php foreach ( $tags as $tag ) : ?>
 
-                                                <a class="btn btn-warning"
-                                                   href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
+                                                <a class="tag-btn btn" href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
                                                          <?php echo ( $tag->name ); ?>
                                                 </a> 
 

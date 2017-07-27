@@ -110,6 +110,10 @@ function sterling_custom_css() { ?>
 
     <style type="text/css">
         
+        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+            BODY FONTS
+        ________________________________________________________________________________________________*/
+        
         #top-bar, #header-panel *{
              font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
         }
@@ -117,13 +121,17 @@ function sterling_custom_css() { ?>
             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
         }
         
+        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+            BODY COLORS
+        ________________________________________________________________________________________________*/
+        
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
         
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a {
             color: <?php echo $skin_color; ?>;
         }
-        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit] {
+        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit], .tag-btn {
             background-color: <?php echo $skin_color; ?>;
             color: white;
         }
@@ -133,13 +141,16 @@ function sterling_custom_css() { ?>
         #scrolltotop-btn:hover {
             background: <?php echo $skin_hover_color; ?>
         }
-        #single-post-sidebar section, #page-sidebar section {
+        #single-post-sidebar section, #page-sidebar section, .comment-list{
             border: 2px solid <?php echo $skin_color; ?>;
+        }
+        .comment-list > li:not(:last-child) {
+            border-bottom: 2px solid <?php echo $skin_color; ?>;
         }
         #single-post-sidebar section:after, #page-sidebar section:after {
             border-top-color:  <?php echo $skin_color; ?>;
         }
-        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover {
+        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover {
             background-color: <?php echo $skin_hover_color; ?>
         }
         #main-navigation a:hover, #header-panel-links a:hover {
@@ -251,7 +262,8 @@ function sterling_get_header_panel() { ?>
                 
                 <div id="header-panel-links">
                     
-                    <a>Home</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
+                    
                     <a>All Posts</a>
                     <h4>Wedding Photography</h4>
                     
@@ -264,7 +276,6 @@ function sterling_get_header_panel() { ?>
     </div>
     
 <?php }
-
 
 function sterling_get_custom_footer() { ?>
     <div class="container-fluid" id="custom-footer">

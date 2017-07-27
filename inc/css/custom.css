@@ -63,6 +63,7 @@ Header
 }
 #top-bar {
     font-family: Trirong;
+    z-index: 2 !important;
     color: black;
     background-color: white;
     box-shadow: 0px 0px 20px #737373;
@@ -123,7 +124,6 @@ Header
 }
 body.logged-in #top-bar {
     top: 32px !important;
-    z-index: 2 !important;
 }
 #search-menu {
     display: none;
