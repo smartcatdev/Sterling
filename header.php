@@ -99,7 +99,7 @@
                             
                                      </a>
                         
-                                    <div class="header-icon search-btn">
+                                    <div class="header-icon search-btn menu-link ">
                                         <i class="fa fa-search"></i>
                                     </div>
 
@@ -151,7 +151,7 @@
                                                        
                         </div>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_email_link', '#') ) ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
                             
                             <div class="header-icon">
 
@@ -166,6 +166,7 @@
                 </div>
                 
             </div>
+            
             <?php 
             
             $queried_obj = get_queried_object();

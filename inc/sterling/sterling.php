@@ -128,14 +128,16 @@ function sterling_custom_css() { ?>
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
         
-        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span  {
+        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited  {
             color: <?php echo $skin_color; ?>;
         }
-        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit], .tag-btn, .not-found-text a {
+        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current,
+        input[type=submit], .tag-btn, .not-found-text a, #search-icon {
             background-color: <?php echo $skin_color; ?>;
             color: white;
         }
-        #blog-info span:nth-of-type(1), #content-divider, #single-post-title span, #scrolltotop-btn {
+        #blog-info span:nth-of-type(1), #content-divider, #single-post-title span, 
+        #scrolltotop-btn {
             background: <?php echo $skin_color; ?>;
         }
         #scrolltotop-btn:hover {
@@ -150,7 +152,9 @@ function sterling_custom_css() { ?>
         #single-post-sidebar section:after, #page-sidebar section:after {
             border-top-color:  <?php echo $skin_color; ?>;
         }
-        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover, .not-found-text a:hover {
+        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, 
+        .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover, .not-found-text a:hover,
+        #search-icon:hover {
             background-color: <?php echo $skin_hover_color; ?>
         }
         #main-navigation a:hover, #header-panel-links a:hover {
@@ -245,7 +249,6 @@ function sterling_all_posts_array( $include_pages = false ) {
     return $posts_array;
     
 }
-
 /**
  * Creates header using images from Custom Header
  * @param string $details Extra info to print into header
@@ -273,6 +276,7 @@ function sterling_get_header_panel( $details='' ) { ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
                     
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>">All Posts</a>
+                    
                     <h4>Wedding Photography</h4>
                     
                 </div>
@@ -284,7 +288,9 @@ function sterling_get_header_panel( $details='' ) { ?>
     </div>
     
 <?php }
-
+/**
+ * Creates sterling custom footer
+ */
 function sterling_get_custom_footer() { ?>
     <div class="container-fluid" id="custom-footer">
        
@@ -296,7 +302,7 @@ function sterling_get_custom_footer() { ?>
 
                     <div id="custom-footer-social-icons">
 
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_twitter_link', '#' ) ) ?> ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_twitter_link', '#' ) ) ?>">
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-twitter fa-2x"></i>
@@ -304,7 +310,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_facebook_link', '#' ) ) ?> ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_facebook_link', '#' ) ) ?>">
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-facebook fa-2x"></i>
@@ -312,7 +318,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_instagram_link', '#' ) ) ?> ?>">    
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_instagram_link', '#' ) ) ?>">    
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-instagram fa-2x"></i>
@@ -320,7 +326,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_dribbble_link', '#' ) ) ?> ?>">    
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_dribbble_link', '#' ) ) ?>">    
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-dribbble fa-2x"></i>
@@ -353,10 +359,16 @@ function sterling_get_custom_footer() { ?>
     </div>
         
 <?php }
-
+/**
+ * 
+ * @param type $input
+ * @param type $setting
+ * @return string validated color choice
+ */
 function sterling_sanatize_color( $input, $setting ) {
 // Ensure input is a slug
     $input = sanitize_key( $input );
+    
     // Get list of choices from the control
     // associated with the setting
     $choices = $setting->manager->get_control( $setting->id )->choices;

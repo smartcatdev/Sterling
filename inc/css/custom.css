@@ -48,7 +48,7 @@ Header
     margin: 10px;
     width: 40px;
     border-radius: 100%;
-    line-height: 40px;
+    line-height: 40px;  
     display: inline-block;
     transition: 0.4s ease-in-out;
 }
@@ -127,6 +127,8 @@ Header
     display: none;
     position: fixed;
     height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.95);
@@ -153,9 +155,7 @@ Header
     margin: 10px;
     width: 40px;
     height: 40px;
-    background-color: #e5bc6e;
     border-radius: 100%;
-    color: white;
     line-height: 40px;
     text-align: center;
     vertical-align: middle;
@@ -164,9 +164,6 @@ Header
 }
 #search-icon i {
     font-size: 20px;
-}
-#search-icon:hover {
-    background-color: #b3904d;
 }
 /*</editor-fold>*/
 /*
@@ -210,7 +207,7 @@ Blog FrontPage
     margin: 0 5px;
 }
 #blog-info i {
-    color: #d6cece;
+    color: #a1a1a1;
 }
 #blog-info p {
     margin-top: 20px;
@@ -254,9 +251,6 @@ Custom Footer
 #custom-footer input[type=submit] {
     color: #1b1a18;
 }
-h1, h2, h3, h4, h5, h6 {
-    color: #e5bc6e;
-}
 #custom-footer a {
     text-decoration: none;
 }
@@ -276,16 +270,11 @@ h1, h2, h3, h4, h5, h6 {
     height: 60px;
     background-color: #282725;
     border-radius: 100%;
-    color: #e5bc6e;
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
     display: inline-block;
     transition: 0.4s ease-in-out;
-}
-.custom-footer-social-icon:hover {
-    background-color: #e5bc6e;
-    color: white;
 }
 #footer {
     background-color: #11100f;
@@ -307,12 +296,8 @@ ScrollToTop Button
     right: 0;
     padding: 10px;
     margin: 10px;
-    background-color: #e5bc6e;
     color: white;
     transition: 0.2s ease-in-out;
-}
-#scrolltotop-btn:hover {
-    background-color: #b3904d       
 }
 /*</editor-fold>*/
 /*
@@ -361,8 +346,10 @@ Single Post
 #single-post-tags a:visited{
     color: white;
 }
+#single-post-sidebar h2 {
+    margin-top: 0;
+}
 #single-post-sidebar section {
-    border: 2px solid #e5bc6e;
     padding: 20px 20px;
 }
 #single-post-sidebar section:after {
@@ -374,8 +361,7 @@ Single Post
     width: 0;
     height: 0;
     border: 19px solid transparent;
-    border-top-color: #e5bc6e;
-    transform: rotate(-45deg);
+    transform: rotate(-45deg);  
 }
 #single-post-tags a {
     margin-bottom: 5px;
@@ -385,11 +371,7 @@ Single Post
     padding: 20px;
     margin-bottom: 20px;
 }
-.comment-list > li:not(:last-child) {
-    border-bottom: 2px solid #e5bc6e;
-}
 .comment-list {
-    border: 1px solid #e5bc6e;
     padding: 20px;
     margin-left: 0;
 }
@@ -466,9 +448,6 @@ Mobile Menu
     margin: 25px 0;
     transition: 0.3s ease-in-out;
 }
-#menu li:hover {
-    color: #e5bc6e;
-}
 #menu ul {
     list-style: none;
     padding: 0;
@@ -520,6 +499,11 @@ Mobile Menu
         z-index: 999999;
     }
 }
+@media screen and ( max-width:500px ) {
+    #search-menu-box input {
+        font-size: 17px;
+    }
+}
 @media screen and ( max-width:425px ) {
     #main-navigation {
         width: 15%
@@ -528,6 +512,9 @@ Mobile Menu
 @media screen and ( max-width:381px ) {
     #header-panel-content {
         padding-top: 44px;
+    }
+    #site-branding {
+        width: 250px;
     }
 }
 
@@ -542,7 +529,6 @@ Page
     margin-top: 50px;
 }
 #page-sidebar section {
-    border: 2px solid #e5bc6e;
     padding: 20px 20px;
 }
 #page-sidebar section:after {
@@ -554,7 +540,6 @@ Page
     width: 0;
     height: 0;
     border: 19px solid transparent;
-    border-top-color: #e5bc6e;
     transform: rotate(-45deg);
 }
 #page-title-img-wrapper {
@@ -590,6 +575,7 @@ Page
 .not-found-large h1 {
     font-size: 200px;
     float: right;
+    color: #282725;
 }
 .not-found-text a {
     cursor: pointer;
@@ -620,6 +606,11 @@ Page
         float: none;
         width: 100% !important;
         text-align: center;
+    }
+}
+@media screen and ( max-width:767px ) {
+    .not-found-large h1 {
+        font-size: 180px;
     }
 }
 /*</editor-fold>*/

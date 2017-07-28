@@ -52,7 +52,7 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php echo get_the_date( 'm/d/Y' ); ?></i>
+                                        <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
                                         <span></span>
                                         <i><?php comments_number(); ?></i>
 
@@ -87,7 +87,7 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php echo get_the_date( 'm/d/Y' ); ?></i>
+                                        <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
                                         <span></span>
                                         <i><?php comments_number(); ?></i>
 
