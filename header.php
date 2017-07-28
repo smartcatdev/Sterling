@@ -91,7 +91,7 @@
 
                                 <div id="mobile-menu-social-link">
                                     
-                                    <a href="<?php echo esc_attr( get_theme_mod('sterling_location_link', '#') ) ?>">
+                                    <a href="<?php echo esc_attr( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
                             
                                         <div class="header-icon">
                                             <i class="fa fa-map-marker"></i>
@@ -103,7 +103,7 @@
                                         <i class="fa fa-search"></i>
                                     </div>
 
-                                    <a href="<?php echo esc_attr( get_theme_mod('sterling_email_link', '#') ) ?>">
+                                    <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
 
                                         <div class="header-icon">
                                             <i class="fa fa-envelope"></i>
@@ -135,7 +135,7 @@
                     
                     <div id="header-icons" class="col-sm-3">
                     
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_location_link', '#') ) ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
                             
                             <div class="header-icon">
 
@@ -170,9 +170,9 @@
             
             $queried_obj = get_queried_object();
             
-            if (is_a($queried_obj, 'wp_term')) :
+            if ( is_a( $queried_obj, 'wp_term' ) ) :
                 
-                sterling_get_header_panel($queried_obj->name);
+                sterling_get_header_panel( $queried_obj->name );
             
              else :
                  

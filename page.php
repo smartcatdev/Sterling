@@ -62,5 +62,8 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
+sterling_get_scrolltotop();
+
 sterling_get_custom_footer();
+
 get_footer();

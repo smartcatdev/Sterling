@@ -39,7 +39,7 @@ get_header(); ?>
 
                                 <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6" id="blog-img" style="background: url(<?php the_post_thumbnail_url(); ?>) center;">
+                                    <div class="col-md-6" id="blog-img" style="background: url( <?php the_post_thumbnail_url(); ?> ) center;">
 
                                            <?php the_post_thumbnail(); ?>
 
@@ -72,7 +72,7 @@ get_header(); ?>
 
                                 <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url(<?php the_post_thumbnail_url(); ?>) center;">
+                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url( <?php the_post_thumbnail_url(); ?> ) center;">
 
 
                                         <?php the_post_thumbnail(); ?>

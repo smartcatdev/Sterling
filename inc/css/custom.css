@@ -47,13 +47,8 @@ Header
 .header-icon {
     margin: 10px;
     width: 40px;
-    height: 40px;
-    background-color: #e5bc6e;
     border-radius: 100%;
-    color: white;
     line-height: 40px;
-    text-align: center;
-    vertical-align: middle;
     display: inline-block;
     transition: 0.4s ease-in-out;
 }
@@ -382,6 +377,10 @@ Single Post
     border-top-color: #e5bc6e;
     transform: rotate(-45deg);
 }
+#single-post-tags a {
+    margin-bottom: 5px;
+    color: white;
+}
 .comment-list > li {
     padding: 20px;
     margin-bottom: 20px;
@@ -422,6 +421,14 @@ body.admin-bar #top-bar {
 #single-post-author-title h4 {
     display: inline-block;
     text-transform: capitalize;
+}
+@media screen and ( max-width:767px ) {
+    #single-post-author-title {
+        margin-left: 20px;
+    }
+    #single-post-sidebar section:after {
+        display: none;
+    }
 }
 /*</editor-fold>*/
 /*
@@ -479,7 +486,7 @@ Mobile Menu
     width: 100%;
     
 }
-@media screen and ( max-width:869px ) {
+@media screen and ( max-width:886px ) {
     #header-icons {
         display: none;
     }
@@ -586,11 +593,10 @@ Page
 }
 .not-found-text a {
     cursor: pointer;
+    text-decoration: none;
     padding: 15px;
     color: white;
-    background-size: 200% 100%;
-    background-image: linear-gradient(to right, #e5bc6e 50%, #b3904d 50%);
-    transition: background-position 0.3s;
+    transition: 0.3s ease-in-out;
 }
 .not-found-text a:hover {
     background-position: -100% 0;

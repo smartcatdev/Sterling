@@ -131,7 +131,7 @@ function sterling_custom_css() { ?>
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span  {
             color: <?php echo $skin_color; ?>;
         }
-        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit], .tag-btn {
+        .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current, input[type=submit], .tag-btn, .not-found-text a {
             background-color: <?php echo $skin_color; ?>;
             color: white;
         }
@@ -150,7 +150,7 @@ function sterling_custom_css() { ?>
         #single-post-sidebar section:after, #page-sidebar section:after {
             border-top-color:  <?php echo $skin_color; ?>;
         }
-        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover {
+        .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover, .not-found-text a:hover {
             background-color: <?php echo $skin_hover_color; ?>
         }
         #main-navigation a:hover, #header-panel-links a:hover {
@@ -252,7 +252,7 @@ function sterling_all_posts_array( $include_pages = false ) {
  */
 function sterling_get_header_panel( $details='' ) { ?>
     
-    <div id="header-panel" class="container-fluid" style="background: url(<?php header_image(); ?>) no-repeat center">
+    <div id="header-panel" class="container-fluid" style="background: url( <?php header_image(); ?> ) no-repeat center">
         
         <div class="row">
             
@@ -296,7 +296,7 @@ function sterling_get_custom_footer() { ?>
 
                     <div id="custom-footer-social-icons">
 
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_twitter_link', '#') ) ?> ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_twitter_link', '#' ) ) ?> ?>">
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-twitter fa-2x"></i>
@@ -304,7 +304,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_facebook_link', '#') ) ?> ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_facebook_link', '#' ) ) ?> ?>">
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-facebook fa-2x"></i>
@@ -312,7 +312,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_instagram_link', '#') ) ?> ?>">    
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_instagram_link', '#' ) ) ?> ?>">    
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-instagram fa-2x"></i>
@@ -320,7 +320,7 @@ function sterling_get_custom_footer() { ?>
                             </div>
                         </a>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod('sterling_dribbble_link', '#') ) ?> ?>">    
+                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_dribbble_link', '#' ) ) ?> ?>">    
                             <div class="custom-footer-social-icon">
 
                                 <i class="fa fa-dribbble fa-2x"></i>
@@ -338,7 +338,7 @@ function sterling_get_custom_footer() { ?>
 
                     <div id="custom-footer-widgets">
 
-                        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer') ) : 
+                        <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'footer' ) ) : 
 
                         endif; ?>
 
