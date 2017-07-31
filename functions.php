@@ -51,7 +51,8 @@ function sterling_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'sterling' ),
+		'menu-primary' => esc_html__( 'Primary', 'sterling' ),
+		'menu-secondary' => esc_html__( 'Secondary', 'sterling' ),
 	) );
 
 	/*
@@ -69,8 +70,8 @@ function sterling_setup() {
         // Set up the Wordpress custom header feature   
         add_theme_support( 'custom-header', array( 
             'default-image'          => get_template_directory_uri() . '/inc/images/header.jpg',
-            'width'                  => 980,
-            'height'                 => 60,
+            'width'                  => 1350,
+            'height'                 => 286,
             'flex-height'            => true,
             'flex-width'             => true,
             'uploads'                => true,

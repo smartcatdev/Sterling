@@ -52,13 +52,13 @@ add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 function sterling_widgets_init() {
     
     register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'sterling' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+            'name'          => esc_html__( 'Sidebar Right', 'sterling' ),
+            'id'            => 'sidebar',
+            'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
 	) );
     
     register_sidebar( array(
@@ -128,15 +128,15 @@ function sterling_custom_css() { ?>
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
         
-        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited  {
+        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited, .tag-btn {
             color: <?php echo $skin_color; ?>;
         }
         .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current,
-        input[type=submit], .tag-btn, .not-found-text a, #search-icon {
+        input[type=submit], .not-found-text a, #search-icon {
             background-color: <?php echo $skin_color; ?>;
             color: white;
         }
-        #blog-info span:nth-of-type(1), #content-divider, #single-post-title span, 
+        #blog-info .divider, #content-divider, #single-post-title span, 
         #scrolltotop-btn {
             background: <?php echo $skin_color; ?>;
         }
@@ -153,7 +153,7 @@ function sterling_custom_css() { ?>
             border-top-color:  <?php echo $skin_color; ?>;
         }
         .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, 
-        .page-numbers:hover, input[type=submit]:hover, .tag-btn:hover, .not-found-text a:hover,
+        .page-numbers:hover, input[type=submit]:hover, .not-found-text a:hover,
         #search-icon:hover {
             background-color: <?php echo $skin_hover_color; ?>
         }
@@ -167,7 +167,6 @@ function sterling_custom_css() { ?>
     
 }
 add_action('wp_head', 'sterling_custom_css');
-
 /**
  * Returns all available fonts as an array
  * 
@@ -253,45 +252,48 @@ function sterling_all_posts_array( $include_pages = false ) {
  * Creates header using images from Custom Header
  * @param string $details Extra info to print into header
  */
-function sterling_get_header_panel( $details='' ) { ?>
+function sterling_get_header_panel( $details='' ) { 
     
-    <div id="header-panel" class="container-fluid" style="background: url( <?php header_image(); ?> ) no-repeat center">
-        
-        <div class="row">
-            
-            <div id="header-panel-content">
-                
-                <?php if ($details == '') : ?>
-                
-                    <h1>Wedding Photography</h1>
-                    
-                <?php else :?>
-                    
-                    <h1>Sorted By<span>: </span> <?php echo esc_attr( $details ); ?></h1>
-                    
-                <?php endif; ?>
-                
-                <div id="header-panel-links">
-                    
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-                    
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">All Posts</a>
-                    
-                    <h4>Wedding Photography</h4>
-                    
+    if ( has_header_image() ): ?>
+    
+        <div id="header-panel" class="container-fluid" style="background: url( <?php header_image(); ?>) no-repeat center">
+
+            <div class="row">
+
+                <div id="header-panel-content">
+
+                    <?php if ($details == '') : ?>
+
+                        <h1>Wedding Photography</h1>
+
+                    <?php else :?>  
+
+                        <h1>Sorted By<span>: </span> <?php echo esc_attr( $details ); ?></h1>
+
+                    <?php endif; ?>
+
+                    <div id="header-panel-links">
+
+                        <?php wp_nav_menu( array(
+                                         'theme_location' => 'menu-secondary',
+                                         'menu_id'        => 'secondary-menu',
+                                     ) ); ?>
+
+                    </div>
+
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
-    </div>
     
-<?php }
+    <?php endif;
+}
 /**
  * Creates sterling custom footer
  */
 function sterling_get_custom_footer() { ?>
+    
     <div class="container-fluid" id="custom-footer">
        
         <div class="row">
@@ -344,8 +346,8 @@ function sterling_get_custom_footer() { ?>
 
                     <div id="custom-footer-widgets">
 
-                        <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'footer' ) ) : 
-
+                        <?php if ( is_active_sidebar( 'footer' ) ) : 
+                            dynamic_sidebar( 'footer' );
                         endif; ?>
 
                     </div>  
@@ -359,24 +361,7 @@ function sterling_get_custom_footer() { ?>
     </div>
         
 <?php }
-/**
- * 
- * @param type $input
- * @param type $setting
- * @return string validated color choice
- */
-function sterling_sanatize_color( $input, $setting ) {
-// Ensure input is a slug
-    $input = sanitize_key( $input );
-    
-    // Get list of choices from the control
-    // associated with the setting
-    $choices = $setting->manager->get_control( $setting->id )->choices;
-    // If the input is a valid key, return it;
-    // otherwise, return the default
-    $keys = array_map( 'sanitize_hex_color_no_hash', array_keys( $choices ) );
-    return ( in_array( $input, $keys ) ? $input : $setting->default );
-}
+
 
 function sterling_get_scrolltotop() { ?>
     
@@ -387,3 +372,9 @@ function sterling_get_scrolltotop() { ?>
     </span>
     
 <?php }
+
+function sterling_get_container_width() {
+    
+    return is_active_sidebar('sidebar') ? 9 : 12;
+    
+}

@@ -71,3 +71,21 @@ function sterling_sanitize_font( $input ) {
     }  
     
 }
+/**
+ * 
+ * @param type $input
+ * @param type $setting
+ * @return string validated color choice
+ */
+function sterling_sanatize_color( $input, $setting ) {
+    // Ensure input is a slug
+    $input = sanitize_key( $input );
+    
+    // Get list of choices from the control
+    // associated with the setting
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+    // If the input is a valid key, return it;
+    // otherwise, return the default
+    $keys = array_map( 'sanitize_hex_color_no_hash', array_keys( $choices ) );
+    return ( in_array( $input, $keys ) ? $input : $setting->default );
+}

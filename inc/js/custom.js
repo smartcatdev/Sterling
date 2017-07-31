@@ -4,25 +4,26 @@
 //______________________________________________________________________________
     if ( $( window ).width() > 600 ){
         if ( $( "#wpadminbar" ).length > 0 ) {
-            $( "#top-bar" ).sticky({ topSpacing:70 });
+            $( ".site-header" ).sticky({ topSpacing:32 });
         } else {
-            $( "#top-bar" ).sticky({ topSpacing:0 });
+            $( ".site-header" ).sticky({ topSpacing:0 });
         }
     } else {
-        $( "#top-bar" ).unstick();
+        $( ".site-header" ).unstick();
     }
 
     $( window ).resize(function() {        
         if ( $( window ).width() > 600 ){
             if ( $( "#wpadminbar" ).length > 0 ) {
-                $( "#top-bar" ).sticky({ topSpacing:70 });
+                $( ".site-header" ).sticky({ topSpacing:32 });
             } else {
-                $( "#top-bar" ).sticky({ topSpacing:0 });
+                $( ".site-header" ).sticky({ topSpacing:0 });
             }
         } else {
-            $( "#top-bar" ).unstick();
+            $( ".site-header" ).unstick();
         }
     });
+
     
 //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯    
 //  Mobile Opacity Layer

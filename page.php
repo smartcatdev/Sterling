@@ -22,20 +22,16 @@ get_header(); ?>
                         
                         <div class="row">
                             
-                            <div class="col-md-9 page-title">
+                            <div class="col-md-<?php sterling_get_container_width(); ?> page-title">
                             
                                 <?php while ( have_posts() ) : the_post(); ?>
 
                                     <h1><?php the_title(); ?></h1>
                                     
-                                    <div id="page-title-img-wrapper">
-
-                                        <div id="page-title-img" style="background: url( <?php the_post_thumbnail_url(); ?> ) center">
-                                                <?php the_post_thumbnail(); ?>
-                                        </div>
-                                    
+                                    <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
+                                            <?php the_post_thumbnail(); ?>
                                     </div>
-                                        
+                                                                            
                                     <p><?php the_content(); ?></p>
                                 
                                     <?php  // If comments are open or we have at least one comment, load up the comment template.
@@ -62,8 +58,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-sterling_get_scrolltotop();
-
-sterling_get_custom_footer();
 
 get_footer();

@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * The header for our theme
  *
@@ -31,19 +31,13 @@
                 
                 <div id="search-menu-box">
                    
-                    <div id="search-icon">
-                        
-                        <i class="fa fa-search fa-2x"></i>
-                        
-                    </div>
-                    
-                    <input type="text" placeholder="Search">
-                    
                     <div id="close-search-btn">
                         
                         <i class="fa fa-times fa-2x"></i>
                         
                     </div>
+                    
+                    <?php get_search_form(); ?>
                     
                 </div>
                 
@@ -85,7 +79,7 @@
                                 <a href="#menu" class="menu-link"><i class="fa fa-times"></i></a> 
                                 
                                 <?php wp_nav_menu( array(
-                                     'theme_location' => 'menu-1',
+                                     'theme_location' => 'menu-primary',
                                      'menu_id'        => 'primary-menu',
                                  ) ); ?>
 
@@ -123,7 +117,7 @@
                                     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sterling' ); ?></button>
                                     <?php
                                             wp_nav_menu( array(
-                                                    'theme_location' => 'menu-1',
+                                                    'theme_location' => 'menu-primary',
                                                     'menu_id'        => 'primary-menu',
                                             ) );
                                     ?>
@@ -167,21 +161,7 @@
                 
             </div>
             
-            <?php 
-            
-            $queried_obj = get_queried_object();
-            
-            if ( is_a( $queried_obj, 'wp_term' ) ) :
-                
-                sterling_get_header_panel( $queried_obj->name );
-            
-             else :
-                 
-                sterling_get_header_panel();
-             
-            endif;
-            
-            ?>
+            <?php sterling_get_header_panel(); ?>
             
 	</header><!-- #masthead -->
 

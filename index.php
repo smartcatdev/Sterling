@@ -88,16 +88,18 @@ get_header(); ?>
 
                                         <h2><?php the_title(); ?></h2>
                                         <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
-                                        <span></span>
+                                        <span class="divider"></span>
                                         <i><?php comments_number(); ?></i>
 
                                         <p><?php the_excerpt(); ?></p>
 
-                                        <span class="read-more-btn">
-                                            <a href="<?php the_permalink(); ?>">
-                                                Read More
-                                            </a>
-                                        </span>
+                                        <a href="<?php the_permalink(); ?>" class="read-more-btn">
+                                            
+                                            <span>
+                                                    Read More    
+                                            </span>
+                                            
+                                        </a>
 
                                     </div>
 
@@ -127,9 +129,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php 
-
-sterling_get_scrolltotop();
-
-sterling_get_custom_footer();
 
 get_footer();
