@@ -99,7 +99,9 @@ Header
     text-align: center;
 }
 #header-panel {
-    background-color: black;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #header-panel * {
     text-align: center;
@@ -127,16 +129,13 @@ Header
     padding: 0 20px;
     transition: 0.3s ease-in-out;
     border-right: 1px solid white;
-    border-left: 1px solid white;
 }
 #secondary-menu li:not(:first-child) {
     margin-left: -5px;
 }
-#secondary-menu li:first-child {
-    border-left: 0;
-}
 #secondary-menu li:last-child {
     border-right: 0;
+    border-left: 1px solid white;
 }
 #secondary-menu a {
     transition: 0.3s ease-in-out;
@@ -149,7 +148,6 @@ Header
 }
 #secondary-menu > .menu-item:last-of-type li {
     border-right: 0;
-    
 }
 #search-menu {
     display: none;
@@ -208,14 +206,11 @@ Header
     #search-menu-box input[type=submit] {
         font-size: 15px;
     }
-    
 }
-
 .site-header, #masthead-sticky-wrapper {
     z-index: 9999;
     position: relative;
 }
-
 /*</editor-fold>*/
 /*
 --------------------------------------------------------------------------------
@@ -268,6 +263,7 @@ Blog FrontPage
 }
 .navigation.pagination {
     width: 100%;
+    margin: 40px 12px;
 }
 .navigation.pagination > .nav-links {
     text-align: center;
@@ -298,7 +294,8 @@ Custom Footer
 /*<editor-fold desc="Custom Footer">*/
 #custom-footer {
     color: #a7a7a7;
-    background-color: #1b1a18;
+    background-color: #151515;
+    margin-top: 30px;
 }
 #custom-footer input[type=submit] {
     color: #1b1a18;
@@ -328,7 +325,7 @@ Custom Footer
     transition: 0.4s ease-in-out;
 }
 #footer {
-    background-color: #11100f;
+    background-color: #0c0c0c;
     color: #a7a7a7;
     padding: 20px 0;
 }
@@ -380,6 +377,9 @@ Single Post
     height: 300px;
     background-size: cover !important;
     background-position: 50% 50% !important;
+}
+#single-post-title-text {
+    margin: 20px 0;
 }
 #single-post-title a:nth-of-type(1) {
     text-transform: capitalize;
@@ -434,6 +434,12 @@ body.admin-bar #top-bar {
     padding: 30px 0;
     margin: 30px 0;
 }
+.comment-metadata a:not(.comment-edit-link), .comment-metadata a:visited:not(.comment-edit-link) {
+    color: #999999;
+}
+.comment-metadata {
+    margin-bottom: 10px;
+}
 #single-post-author-img {
     height: 60px;
     width: 60px;
@@ -449,6 +455,9 @@ body.admin-bar #top-bar {
 #single-post-author-title h4 {
     display: inline-block;
     text-transform: capitalize;
+}
+.form-submit input[type=submit] {
+    transition: 0.3s ease-in-out;
 }
 @media screen and ( max-width:767px ) {
     #single-post-author-title {
@@ -472,19 +481,22 @@ Mobile Menu
 #mobile-menu-social-link {
     text-align: center;
 }
+
+
 #menu {
     top: 46px!important;
     background-color: #131313;
     border-radius: 0;
 }
 #menu > .menu-link {
-    display: block;
-    width: 100%;
     text-align: right;
     padding-right: 3px;
     font-size: 30px;
     margin-bottom: -50px;
     color: rgba(255, 255, 255, 0.74);
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 #menu a {
     color: white;
@@ -511,7 +523,7 @@ Mobile Menu
     width: 100%;
     
 }
-@media screen and ( max-width:886px ) {
+@media screen and ( max-width:991px ) {
     #header-icons {
         display: none;
     }
@@ -519,7 +531,7 @@ Mobile Menu
         float: right;
     }
 }
-@media screen and ( max-width:782px ) {
+@media screen and ( max-width:767px ) {
     body.logged-in.admin-bar #top-bar {
         top: 46px !important;
     }
@@ -539,10 +551,14 @@ Mobile Menu
         float: left;
     }
 }
-@media screen and ( max-width:600px ) {
+@media screen and ( max-width:767px ) {
     #menu {
         top: 0 !important;
         z-index: 999999;
+    }
+    
+    .logged-in.admin-bar #menu {
+        top: 46px !important;
     }
 }
 @media screen and ( max-width:500px ) {
@@ -575,6 +591,9 @@ Page
 #page-sidebar section {
     padding: 20px 20px;
 }
+#page-sidebar section h2 {
+    margin-top: 0;
+}
 #page-sidebar section:after {
     content: '';
     display: block;
@@ -592,6 +611,7 @@ Page
 #page-title-img {
     background-position: 50% 50%;
     height: 270px;
+    margin-bottom: 45px;
 }
 .page-title h1 {
     margin-top: 0;
@@ -645,5 +665,37 @@ Page
     .not-found-large h1 {
         font-size: 180px;
     }
+}
+/*</editor-fold>*/
+/*
+--------------------------------------------------------------------------------
+Search
+*/
+/*<editor-fold desc="Search">*/
+#search-sidebar h2 {
+    margin-top: 0;
+}
+#search-sidebar section {
+    padding: 20px 20px;
+}
+#search-sidebar section h2 {
+    margin-top: 0;
+}
+#search-sidebar section:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: -1px;
+    width: 0;
+    height: 0;
+    border: 19px solid transparent;
+    transform: rotate(-45deg);  
+}
+.search-page {
+    margin-top: 40px;
+}
+.search-page > div > a:first-child > h2 {
+    margin-top: 0;
 }
 /*</editor-fold>*/

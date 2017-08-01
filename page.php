@@ -22,12 +22,10 @@ get_header(); ?>
                         
                         <div class="row">
                             
-                            <div class="col-md-<?php sterling_get_container_width(); ?> page-title">
+                            <div class="col-md-<?php echo sterling_get_container_width(); ?> page-title">
                             
                                 <?php while ( have_posts() ) : the_post(); ?>
-
-                                    <h1><?php the_title(); ?></h1>
-                                    
+                                                                 
                                     <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
                                             <?php the_post_thumbnail(); ?>
                                     </div>

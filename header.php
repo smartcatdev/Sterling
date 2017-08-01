@@ -160,9 +160,9 @@
                 </div>
                 
             </div>
-            
-            <?php sterling_get_header_panel(); ?>
-            
+                        
 	</header><!-- #masthead -->
+        
+        <?php sterling_get_header_panel(); ?>
 
 	<div id="content" class="site-content">

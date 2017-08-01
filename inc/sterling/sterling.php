@@ -114,7 +114,7 @@ function sterling_custom_css() { ?>
             BODY FONTS
         ________________________________________________________________________________________________*/
         
-        #top-bar, #header-panel *{
+        #top-bar, #header-panel *, h1,h2,h3,h4,h5,h6 {
              font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
         }
         p {
@@ -125,8 +125,8 @@ function sterling_custom_css() { ?>
             BODY COLORS
         ________________________________________________________________________________________________*/
         
-        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ) ); ?>
-        <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#ccc' ) ), 0.65 ); ?>
+        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ) ); ?>
+        <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ), 0.65 ); ?>
         
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited, .tag-btn {
             color: <?php echo $skin_color; ?>;
@@ -143,13 +143,16 @@ function sterling_custom_css() { ?>
         #scrolltotop-btn:hover {
             background: <?php echo $skin_hover_color; ?>
         }
-        #single-post-sidebar section, #page-sidebar section, .comment-list{
+        #single-post-sidebar section, #page-sidebar section, #search-sidebar section {
             border: 2px solid <?php echo $skin_color; ?>;
+        }
+        .comment-list {
+            border: 1px solid <?php echo $skin_color; ?>;
         }
         .comment-list > li:not(:last-child) {
             border-bottom: 2px solid <?php echo $skin_color; ?>;
         }
-        #single-post-sidebar section:after, #page-sidebar section:after {
+        #single-post-sidebar section:after, #page-sidebar section:after, #search-sidebar section:after {
             border-top-color:  <?php echo $skin_color; ?>;
         }
         .header-icon:hover, .read-more-btn:hover, .custom-footer-social-icon:hover, 
@@ -252,32 +255,47 @@ function sterling_all_posts_array( $include_pages = false ) {
  * Creates header using images from Custom Header
  * @param string $details Extra info to print into header
  */
-function sterling_get_header_panel( $details='' ) { 
+function sterling_get_header_panel( ) { 
     
     if ( has_header_image() ): ?>
+        
+        <?php $image = get_header_image(); ?>
     
-        <div id="header-panel" class="container-fluid" style="background: url( <?php header_image(); ?>) no-repeat center">
+        <div id="header-panel" class="container-fluid" style="background-image: url( <?php echo esc_url( $image ); ?> )">
 
             <div class="row">
 
                 <div id="header-panel-content">
+                    
+                        <?php if( is_archive() ) : ?>
 
-                    <?php if ($details == '') : ?>
+                            <?php the_archive_title('<h1 class="entry-title">', '</h1>'); ?>
 
-                        <h1>Wedding Photography</h1>
+                        <?php elseif( is_search() ) : ?>
 
-                    <?php else :?>  
+                            <h1 class="entry-title"><?php printf( esc_html__('Search Results for: %s', 'karma'), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-                        <h1>Sorted By<span>: </span> <?php echo esc_attr( $details ); ?></h1>
+                        <?php elseif( is_home() && !is_front_page() ) : ?>
 
-                    <?php endif; ?>
+                            <?php single_post_title('<h1 class="entry-title">', '</h1>'); ?>
+
+                        <?php elseif( is_home() ) : ?>
+
+                            <h1 class="entry-title"><?php bloginfo( 'name' ); ?></h1>
+
+                        <?php else : ?>
+
+                            <?php single_post_title('<h1 class="entry-title">', '</h1>'); ?>
+
+                        <?php endif; ?>
+                    
 
                     <div id="header-panel-links">
 
                         <?php wp_nav_menu( array(
                                          'theme_location' => 'menu-secondary',
                                          'menu_id'        => 'secondary-menu',
-                                     ) ); ?>
+                                    ) ); ?>
 
                     </div>
 
@@ -289,6 +307,30 @@ function sterling_get_header_panel( $details='' ) {
     
     <?php endif;
 }
+
+add_filter( 'get_the_archive_title', function( $title ) {
+
+    if( is_category() ) :
+        $title = single_cat_title( '', false );
+    elseif( is_tag() ) :
+        $title = single_tag_title( '', false );
+    elseif( is_author() ) :
+        $title = get_the_author();
+    elseif ( is_year() ) :
+        $title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
+    elseif ( is_month() ) :
+        $title = sprintf( __( 'Month: %s' ), get_the_date( _x( 'F Y', 'monthly archives date format' ) ) );
+    elseif ( is_day() ) :
+        $title = sprintf( __( 'Day: %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );
+    else :
+        $title = single_cat_title( '', false );
+    endif;
+    
+    return $title;
+    
+});
+
+
 /**
  * Creates sterling custom footer
  */

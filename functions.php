@@ -82,6 +82,13 @@ function sterling_setup() {
             'admin-preview-callback' => '',
             'video'                  => false
         ) );
+        register_default_headers( array(
+	'camera' => array(
+		'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
+		'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
+		'description'   => __( 'camera', 'sterling' )
+	)
+        ));
         
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(

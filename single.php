@@ -13,14 +13,12 @@ get_header(); ?>
                                 <?php while ( have_posts() ) : the_post(); ?>
                                 
                                     <div id="single-post-title">
-
+                                        
                                         <div id="single-post-title-img" style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> )">
                                             <?php echo get_the_post_thumbnail(); ?>
                                         </div>
 
                                         <div id="single-post-title-text">
-
-                                            <h4><?php echo get_the_title(); ?></h4>
 
                                             <a href="<?php echo get_the_author_meta( 'user_url' ); ?>">
                                                 By <?php echo get_the_author_meta( 'display_name' ); ?>
@@ -68,7 +66,7 @@ get_header(); ?>
                                     </div>
 
                                     <div id="single-post-author-info">
-                                        <div id="single-post-author-img" style="background-image: url( <?php echo get_avatar_url( get_the_author_meta( 'ID' ), 64 )?> ) center">
+                                        <div id="single-post-author-img" style="background-image: url( <?php echo get_avatar_url( get_the_author_meta( 'ID' ), 64 )?> ) ">
                                         </div>
                                         <div id="single-post-author-title">
                                             <h4>About <?php the_author_meta( 'display_name' ); ?></h4>

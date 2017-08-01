@@ -4,7 +4,6 @@
  *
  * @package Sterling
  */
-
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -25,11 +24,15 @@ function sterling_customize_register( $wp_customize ) {
 			'render_callback' => 'sterling_customize_partial_blogdescription',
 		) );
 	}
+                
+        include_once get_template_directory() . '/inc/customizer-panels/header.php';
+        include_once get_template_directory() . '/inc/customizer-panels/appearance.php';
+        include_once get_template_directory() . '/inc/customizer-panels/footer.php';
+        include_once get_template_directory() . '/inc/customizer-panels/404.php';
         
-        include_once get_template_directory() . '/inc/customizer-panels/header.php'; 
-        include_once get_template_directory() . '/inc/customizer-panels/appearance.php'; 
-        include_once get_template_directory() . '/inc/customizer-panels/footer.php'; 
-        include_once get_template_directory() . '/inc/customizer-panels/404.php'; 
+        $wp_customize->get_section ( 'background_image' )->panel = 'sterling_appearance_panel';
+        $wp_customize->get_section ( 'colors' )->panel = 'sterling_appearance_panel';
+        $wp_customize->get_section ( 'header_image' )->panel = 'sterling_header';
         
 }
 add_action( 'customize_register', 'sterling_customize_register' );
@@ -71,6 +74,7 @@ function sterling_sanitize_font( $input ) {
     }  
     
 }
+    
 /**
  * 
  * @param type $input
