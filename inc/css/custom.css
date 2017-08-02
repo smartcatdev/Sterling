@@ -169,7 +169,6 @@ Header
     border: none;
     background-color: transparent;
     font-size: 50px;
-    border-bottom: 2px solid grey;
 }
 #search-menu-box input[type=submit] {
     border: none;
@@ -180,7 +179,12 @@ Header
     width: 92%;
 }
 #close-search-btn {
-    display: inline-block;
+    position: fixed !important;
+    top: 10px;
+    right: 10px;
+}
+.logged-in.admin-bar #close-search-btn {
+    top: 40px;
 }
 #search-icon {
     margin: 10px;
@@ -278,6 +282,7 @@ Blog FrontPage
     padding: 10px 14px;
     background: #d0d0d0;
     border-radius: 30px;
+    color: white;
     transition: 0.3s ease-in-out;
 }
 .nav-links a:visited {
@@ -295,7 +300,6 @@ Custom Footer
 #custom-footer {
     color: #a7a7a7;
     background-color: #151515;
-    margin-top: 30px;
 }
 #custom-footer input[type=submit] {
     color: #1b1a18;
@@ -475,14 +479,12 @@ Mobile Menu
 /*<editor-fold desc="Mobile Menu">*/
 .panel {
     position: fixed;
-    right: -15.625em; /*left or right and the width of your navigation panel*/
-    width: 15.625em; /*should match the above value*/
+    right: -250px; left or right and the width of your navigation panel
+    width: 250px; should match the above value
 }
 #mobile-menu-social-link {
     text-align: center;
 }
-
-
 #menu {
     top: 46px!important;
     background-color: #131313;
@@ -616,6 +618,14 @@ Page
 .page-title h1 {
     margin-top: 0;
 }
+.page-title {
+    margin-bottom: 40px;
+}
+@media screen and ( max-width:767px ) {
+    #page-sidebar section:after {
+        display: none;
+    }
+}
 /*</editor-fold>*/
 /*
 --------------------------------------------------------------------------------
@@ -697,5 +707,10 @@ Search
 }
 .search-page > div > a:first-child > h2 {
     margin-top: 0;
+}
+@media screen and ( max-width:767px ) {
+    #search-sidebar section:after {
+        display: none;
+    }
 }
 /*</editor-fold>*/

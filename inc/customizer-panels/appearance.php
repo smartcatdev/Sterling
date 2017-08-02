@@ -2,7 +2,7 @@
 $wp_customize->add_panel( 'sterling_appearance_panel', array (
     'title'                 => __( 'Appearance', 'sterling' ),
     'description'           => __( 'Customize your site colors, fonts and other appearance settings', 'sterling' ),
-    'priority'              => 2
+    'priority'              => 3
 ) );
         // ---------------------------------------------
     // Fonts
@@ -58,7 +58,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
             'label'                 => __( 'Site Skin Color', 'sterling' ),
             'description'           => __( 'Select the color of the theme', 'sterling' ),
             'choices'               => array(
-                '#e5bc6e' => 'Gold',
-                '#e8280b' => 'Red',
+                'e5bc6e' => 'Gold',
+                'e8280b' => 'Red',
             ),
         ) );

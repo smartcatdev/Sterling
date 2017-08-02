@@ -117,7 +117,7 @@ function sterling_custom_css() { ?>
         #top-bar, #header-panel *, h1,h2,h3,h4,h5,h6 {
              font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
         }
-        p {
+        p, body, div, input, textarea {
             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
         }
         
@@ -128,7 +128,7 @@ function sterling_custom_css() { ?>
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ), 0.65 ); ?>
         
-        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited, .tag-btn {
+        h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, a, a:visited, .tag-btn, caption {
             color: <?php echo $skin_color; ?>;
         }
         .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current,

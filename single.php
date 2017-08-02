@@ -2,6 +2,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area"> 
+            
 		<main id="main" class="site-main">
 
                     <div id="single-post-container" class="container">
@@ -37,6 +38,7 @@ get_header(); ?>
                                         </div>
 
                                     </div>
+                                
                                     <div id="single-post-content">
 
                                         <?php echo get_the_content(); ?>
@@ -95,9 +97,9 @@ get_header(); ?>
 		
 
 		</main><!-- #main -->
+                
 	</div><!-- #primary -->
 
 <?php
-
 
 get_footer();

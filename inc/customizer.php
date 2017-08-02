@@ -34,6 +34,8 @@ function sterling_customize_register( $wp_customize ) {
         $wp_customize->get_section ( 'colors' )->panel = 'sterling_appearance_panel';
         $wp_customize->get_section ( 'header_image' )->panel = 'sterling_header';
         
+        $wp_customize->get_section ( 'title_tagline' )->priority = 1;
+        
 }
 add_action( 'customize_register', 'sterling_customize_register' );
 

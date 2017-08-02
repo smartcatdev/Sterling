@@ -2,7 +2,7 @@
 $wp_customize->add_panel( 'sterling_footer', array (
     'title'                 => __( 'Footer', 'sterling' ),
     'description'           => __( 'Customize your footer', 'sterling' ),
-    'priority'              => 1
+    'priority'              => 4
 ) );
 
     $wp_customize->add_section( 'sterling_social_links', array (

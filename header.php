@@ -85,7 +85,7 @@
 
                                 <div id="mobile-menu-social-link">
                                     
-                                    <a href="<?php echo esc_attr( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
+                                    <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
                             
                                         <div class="header-icon">
                                             <i class="fa fa-map-marker"></i>
@@ -97,7 +97,7 @@
                                         <i class="fa fa-search"></i>
                                     </div>
 
-                                    <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
+                                    <a href="<?php echo esc_url( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
 
                                         <div class="header-icon">
                                             <i class="fa fa-envelope"></i>

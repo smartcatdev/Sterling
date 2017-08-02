@@ -3,7 +3,7 @@
 $wp_customize->add_panel( 'sterling_header', array (
     'title'                 => __( 'Header', 'sterling' ),
     'description'           => __( 'Customize your header', 'sterling' ),
-    'priority'              => 1
+    'priority'              => 2
 ) );
 
     $wp_customize->add_section( 'sterling_contact_links', array (
