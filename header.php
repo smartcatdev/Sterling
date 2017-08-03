@@ -163,6 +163,7 @@
                         
 	</header><!-- #masthead -->
         
-        <?php sterling_get_header_panel(); ?>
+        
+        <?php do_action( 'sterling_header_panel' ); ?>
 
 	<div id="content" class="site-content">

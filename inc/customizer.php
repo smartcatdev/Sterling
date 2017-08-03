@@ -76,7 +76,6 @@ function sterling_sanitize_font( $input ) {
     }  
     
 }
-    
 /**
  * 
  * @param type $input

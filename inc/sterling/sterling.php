@@ -23,6 +23,10 @@ function sterling_scripts()
     wp_enqueue_style( 'bootstrap css', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
 
     wp_enqueue_style( 'fontawesome css', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
+    
+    wp_enqueue_style( 'camera css', get_template_directory_uri() . '/inc/css/camera.css', null, STERLING_VERSION );
+    
+    wp_enqueue_style( 'animate css', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
 
     wp_enqueue_style( 'custom css', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
 
@@ -255,6 +259,9 @@ function sterling_all_posts_array( $include_pages = false ) {
  * Creates header using images from Custom Header
  * @param string $details Extra info to print into header
  */
+
+add_action( 'sterling_header_panel', 'sterling_get_header_panel' );
+
 function sterling_get_header_panel( ) { 
     
     if ( has_header_image() ): ?>
