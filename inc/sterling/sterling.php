@@ -24,8 +24,6 @@ function sterling_scripts()
 
     wp_enqueue_style( 'fontawesome css', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
     
-    wp_enqueue_style( 'camera css', get_template_directory_uri() . '/inc/css/camera.css', null, STERLING_VERSION );
-    
     wp_enqueue_style( 'animate css', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
 
     wp_enqueue_style( 'custom css', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
