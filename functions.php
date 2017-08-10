@@ -151,6 +151,8 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/sterling/sterling.php';
 
+require get_template_directory() . '/inc/tgm.php';
+
 /**
  * Load Jetpack compatibility file.
  */
