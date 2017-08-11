@@ -223,6 +223,7 @@ Blog FrontPage
 /*<editor-fold desc="Blog FrontPage">*/
 #page {
     box-shadow: 0px 0px 20px #737373;
+    overflow-x: hidden;
 }
 #blog-posts img {
     visibility: hidden;
@@ -335,6 +336,9 @@ Custom Footer
 }
 #footer > .row {
     margin: 0;
+}
+#custom-footer-widgets > .col-sm-4 {
+    text-align: center;
 }
 /*</editor-fold>*/
 /*
