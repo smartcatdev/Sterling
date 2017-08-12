@@ -483,8 +483,8 @@ Mobile Menu
 /*<editor-fold desc="Mobile Menu">*/
 .panel {
     position: fixed;
-    right: -250px; left or right and the width of your navigation panel
-    width: 250px; should match the above value
+    right: -250px;
+    width: 250px; 
 }
 #mobile-menu-social-link {
     text-align: center;
