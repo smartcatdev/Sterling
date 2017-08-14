@@ -353,6 +353,7 @@ ScrollToTop Button
     padding: 10px;
     margin: 10px;
     color: white;
+    z-index: 3;
     transition: 0.2s ease-in-out;
 }
 /*</editor-fold>*/

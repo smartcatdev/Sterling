@@ -426,3 +426,14 @@ function sterling_get_container_width() {
     return is_active_sidebar('sidebar') ? 9 : 12;
     
 }
+
+//add_action( 'template_include', function( $template ){
+//
+//    
+//    if( get_post_type() == 'team_member' ) :
+//        $template = get_template_directory() . '/single-team_member.php';
+//    endif;
+//    
+//    return $template;
+//    
+//});
