@@ -14,10 +14,14 @@
 
                         <div id="single-post-title">
 
+                            <?php if ( has_post_thumbnail() ) : ?>
+                            
                             <div id="single-post-title-img" style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> )">
                                 <?php echo get_the_post_thumbnail(); ?>
                             </div>
 
+                            <?php endif; ?>
+                            
                             <div id="single-post-title-text">
 
                                 <a href="<?php echo get_the_author_meta('user_url'); ?>">

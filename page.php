@@ -25,11 +25,15 @@ get_header(); ?>
                             <div class="col-md-<?php echo sterling_get_container_width(); ?> page-title">
                             
                                 <?php while ( have_posts() ) : the_post(); ?>
-                                                                 
-                                    <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
-                                            <?php the_post_thumbnail(); ?>
-                                    </div>
-                                                                            
+                                           
+                                    <?php if ( has_post_thumbnail() ) : ?>
+                                
+                                        <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
+                                                <?php the_post_thumbnail(); ?>
+                                        </div>
+                                        
+                                    <?php endif; ?>
+                                
                                     <p><?php the_content(); ?></p>
                                 
                                     <?php  // If comments are open or we have at least one comment, load up the comment template.
