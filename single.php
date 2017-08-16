@@ -51,26 +51,30 @@ get_header(); ?>
 
                                     <span id="content-divider"></span>
 
-                                    <div id="single-post-tags">
+                                    <?php if ( has_tag() ) : ?>
 
-                                        <?php $tags = get_the_tags(); ?> 
+                                        <div id="single-post-tags">
 
-                                        Tags: 
+                                            <?php $tags = get_the_tags(); ?> 
 
-                                        <?php if ( get_the_tags() ) : ?>
-                                            
-                                            <?php foreach ( $tags as $tag ) : ?>
+                                            Tags: 
 
-                                                <a class="tag-btn" href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
-                                                         <?php echo ( $tag->name ) . ', '; ?>
-                                                </a>
+                                            <?php if ( get_the_tags() ) : ?>
 
-                                            <?php endforeach; ?>
-                                        
-                                        <?php endif; ?>
-                                        
-                                    </div>
+                                                <?php foreach ( $tags as $tag ) : ?>
 
+                                                    <a class="tag-btn" href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
+                                                             <?php echo ( $tag->name ) . ', '; ?>
+                                                    </a>
+
+                                                <?php endforeach; ?>
+
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    <?php endif; ?>
+                                    
                                     <div id="single-post-author-info">
                                         <div id="single-post-author-img" style="background-image: url( <?php echo get_avatar_url( get_the_author_meta( 'ID' ), 64 )?> ) ">
                                         </div>

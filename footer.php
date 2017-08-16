@@ -9,7 +9,6 @@
  * @package Sterling
  */
 
-sterling_get_scrolltotop();
 
 sterling_get_custom_footer();
 ?>

@@ -70,6 +70,20 @@
 //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 //  Scroll To Top
 //______________________________________________________________________________ 
+    
+    $( window ).scroll(function() {
+        
+        var hT = $( '#custom-footer' ).offset().top,
+           hH = $( '#custom-footer' ).outerHeight(),
+           wH = $( window ).height(),
+           wS = $( this ).scrollTop();
+           
+        if ( wS > ( hT+hH-wH ) ){
+            $( "#scrolltotop-btn" ).fadeIn();
+        }
+        
+    });
+     
     $( "#scrolltotop-btn" ).on( 'click', function(){
         $( 'html, body' ).animate({ scrollTop: 0 }, 'fast' );
     });         
