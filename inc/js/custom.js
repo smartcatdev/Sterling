@@ -31,9 +31,15 @@
     $( ".menu-link" ).on( 'click', function (){
         //Every other click fadeOut
         if ( opacityCtr % 2 ) {
-            $( "#mobile-overlay" ).fadeOut(300); 
+            $( "#mobile-overlay" ).fadeOut(300);
+            $('html, body').css({
+                overflow: 'auto'
+            });
         } else {
-            $( "#mobile-overlay" ).fadeIn(200); 
+            $( "#mobile-overlay" ).fadeIn(200);
+            $('html, body').css({
+                overflow: 'hidden'
+            });
         }
         opacityCtr++;
         
@@ -42,9 +48,15 @@
     $( ".menu-link" ).on( 'touchend', function (){
         //Every other click fadeOut
         if ( opacityCtr % 2 ) {
-            $( "#mobile-overlay" ).fadeOut(300); 
+            $( "#mobile-overlay" ).fadeOut(300);
+            $('html, body').css({
+                overflow: 'auto'
+            });
         } else {
-            $( "#mobile-overlay" ).delay(200).fadeIn(200);  
+            $( "#mobile-overlay" ).delay(200).fadeIn(200); 
+            $('html, body').css({
+                overflow: 'hidden'
+            });
         }
         opacityCtr++;
         
@@ -54,18 +66,34 @@
 //______________________________________________________________________________  
     $( ".search-btn" ).on( 'click', function(){
         $( "#search-menu" ).fadeIn(300).css( "display", "table" );
+        $('html, body').css({
+           overflow: 'hidden',
+           height: '100%'
+        });
     });
     $( ".search-btn" ).on( 'touchend', function(){
         $( "#search-menu" ).fadeIn(300).css( "display", "table" );
+        $( "html, body" ).css({
+           overflow: 'hidden',
+           height: '100%'
+        });
     });
     
     $( "#close-search-btn" ).on( 'click', function(){
         $( "#search-menu" ).fadeOut(300);
         $( "#main-navigation" ).css( "z-index", "0" );
+        $( "html, body" ).css({
+           overflow: 'auto',
+           height: 'auto'
+        });
     });
     $( "#close-search-btn" ).on( 'touchend', function(){
         $( "#search-menu" ).fadeOut(300);
         $( "#main-navigation" ).css( "z-index", "0" );
+        $( "html, body" ).css({
+           overflow: 'auto',
+           height: 'auto'
+        });
     });
 //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 //  Scroll To Top

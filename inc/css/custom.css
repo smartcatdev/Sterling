@@ -215,6 +215,11 @@ Header
     #search-menu-box input[type=submit] {
         font-size: 15px;
     }
+    #secondary-menu li {
+        display: block;
+        border-right: none !important;
+        padding: 5px !important;
+    }
 }
 .site-header, #masthead-sticky-wrapper {
     z-index: 9999;
