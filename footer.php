@@ -33,12 +33,15 @@ sterling_get_custom_footer();
                                         /* translators: 1: Theme name, 2: Theme author. */
                                         printf( esc_html__( 'Designed by %2$s.', 'sterling' ), 'Sterling', '<a href="https://www.smartcatdesign.net/">Smartcat</a>' );
                                 ?>
+                                
+                                <?php sterling_get_scrolltotop(); ?>
+                                    
                         </div><!-- .site-info -->
                 
                     </div>
                 
                 </div>
-                
+                                
             </div>
             
 	</footer><!-- #colophon -->

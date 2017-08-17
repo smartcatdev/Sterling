@@ -76,8 +76,10 @@ get_header(); ?>
                                     <?php endif; ?>
                                     
                                     <div id="single-post-author-info">
-                                        <div id="single-post-author-img" style="background-image: url( <?php echo get_avatar_url( get_the_author_meta( 'ID' ), 64 )?> ) ">
+                                        
+                                        <div id="single-post-author-img" style="background-image: url( <?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ) ?> ) ">
                                         </div>
+                                        
                                         <div id="single-post-author-title">
                                             <h4>About <?php the_author_meta( 'display_name' ); ?></h4>
                                             <p><?php the_author_meta( 'description' ); ?></p>

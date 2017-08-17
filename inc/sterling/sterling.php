@@ -343,9 +343,7 @@ add_filter( 'get_the_archive_title', function( $title ) {
 function sterling_get_custom_footer() { ?>
     
     <div class="container-fluid" id="custom-footer">
-        
-        <?php sterling_get_scrolltotop(); ?>
-       
+                     
         <div class="row">
             
             <div class="container">
