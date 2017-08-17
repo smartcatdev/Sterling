@@ -130,6 +130,7 @@ function sterling_custom_css() { ?>
         <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ) ); ?>
         <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ), 0.65 ); ?>
         
+        
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, 
         a, a:visited, a:hover, .tag-btn, caption, #site-branding .site-title a {
             color: <?php echo $skin_color; ?>;

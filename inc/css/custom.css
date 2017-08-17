@@ -646,6 +646,9 @@ Page
 .page-title {
     margin-bottom: 40px;
 }
+#page-content-paragraphs {
+    padding: 0 15px;
+}
 @media screen and ( max-width:767px ) {
     #page-sidebar section:after {
         display: none;

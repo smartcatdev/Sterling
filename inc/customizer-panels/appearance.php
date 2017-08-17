@@ -48,7 +48,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
     ) );
         // Color Choice Family
         $wp_customize->add_setting( 'sterling_skins_color', array (
-            'default'               => '#e5bc6e',
+            'default'               => 'e5bc6e',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sterling_sanatize_color'
         ) );
