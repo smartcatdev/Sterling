@@ -127,8 +127,8 @@ function sterling_custom_css() { ?>
             BODY COLORS
         ________________________________________________________________________________________________*/
         
-        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ) ); ?>
-        <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', '#e5bc6e' ) ), 0.65 ); ?>
+        <?php $skin_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', 'e5bc6e' ) ) ); ?>
+        <?php $skin_hover_color = sterling_hex2rgba( esc_attr( get_theme_mod( 'sterling_skins_color', 'e5bc6e' ) ), 0.65 ); ?>
         
         
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, 
@@ -136,7 +136,7 @@ function sterling_custom_css() { ?>
             color: <?php echo $skin_color; ?>;
         }
         .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current,
-        input[type=submit], .not-found-text a, #search-icon {
+        input[type=submit], .not-found-text a, #search-icon, .btn-sterling.primary {
             background-color: <?php echo $skin_color; ?>;
             color: white;
         }

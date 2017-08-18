@@ -39,7 +39,7 @@ get_header(); ?>
 
                                 <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6" id="blog-img" style="background: url( <?php the_post_thumbnail_url(); ?> ) center;">
+                                    <div class="col-md-6" id="blog-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> );">
 
                                            <?php the_post_thumbnail(); ?>
 
@@ -52,17 +52,30 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
-                                        <span class="divider"></span>
-                                        <i><?php comments_number(); ?></i>
-
+                                        
+                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" ) : ?>
+                                        
+                                            <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
+                                  
+                                        <?php endif; ?>
+                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" && 
+                                                   get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on"  ) : ?>
+                                        
+                                            <span class="divider"></span>
+                                            
+                                        <?php endif; ?>
+                                        
+                                        <?php if ( get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on" ) : ?>    
+                                            
+                                            <i><?php comments_number(); ?></i>
+                                            
+                                        <?php endif; ?>
+                                            
                                         <p><?php the_excerpt(); ?></p>
 
-                                        <span class="read-more-btn">
-                                            <a href="<?php the_permalink(); ?>">
-                                                Read More
-                                            </a>
-                                        </span>
+                                        <a class="btn-sterling primary" href="<?php the_permalink(); ?>">
+                                            Read More
+                                        </a>
 
                                     </div>
 
@@ -72,7 +85,7 @@ get_header(); ?>
 
                                 <a href="<?php the_permalink(); ?>">
 
-                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background: url( <?php the_post_thumbnail_url(); ?> ) center;">
+                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> );">
 
 
                                         <?php the_post_thumbnail(); ?>
@@ -87,18 +100,29 @@ get_header(); ?>
                                     <div id="blog-info-content">
 
                                         <h2><?php the_title(); ?></h2>
-                                        <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
-                                        <span class="divider"></span>
-                                        <i><?php comments_number(); ?></i>
+                                        
+                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" ) : ?>
+                                        
+                                            <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
+                                  
+                                        <?php endif; ?>
+                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" && 
+                                                   get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on"  ) : ?>
+                                        
+                                            <span class="divider"></span>
+                                            
+                                        <?php endif; ?>
+                                        
+                                        <?php if ( get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on" ) : ?>    
+                                            
+                                            <i><?php comments_number(); ?></i>
+                                            
+                                        <?php endif; ?>
 
                                         <p><?php the_excerpt(); ?></p>
 
-                                        <a href="<?php the_permalink(); ?>" class="read-more-btn">
-                                            
-                                            <span>
-                                                    Read More    
-                                            </span>
-                                            
+                                        <a href="<?php the_permalink(); ?>" class="btn-sterling primary">
+                                            Read More
                                         </a>
 
                                     </div>

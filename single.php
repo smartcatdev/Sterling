@@ -15,7 +15,8 @@ get_header(); ?>
                                 
                                     <div id="single-post-title">
                                         
-                                        <?php if ( has_post_thumbnail() ) : ?>
+                                        <?php if ( has_post_thumbnail() &&
+                                                   get_theme_mod( 'sterling_single_page_img_toggle', 'on' ) == 'on') : ?>
                                                                                 
                                             <div id="single-post-title-img" style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> )">
                                                 <?php echo get_the_post_thumbnail(); ?>
@@ -25,19 +26,47 @@ get_header(); ?>
                                         
                                         <div id="single-post-title-text">
 
-                                            <a href="<?php echo get_the_author_meta( 'user_url' ); ?>">
-                                                By <?php echo get_the_author_meta( 'display_name' ); ?>
-                                            </a>
+                                            <?php if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' ) : ?>
+                                            
+                                                <a href="<?php echo get_the_author_meta( 'user_url' ); ?>">
+                                                    By <?php echo get_the_author_meta( 'display_name' ); ?>
+                                                </a>
+                                            
+                                            <?php endif; ?>
 
-                                            <span></span>
+                                             <?php if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' && 
+                                                        get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' ) : ?>
+                                            
+                                                <span></span>
 
-                                            <p><?php echo get_the_date( 'm/d/Y' ); ?></p>
+                                            <?php endif; ?>
+                                            <?php if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' ) : ?>
+                                                
+                                                <p><?php echo get_the_date( 'm/d/Y' ); ?></p>
 
-                                            <span></span>
-
-                                            <a href="<?php echo get_comment_link(); ?>">
-                                                <?php echo get_comments_number() . ' '; ?>Comments
-                                            </a>
+                                            <?php endif; ?>
+                                            <?php if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' &&
+                                                       get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
+                                            
+                                                <span></span>
+                                                
+                                            <?php endif; ?>
+                                                
+                                            <?php if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' &&
+                                                       get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' &&
+                                                       get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'off') : ?>
+                                            
+                                                <span></span>
+                                                
+                                            <?php endif; ?>    
+                                                
+                                            <?php if ( get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
+                                                
+                                                <a href="<?php echo get_comment_link(); ?>">
+                                                    <?php echo get_comments_number() . ' '; ?>Comments
+                                                </a>
+                                                
+                                            <?php endif; ?>
 
                                         </div>
 
@@ -75,6 +104,8 @@ get_header(); ?>
 
                                     <?php endif; ?>
                                     
+                                    <?php if ( get_theme_mod( 'sterling_single_page_about_author_toggle', 'on' ) == 'on' ) : ?>
+                                    
                                     <div id="single-post-author-info">
                                         
                                         <div id="single-post-author-img" style="background-image: url( <?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ) ?> ) ">
@@ -86,6 +117,8 @@ get_header(); ?>
                                         </div>
                                     </div>
 
+                                    <?php endif; ?>
+                                    
                                     <?php // If comments are open or we have at least one comment, load up the comment template.
                                     if ( comments_open() || get_comments_number() ) :
                                             comments_template();

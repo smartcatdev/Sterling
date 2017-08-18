@@ -39,6 +39,14 @@ input[type="search"] {
 a:visited {
     color: #337ab7;
 }
+.btn-sterling {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.btn-sterling.secondary {
+    background-color: #151515;
+    color: white;
+}
 /*</editor-fold>*/
 /*
 --------------------------------------------------------------------------------
@@ -246,19 +254,13 @@ Blog FrontPage
     height: 70vh;
 }
 #blog-info {
+    padding: 0% 7%;
     height: 70vh;
-    padding: 7%;
     display: table;
 }
 #blog-info-content {
     display: table-cell;
     vertical-align: middle;
-}
-.read-more-btn {
-    cursor: pointer;
-    padding: 15px;
-    color: white;
-    transition: 0.3s ease-in-out;
 }
 #blog-info-content a {
     color: white;
