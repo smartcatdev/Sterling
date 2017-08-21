@@ -116,7 +116,7 @@ function sterling_custom_css() { ?>
             BODY FONTS
         ________________________________________________________________________________________________*/
         
-        #top-bar, #header-panel *, h1,h2,h3,h4,h5,h6 {
+        #top-bar, #header-panel *, h1,h2,h3,h4,h5,h6, .site-title a {
              font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
         }
         p, body, div, input, textarea {
@@ -132,8 +132,12 @@ function sterling_custom_css() { ?>
         
         
         h1,h2,h3,h4,h5,h6,th,.site-info a,#wp-calendar a, #header-panel-content span, 
-        a, a:visited, a:hover, .tag-btn, caption, #site-branding .site-title a {
+        a, a:visited, a:hover, .tag-btn, caption, #site-branding .site-title a, 
+        #mobile-menu #menu .menu-primary-container #primary-menu li:hover.menu-item-has-children:before {
             color: <?php echo $skin_color; ?>;
+        }
+        .current-menu-item a, #top-bar .menu-primary-container #primary-menu li > .sub-menu > li > .sub-menu > li:hover a {
+            color: <?php echo $skin_color; ?> !important;
         }
         .header-icon, .read-more-btn, .custom-footer-social-icon, .page-numbers.current,
         input[type=submit], .not-found-text a, #search-icon, .btn-sterling.primary {

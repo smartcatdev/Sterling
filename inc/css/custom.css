@@ -90,7 +90,7 @@ Header
 #main-navigation li {
     margin: 10px;
 }
-#main-navigation {
+#mobile-menu {
     margin-top: 15px;
 }
 #main-navigation-wrapper {
@@ -219,6 +219,28 @@ Header
 .home #site-branding .site-title {
    margin-top: 15px;
 }
+#top-bar .menu-primary-container #primary-menu li > .sub-menu > li:hover > .sub-menu {
+    left: 50%;
+    background: white;
+    top: 0%;
+    box-shadow: 16px 2px 13px 0px rgba(0, 0, 0, 0.2)
+}
+#top-bar .menu-primary-container #primary-menu li > .sub-menu > li > .sub-menu > .menu-item a {
+    width: 100px;
+}
+#top-bar .menu-primary-container #primary-menu > li {
+    margin-bottom: 0;
+}
+#top-bar .menu-primary-container #primary-menu > .menu-item > a {
+    margin-bottom: 25px;
+}
+#top-bar .menu-primary-container .sub-menu {
+    background: white;
+}
+#top-bar .menu-primary-container #primary-menu > .menu-item > .sub-menu > li {
+    margin: 0;
+    padding: 10px;
+}   
 @media screen and ( max-width:767px ) {
     #search-menu-box input[type=submit] {
         font-size: 20px;
@@ -530,9 +552,16 @@ Mobile Menu
 #menu a {
     color: white;
 }
+#mobile-menu #primary-menu > li {
+    margin: 15px;
+}
+#primary-menu > li {
+    text-align: left;
+    margin: 25px;
+    transition: 0.3s ease-in-out;
+}
 #menu li {
-    text-align: center;
-    margin: 25px 0;
+    text-align: left;
     transition: 0.3s ease-in-out;
 }
 #menu ul {
@@ -550,7 +579,33 @@ Mobile Menu
     top: 0;
     height: 100%;
     width: 100%;
-    
+}
+#mobile-menu #menu .menu-primary-container #primary-menu li > .sub-menu {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+}
+#mobile-menu #menu .menu-primary-container #primary-menu .menu-item-has-children {
+    background: #0e0e0e;
+}   
+#mobile-menu #menu .menu-primary-container #primary-menu .sub-menu {
+    margin-bottom: 0;
+}
+#mobile-menu .menu-primary-container #primary-menu li {
+    margin: 0; 
+    padding: 15px 10px;
+}
+#mobile-menu .menu-primary-container #primary-menu li:first-child {
+    margin-top: 10px;
+}
+#mobile-menu .menu-primary-container #primary-menu li > .sub-menu > li {
+    margin: 0; 
+}
+#mobile-menu .menu-primary-container #primary-menu li > .sub-menu > li {
+    padding: 5px;
+}
+#top-bar #mobile-menu .menu-primary-container #primary-menu > .menu-item > .sub-menu > li {
+    padding: 5px;
 }
 @media screen and ( max-width:991px ) {
     #header-icons {
