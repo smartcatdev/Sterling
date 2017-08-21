@@ -40,7 +40,7 @@ a:visited {
     color: #337ab7;
 }
 .btn-sterling {
-    padding: 10px 15px;
+    padding: 10px 15px !important;
     cursor: pointer;
 }
 .btn-sterling.secondary {
