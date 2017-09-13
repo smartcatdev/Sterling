@@ -11,7 +11,7 @@ $wp_customize->add_panel( 'sterling_footer', array (
     ) );
 //        Twitter Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_twitter_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );
@@ -22,7 +22,7 @@ $wp_customize->add_panel( 'sterling_footer', array (
         ) );
 //        Facebook Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_facebook_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );
@@ -33,7 +33,7 @@ $wp_customize->add_panel( 'sterling_footer', array (
         ) );
 //        Instagram Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_instagram_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );
@@ -44,7 +44,7 @@ $wp_customize->add_panel( 'sterling_footer', array (
         ) );
 //        Dribbble Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_dribbble_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );
@@ -71,7 +71,7 @@ $wp_customize->add_panel( 'sterling_footer', array (
         ) );
 //        Footer Company Link---------------------------------------------------
         $wp_customize->add_setting( 'sterling_company_url', array (
-            'default'               => __( 'www.wordpress.org', 'sterling' ),
+            'default'               => __( 'http://www.wordpress.org', 'sterling' ),
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );

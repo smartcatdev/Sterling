@@ -347,71 +347,113 @@ add_filter( 'get_the_archive_title', function( $title ) {
  */
 function sterling_get_custom_footer() { ?>
     
-    <div class="container-fluid" id="custom-footer">
-                     
-        <div class="row">
-            
-            <div class="container">
-            
-                <div class="row">
+    <?php 
+    
+    $social_urls['twitter']     = get_theme_mod( 'sterling_twitter_link', '' );
+    $social_urls['facebook']    = get_theme_mod( 'sterling_facebook_link', '' );
+    $social_urls['instagram']   = get_theme_mod( 'sterling_instagram_link', '' );
+    $social_urls['dribbble']    = get_theme_mod( 'sterling_dribbble_link', '' );
+    $valid_social_urls          = 0;
+    
+    foreach ( $social_urls as $social_url ) {
+        if ( !empty( $social_url ) ) : 
+            $valid_social_urls++;
+        endif;
+    }
+    
+    ?>
+    
+    <?php if ( is_active_sidebar( 'footer' ) || $valid_social_urls > 0 ) : ?>
+    
+        <div class="container-fluid" id="custom-footer">
 
-                    <div id="custom-footer-social-icons">
+            <div class="row">
 
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_twitter_link', '#' ) ) ?>">
-                            <div class="custom-footer-social-icon">
+                <div class="container">
 
-                                <i class="fa fa-twitter fa-2x"></i>
+                    <div class="row">
 
-                            </div>
-                        </a>
-                        
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_facebook_link', '#' ) ) ?>">
-                            <div class="custom-footer-social-icon">
+                        <div id="custom-footer-social-icons">
 
-                                <i class="fa fa-facebook fa-2x"></i>
+                            <?php if ( !empty( $social_urls['twitter'] ) ) : ?>
 
-                            </div>
-                        </a>
-                        
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_instagram_link', '#' ) ) ?>">    
-                            <div class="custom-footer-social-icon">
+                                <a href="<?php echo esc_url( $social_urls['twitter'] ); ?>">
+                                    <div class="custom-footer-social-icon">
 
-                                <i class="fa fa-instagram fa-2x"></i>
+                                        <i class="fa fa-twitter fa-2x"></i>
 
-                            </div>
-                        </a>
-                        
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_dribbble_link', '#' ) ) ?>">    
-                            <div class="custom-footer-social-icon">
+                                    </div>
+                                </a>
 
-                                <i class="fa fa-dribbble fa-2x"></i>
+                            <?php endif; ?>
 
-                            </div>
-                        </a>
-                        
+                            <?php if ( !empty( $social_urls['facebook'] ) ) : ?>
+
+                                <a href="<?php echo esc_url( $social_urls['facebook'] ); ?>">
+                                    <div class="custom-footer-social-icon">
+
+                                        <i class="fa fa-facebook fa-2x"></i>
+
+                                    </div>
+                                </a>
+
+                            <?php endif; ?>
+
+                            <?php if ( !empty( $social_urls['instagram'] ) ) : ?>
+
+                                <a href="<?php echo esc_url( $social_urls['instagram'] ); ?>">
+                                    <div class="custom-footer-social-icon">
+
+                                        <i class="fa fa-instagram fa-2x"></i>
+
+                                    </div>
+                                </a>
+
+                            <?php endif; ?>
+
+                            <?php if ( !empty( $social_urls['dribbble'] ) ) : ?>
+
+                                <a href="<?php echo esc_url( $social_urls['dribbble'] ); ?>">  
+                                    <div class="custom-footer-social-icon">
+
+                                        <i class="fa fa-dribbble fa-2x"></i>
+
+                                    </div>
+                                </a>
+
+                            <?php endif; ?>
+
+                        </div>
+
                     </div>
 
-                </div>
+                    <?php if ( is_active_sidebar( 'footer' ) ) : ?>
 
-                <span id="custom-footer-divider"></span>
-                
-                <div class="row">
+                        <?php if ( $valid_social_urls > 0 ) : ?>
+                    
+                            <span id="custom-footer-divider"></span>
+                        
+                        <?php endif; ?>
 
-                    <div id="custom-footer-widgets">
+                        <div class="row">
 
-                        <?php if ( is_active_sidebar( 'footer' ) ) : 
-                            dynamic_sidebar( 'footer' );
-                        endif; ?>
+                            <div id="custom-footer-widgets">
 
-                    </div>  
+                                <?php dynamic_sidebar( 'footer' ); ?>
 
-                </div>
-            
-            </div>    
-                
+                            </div>  
+
+                        </div>
+
+                    <?php endif; ?>
+
+                </div>    
+
+            </div>
+
         </div>
-        
-    </div>
+    
+    <?php endif; ?>
         
 <?php }
 

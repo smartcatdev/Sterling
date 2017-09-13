@@ -12,7 +12,7 @@ $wp_customize->add_panel( 'sterling_header', array (
     ) );
 //        Location Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_location_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );
@@ -23,7 +23,7 @@ $wp_customize->add_panel( 'sterling_header', array (
         ) );
 //        Email Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_email_link', array (
-            'default'               => __( '#', 'sterling' ),
+            'default'               => '',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );

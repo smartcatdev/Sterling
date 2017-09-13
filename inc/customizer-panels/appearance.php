@@ -4,7 +4,8 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
     'description'           => __( 'Customize your site colors, fonts and other appearance settings', 'sterling' ),
     'priority'              => 3
 ) );
-        // ---------------------------------------------
+
+    // ---------------------------------------------
     // Fonts
     // ---------------------------------------------
     $wp_customize->add_section( 'sterling_fonts_section', array(
@@ -13,6 +14,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
         'panel'                 => 'sterling_appearance_panel',
         'priority'              => 3
     ) );
+    
         // Primary Font Family
         $wp_customize->add_setting( 'sterling_font_primary', array (
             'default'               => 'Trirong, serif',
@@ -26,6 +28,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
             'description'           => __( 'Select the header font of the theme', 'sterling' ),
             'choices'               => sterling_fonts(),
         ) );
+        
         // Body Font Family
         $wp_customize->add_setting( 'sterling_font_body', array (
             'default'               => 'Trirong, serif',
@@ -39,7 +42,8 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
             'description'           => __( 'Select the body font of the theme', 'sterling' ),
             'choices'               => sterling_fonts(),
         ) );
-        // ---------------------------------------------
+        
+    // ---------------------------------------------
     // Skins
     // ---------------------------------------------
     $wp_customize->add_section( 'sterling_skins_section', array(
@@ -48,8 +52,8 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
         'panel'                 => 'sterling_appearance_panel'
     ) );
     
-        
     if( ! function_exists( 'sterling_pro_init') ) :
+        
         // Color Choice Family
         $wp_customize->add_setting( 'sterling_skins_color', array (
             'default'               => 'e5bc6e',
@@ -65,6 +69,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
                 'e5bc6e' => 'Gold',
                 'e8280b' => 'Red',
             ),
-        ) );        
+        ) );     
+        
     endif; 
     

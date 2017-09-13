@@ -85,25 +85,33 @@
 
                                 <div id="mobile-menu-social-link">
                                     
-                                    <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
-                            
-                                        <div class="header-icon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                            
-                                     </a>
-                        
+                                    <?php if ( get_theme_mod( 'sterling_location_link', '' ) != '' ) : ?>
+                                    
+                                        <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '' ) ); ?>">
+
+                                            <div class="header-icon">
+                                                <i class="fa fa-map-marker"></i>
+                                            </div>
+
+                                        </a>
+                                    
+                                    <?php endif; ?>
+                                    
                                     <div class="header-icon search-btn menu-link ">
                                         <i class="fa fa-search"></i>
                                     </div>
 
-                                    <a href="<?php echo esc_url( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
+                                    <?php if ( get_theme_mod( 'sterling_email_link', '' ) != '' ) : ?>
+                                    
+                                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '' ) ); ?>">
 
-                                        <div class="header-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
+                                            <div class="header-icon">
+                                                <i class="fa fa-envelope"></i>
+                                            </div>
 
-                                    </a>
+                                        </a>
+                                    
+                                    <?php endif; ?>
 
                                 </div>
 
@@ -129,15 +137,19 @@
                     
                     <div id="header-icons" class="col-sm-3">
                     
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_location_link', '#' ) ) ?>">
-                            
-                            <div class="header-icon">
+                        <?php if ( get_theme_mod( 'sterling_location_link', '' ) != '' ) : ?>
+                        
+                            <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '' ) ); ?>">
 
-                                <i class="fa fa-map-marker"></i>
+                                <div class="header-icon">
 
-                            </div>
-                            
-                        </a>
+                                    <i class="fa fa-map-marker"></i>
+
+                                </div>
+
+                            </a>
+                        
+                        <?php endif; ?>
                         
                         <div class="header-icon search-btn">
                             
@@ -145,15 +157,19 @@
                                                        
                         </div>
                         
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '#' ) ) ?>">
-                            
-                            <div class="header-icon">
+                        <?php if ( get_theme_mod( 'sterling_email_link', '' ) != '' ) : ?>
+                        
+                            <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '' ) ); ?>">
 
-                                <i class="fa fa-envelope"></i>
+                                <div class="header-icon">
 
-                            </div>
-                            
-                        </a>
+                                    <i class="fa fa-envelope"></i>
+
+                                </div>
+
+                            </a>
+                        
+                        <?php endif; ?>
                         
                     </div>
                                   

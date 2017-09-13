@@ -24,17 +24,22 @@ sterling_get_custom_footer();
                     <div class="container">
                         
                         <div class="site-info">
-                                <a href="<?php echo esc_url( get_theme_mod('sterling_company_url', 'www.wordpress.org') ); ?>"><?php
-                                        /* translators: %s: CMS name, i.e. WordPress. */
-                                        printf( esc_attr( get_theme_mod('sterling_company_name', 'Wordpress') ) );
-                                ?></a>
-                                <span class="sep"> | </span>
+                            
+                            <a href="<?php echo esc_url( get_theme_mod('sterling_company_url', 'http://www.wordpress.org') ); ?>">
                                 <?php
-                                        /* translators: 1: Theme name, 2: Theme author. */
-                                        printf( esc_html__( 'Designed by %2$s.', 'sterling' ), 'Sterling', '<a href="https://www.smartcatdesign.net/">Smartcat</a>' );
+                                    /* translators: %s: CMS name, i.e. WordPress. */
+                                    printf( esc_attr( get_theme_mod('sterling_company_name', __( 'Wordpress', 'sterling' ) ) ) );
                                 ?>
-                                
-                                <?php sterling_get_scrolltotop(); ?>
+                            </a>
+
+                            <span class="sep"> | </span>
+
+                            <?php
+                                /* translators: 1: Theme name, 2: Theme author. */
+                                printf( esc_html__( 'Designed by %2$s.', 'sterling' ), 'Sterling', '<a href="https://www.smartcatdesign.net/">Smartcat</a>' );
+                            ?>
+
+                            <?php sterling_get_scrolltotop(); ?>
                                     
                         </div><!-- .site-info -->
                 
