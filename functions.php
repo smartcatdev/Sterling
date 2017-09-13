@@ -92,7 +92,7 @@ function sterling_setup() {
         
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => '404040',
 		'default-image' => '',
 	) ) );
 
@@ -105,8 +105,8 @@ function sterling_setup() {
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 250,
-		'width'       => 250,
+		'height'      => 400,
+		'width'       => 400,
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );

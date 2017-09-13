@@ -25,6 +25,7 @@ function sterling_customize_register( $wp_customize ) {
 		) );
 	}
                 
+        include_once get_template_directory() . '/inc/customizer-panels/logo.php';
         include_once get_template_directory() . '/inc/customizer-panels/header.php';
         include_once get_template_directory() . '/inc/customizer-panels/appearance.php';
         include_once get_template_directory() . '/inc/customizer-panels/footer.php';
@@ -76,13 +77,33 @@ function sterling_sanitize_font( $input ) {
     }  
     
 }
+
+function sterling_sanitize_on_off_toggle( $input ) {
+    
+    $valid_keys = array(
+        'on'        => __( 'On', 'sterling' ),
+        'off'       => __( 'Off', 'sterling' ),
+    );
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }
+    
+}
+
+function sterling_sanitize_integer( $input ) {
+    return intval( $input );
+}
+
 /**
  * 
  * @param type $input
  * @param type $setting
  * @return string validated color choice
  */
-function sterling_sanatize_color( $input, $setting ) {
+function sterling_sanitize_color( $input, $setting ) {
     // Ensure input is a slug
     $input = sanitize_key( $input );
     

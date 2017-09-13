@@ -48,20 +48,30 @@
                 <div class="row">
             
                     <div id="site-branding" class="col-sm-3">
-                            <?php
-                            the_custom_logo();
-                            if ( is_front_page() && is_home() ) : ?>
-                                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        
+                        <?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) { ?>
+
+                            <?php the_custom_logo(); ?>
+
+                        <?php } else { ?>
+
+                            <?php if ( is_front_page() && is_home() ) : ?>
+                                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                             <?php else : ?>
                                     <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                            <?php
-                            endif;
+                            <?php endif; ?>
 
-                            $description = get_bloginfo( 'description', 'display' );
-                            if ( $description || is_customize_preview() ) : ?>
-                                    <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-                            <?php
-                            endif; ?>
+                            <?php $description = get_bloginfo( 'description', 'display' ); ?>
+                                    
+                            <?php if ( $description || is_customize_preview() ) : ?>
+
+                                <p class="site-description">
+                                    <?php echo $description; /* WPCS: xss ok. */ ?>
+                                </p>
+
+                            <?php endif; ?>
+
+                        <?php } ?>
                                     
                     </div><!-- .site-branding -->
 

@@ -34,11 +34,11 @@ sterling_get_custom_footer();
 
                             <span class="sep"> | </span>
 
-                            <?php
-                                /* translators: 1: Theme name, 2: Theme author. */
-                                printf( esc_html__( 'Designed by %2$s.', 'sterling' ), 'Sterling', '<a href="https://www.smartcatdesign.net/">Smartcat</a>' );
-                            ?>
-
+                            <a id="sc_brand" href="https://smartcatdesign.net" rel="designer" style="display: inline-block !important" class="rel">
+                                <?php esc_html_e( 'Designed by ', 'sterling' ); ?> 
+                                <img src="<?php echo get_template_directory_uri() . '/inc/images/smartcat_new_logo.png'?>" />
+                            </a>
+                            
                             <?php sterling_get_scrolltotop(); ?>
                                     
                         </div><!-- .site-info -->

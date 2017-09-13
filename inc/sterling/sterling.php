@@ -172,6 +172,51 @@ function sterling_custom_css() { ?>
             color: <?php echo $skin_color; ?>;
         }
         
+        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+            BOXED CONTENT SETTINGS
+        ________________________________________________________________________________________________*/
+        <?php if ( get_theme_mod( 'sterling_toggle_boxed_content_shadow', 'on' ) == 'off' ) : ?>
+            
+            div#page.sterling-site-wrapper {
+                box-shadow: none !important;
+            }
+        
+        <?php endif; ?>
+            
+        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+            HEADER BAR HEIGHTS
+        ________________________________________________________________________________________________*/
+            
+        @media (min-width:992px) {
+            #top-bar .row {
+               height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+            }  
+            #site-branding img {
+               max-height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+            }  
+        }
+
+        @media (max-width:991px) {
+            #top-bar .row {
+               height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;
+            }   
+            #site-branding img {
+               max-height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;   
+            }  
+        }
+        
+        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+            CUSTOM LOGO HEIGHT
+        ________________________________________________________________________________________________*/
+        
+        <?php if ( get_theme_mod( 'sterling_custom_logo_height_toggle', 'off' ) == 'on' ) : ?>
+        
+            #site-branding img {
+                height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_logo_height', 96 ) ); ?>px;
+            }
+        
+        <?php endif; ?>
+        
     </style>
     
     <?php 
