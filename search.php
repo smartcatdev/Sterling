@@ -9,54 +9,54 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-            
-		<main id="main" class="site-main">
+    <section id="primary" class="content-area">
 
-                    <div class="container" id="search-results-list"> 
-                        
-                        <div class="row search-page">
-                            
-                            <div class="col-md-<?php echo sterling_get_container_width(); ?>">
+            <main id="main" class="site-main">
+
+                <div class="container" id="search-results-list"> 
+
+                    <div class="row search-page">
+
+                        <div class="col-md-<?php esc_attr_e( sterling_get_container_width() ); ?>">
+
+                            <?php
+                            if ( have_posts() ) : ?>
 
                                 <?php
-                                if ( have_posts() ) : ?>
+                                /* Start the Loop */
+                                while ( have_posts() ) : the_post(); ?>
 
-                                    <?php
-                                    /* Start the Loop */
-                                    while ( have_posts() ) : the_post(); ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <h2><?php the_title(); ?></h2>     
+                                    </a>
 
-                                        <a href="<?php the_permalink(); ?>">
-                                            <h2><?php the_title(); ?></h2>     
-                                        </a>
-                                
-                                        <p><?php the_excerpt(); ?></p>
+                                    <p><?php the_excerpt(); ?></p>
 
-                                    <?php endwhile;
+                                <?php endwhile;
 
-                                        the_posts_pagination( array( 'mid_size' => 1 ) );
+                                    the_posts_pagination( array( 'mid_size' => 1 ) );
 
-                                    else :
+                                else :
 
-                                        get_template_part( 'template-parts/content', 'none' );
+                                    get_template_part( 'template-parts/content', 'none' );
 
-                                endif; ?>
-                                    
-                            </div>
-                            
-                            <div id="search-sidebar" class="col-md-3">
-                                
-                                <?php get_sidebar(); ?>
-                                
-                            </div>
+                            endif; ?>
 
                         </div>
-                            
+
+                        <div id="search-sidebar" class="col-md-3">
+
+                            <?php get_sidebar(); ?>
+
+                        </div>
+
                     </div>
 
-		</main><!-- #main -->
-                
-	</section><!-- #primary -->
+                </div>
+
+            </main><!-- #main -->
+
+    </section><!-- #primary -->
 
 <?php
 get_footer();

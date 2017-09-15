@@ -14,50 +14,52 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+    <div id="primary" class="content-area">
             
-		<main id="main" class="site-main">
+        <main id="main" class="site-main">
                     
-                    <div class="container" id="page-container">
-                        
-                        <div class="row">
-                            
-                            <div class="col-md-<?php echo sterling_get_container_width(); ?> page-title">
-                            
-                                <?php while ( have_posts() ) : the_post(); ?>
-                                           
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                
-                                        <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
-                                                <?php the_post_thumbnail(); ?>
-                                        </div>
-                                        
-                                    <?php endif; ?>
-                                
-                                    <p><?php the_content(); ?></p>
-                                
-                                    <?php  // If comments are open or we have at least one comment, load up the comment template.
-                                    if ( comments_open() || get_comments_number() ) :
-                                            comments_template();
-                                    endif;
+            <div class="container" id="page-container">
 
-                                endwhile; // End of the loop.  ?>
-                                
-                            </div>
-                            
-                            <div class="col-md-3" id="page-sidebar">
-                                
-                                <?php get_sidebar(); ?>
-                                
-                            </div>
-                        
-                        </div>    
-                            
+                <div class="row">
+
+                    <div class="col-md-<?php echo sterling_get_container_width(); ?> page-title">
+
+                        <?php while ( have_posts() ) : the_post(); ?>
+
+                            <?php if ( has_post_thumbnail() ) : ?>
+
+                                <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
+                                        <?php the_post_thumbnail(); ?>
+                                </div>
+
+                            <?php endif; ?>
+
+                            <p>
+                                <?php the_content(); ?>
+                            </p>
+
+                            <?php  // If comments are open or we have at least one comment, load up the comment template.
+                            if ( comments_open() || get_comments_number() ) :
+                                    comments_template();
+                            endif;
+
+                        endwhile; // End of the loop.  ?>
+
                     </div>
-                    
-		</main><!-- #main -->
-                
-	</div><!-- #primary -->
+
+                    <div class="col-md-3" id="page-sidebar">
+
+                        <?php get_sidebar(); ?>
+
+                    </div>
+
+                </div>    
+
+            </div>
+
+        </main><!-- #main -->
+
+    </div><!-- #primary -->
 
 <?php
 

@@ -134,8 +134,19 @@ div#header-icons .header-icon:last-of-type {
 #main-navigation li {
     margin: 10px;
 }
-#mobile-menu {
-/*    margin-top: 15px;*/
+#mobile-menu .menu-link {
+    position: relative;
+}
+div#mobile-menu > #menu {
+    z-index: 999;
+}
+#mobile-menu > #menu > .menu-link {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 30px;
+    width: 30px;
+    right: 10px;
+    top: 0;
 }
 #main-navigation-wrapper {
     display: table;
@@ -237,6 +248,11 @@ div#header-icons .header-icon:last-of-type {
 .logged-in.admin-bar #close-search-btn {
     top: 40px;
 }
+@media (max-width:600px) {
+    body.logged-in.admin-bar #wpadminbar {
+        position: fixed;
+    }    
+}
 #search-icon {
     margin: 10px;
     width: 40px;
@@ -253,11 +269,11 @@ div#header-icons .header-icon:last-of-type {
 }
 #secondary-menu li {
     display: inline-block;
+    margin: 3px 0;
 }
 #site-branding .site-title {
     font-size: 20px;
     margin: 0;
-    margin-top: 10px;
 }
 .home #site-branding .site-title {
    margin-top: 0;
@@ -332,6 +348,9 @@ Blog FrontPage
 #blog-info-content {
     display: table-cell;
     vertical-align: middle;
+}
+#blog-info-content h2 {
+    margin-top: 0;
 }
 #blog-info-content a {
     color: white;
@@ -587,6 +606,9 @@ Mobile Menu
 #mobile-menu-social-link {
     text-align: center;
 }
+#mobile-menu-social-link a {
+    display: inline-block;
+}
 #menu {
     top: 0px;
     background-color: #131313;
@@ -622,7 +644,7 @@ Mobile Menu
     padding: 0;
 }
 #mobile-menu {
-    display: none;
+    /*display: none;*/
 }
 #mobile-overlay {
     z-index: 9999;
@@ -704,6 +726,14 @@ Mobile Menu
         top: 46px !important;
     }
 }
+
+@media screen and ( min-width:768px ) {
+    .logged-in.admin-bar #menu {
+        top: 32px !important;
+    }
+}
+
+
 @media screen and ( max-width:500px ) {
     #search-menu-box input {
         font-size: 17px !important;
@@ -720,6 +750,12 @@ Mobile Menu
     }
     #site-branding {
         width: 250px;
+    }
+}
+
+@media screen and ( min-width:992px ) {
+    #main-navigation > a.menu-link {
+        display: none;
     }
 }
 /*</editor-fold>*/

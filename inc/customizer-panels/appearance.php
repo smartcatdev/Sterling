@@ -6,32 +6,6 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
 ) );
 
     // ---------------------------------------------
-    // Main Content Width
-    // ---------------------------------------------
-    $wp_customize->add_section( 'sterling_main_content_section', array(
-        'title'                 => __( 'Main Content Width', 'sterling'),
-        'description'           => __( 'Customize whether the theme is boxed or full-width', 'sterling' ),
-        'panel'                 => 'sterling_appearance_panel',
-        'priority'              => 3
-    ) );
-    
-        // Toggle Visibility Drop Shadow on Boxed Content
-        $wp_customize->add_setting( 'sterling_toggle_boxed_content_shadow', array (
-            'default'               => 'on',
-            'transport'             => 'refresh',
-            'sanitize_callback'     => 'sterling_sanitize_on_off_toggle',
-        ) );
-        $wp_customize->add_control( 'sterling_toggle_boxed_content_shadow', array(
-            'type'                  => 'radio',
-            'section'               => 'sterling_main_content_section',
-            'label'                 => __( 'Show a shadow on the edges of the boxed content container?', 'sterling' ),
-            'choices'               => array(
-                'on'        => __( 'On', 'sterling' ),
-                'off'       => __( 'Off', 'sterling' ),
-        ) ) );
-        
-
-    // ---------------------------------------------
     // Fonts
     // ---------------------------------------------
     $wp_customize->add_section( 'sterling_fonts_section', array(
@@ -92,8 +66,8 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
             'label'                 => __( 'Site Skin Color', 'sterling' ),
             'description'           => __( 'Select the color of the theme', 'sterling' ),
             'choices'               => array(
-                'e5bc6e' => 'Gold',
-                'e8280b' => 'Red',
+                'e5bc6e' => __( 'Gold', 'sterling' ),
+                'e8280b' => __( 'Red', 'sterling' ),
             ),
         ) );     
         

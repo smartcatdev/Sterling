@@ -15,7 +15,7 @@
             'off'       => __( 'Off', 'sterling' ),
     ) ) );
 
-    // Custom Logo Height
+    // Custom Logo Height Value
     $wp_customize->add_setting( 'sterling_custom_logo_height', array (
         'default'               => 96,
         'transport'             => 'refresh',

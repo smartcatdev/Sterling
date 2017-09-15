@@ -8,64 +8,63 @@
  */
 
 if ( ! function_exists( 'sterling_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-    
-remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );       
-    
-function sterling_setup() {
-    
-    if ( !defined( 'STERLING_VERSION' ) ):
-        define( 'STERLING_VERSION', "0.0.1" );
-    endif;
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Sterling, use a find and replace
-	 * to change 'sterling' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'sterling', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+    /**
+     * Sets up theme defaults and registers support for various WordPress features.
+     *
+     * Note that this function is hooked into the after_setup_theme hook, which
+     * runs before the init hook. The init hook is too late for some features, such
+     * as indicating support for post thumbnails.
+     */
+    function sterling_setup() {
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+        if ( !defined( 'STERLING_VERSION' ) ):
+            define( 'STERLING_VERSION', "0.0.1" );
+        endif;
+        
+        /*
+         * Make theme available for translation.
+         * Translations can be filed in the /languages/ directory.
+         * If you're building a theme based on Sterling, use a find and replace
+         * to change 'sterling' to the name of your theme in all the template files.
+         */
+        load_theme_textdomain( 'sterling', get_template_directory() . '/languages' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support( 'automatic-feed-links' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'menu-primary' => esc_html__( 'Primary', 'sterling' ),
-		'menu-secondary' => esc_html__( 'Secondary', 'sterling' ),
-	) );
+        /*
+         * Let WordPress manage the document title.
+         * By adding theme support, we declare that this theme does not use a
+         * hard-coded <title> tag in the document head, and expect WordPress to
+         * provide it for us.
+         */
+        add_theme_support( 'title-tag' );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+        /*
+         * Enable support for Post Thumbnails on posts and pages.
+         *
+         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+         */
+        add_theme_support( 'post-thumbnails' );
+
+        // This theme uses wp_nav_menu() in one location.
+        register_nav_menus( array(
+            'menu-primary'      => esc_html__( 'Primary', 'sterling' ),
+            'menu-secondary'    => esc_html__( 'Secondary', 'sterling' ),
+        ) );
+
+        /*
+         * Switch default core markup for search form, comment form, and comments
+         * to output valid HTML5.
+         */
+        add_theme_support( 'html5', array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        ) );
 
         // Set up the Wordpress custom header feature   
         add_theme_support( 'custom-header', array( 
@@ -82,35 +81,37 @@ function sterling_setup() {
             'admin-preview-callback' => '',
             'video'                  => false
         ) );
-        register_default_headers( array(
-	'camera' => array(
-		'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
-		'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
-		'description'   => __( 'camera', 'sterling' )
-	)
-        ));
         
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(
-		'default-color' => '404040',
-		'default-image' => '',
-	) ) );
+        register_default_headers( array(
+        'camera' => array(
+            'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
+            'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
+            'description'   => __( 'camera', 'sterling' )
+        ) ) );
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+        // Set up the WordPress core custom background feature.
+        add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(
+            'default-color' => '404040',
+            'default-image' => '',
+        ) ) );
 
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support( 'custom-logo', array(
-		'height'      => 400,
-		'width'       => 400,
-		'flex-width'  => true,
-		'flex-height' => true,
-	) );
-}
+        // Add theme support for selective refresh for widgets.
+        add_theme_support( 'customize-selective-refresh-widgets' );
+
+        /**
+         * Add support for core custom logo.
+         *
+         * @link https://codex.wordpress.org/Theme_Logo
+         */
+        add_theme_support( 'custom-logo', array(
+            'height'      => 400,
+            'width'       => 400,
+            'flex-width'  => true,
+            'flex-height' => true,
+        ) );
+        
+    }
+    
 endif;
 add_action( 'after_setup_theme', 'sterling_setup' );
 
@@ -122,7 +123,7 @@ add_action( 'after_setup_theme', 'sterling_setup' );
  * @global int $content_width
  */
 function sterling_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 640 );
+    $GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'sterling_content_width', 0 );
 
@@ -147,15 +148,18 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- *Load the theme functions file.
+ * Load the theme functions file.
  */
 require get_template_directory() . '/inc/sterling/sterling.php';
 
+/**
+ * Load the TGM file.
+ */
 require get_template_directory() . '/inc/tgm.php';
 
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+    require get_template_directory() . '/inc/jetpack.php';
 }
