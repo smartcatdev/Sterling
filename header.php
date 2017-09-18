@@ -26,8 +26,6 @@
     
 <div id="page" class="sterling-site-wrapper">
     
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sterling' ); ?></a>
-
     <header id="masthead" class="site-header">
 
         <div id="search-menu">

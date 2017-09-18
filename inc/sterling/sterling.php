@@ -19,8 +19,6 @@ function sterling_scripts() {
     wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
     wp_enqueue_style( 'sterling-custom', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
 
-    wp_enqueue_script( 'sterling-navigation', get_template_directory_uri() . '/js/navigation.js', array(), STERLING_VERSION, true );
-    wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), STERLING_VERSION, true );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
@@ -547,14 +545,3 @@ function sterling_get_container_width() {
     return is_active_sidebar( 'sidebar' ) ? 9 : 12;
     
 }
-
-//add_action( 'template_include', function( $template ){
-//
-//    
-//    if( get_post_type() == 'team_member' ) :
-//        $template = get_template_directory() . '/single-team_member.php';
-//    endif;
-//    
-//    return $template;
-//    
-//});
