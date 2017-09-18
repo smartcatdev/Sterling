@@ -173,7 +173,8 @@ div#mobile-menu > #menu {
 #header-panel-content {
     padding: 90px 0;
 }
-#header-panel-content h1 {
+div#header-panel-content .entry-title {
+    margin-top: 0;
     text-transform: capitalize;
 }
 #header-panel-links * {
@@ -373,7 +374,9 @@ Blog FrontPage
 }
 .navigation.pagination {
     width: 100%;
-    margin: 40px 12px;
+    background: #f8f8f8;
+    padding: 40px 12px;
+    margin: 0;
 }
 .navigation.pagination > .nav-links {
     text-align: center;
@@ -826,6 +829,7 @@ Page
     padding: 15px;
     color: white;
     transition: 0.3s ease-in-out;
+    display: inline-block;
 }
 .not-found-text a:hover {
     background-position: -100% 0;

@@ -31,7 +31,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
         
         // Body Font Family
         $wp_customize->add_setting( 'sterling_font_body', array (
-            'default'               => 'Trirong, serif',
+            'default'               => 'Titillium Web, sans-serif',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sterling_sanitize_font'
         ) );

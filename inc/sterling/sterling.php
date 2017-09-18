@@ -5,44 +5,31 @@
  */
 function sterling_scripts() {
     
-    // Load Fonts from array
     $fonts = sterling_fonts();
-
-     // Primary Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'sterling_font_primary', 'Trirong, serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ) ] ), array(), STERLING_VERSION );
-    endif;
-    
-    // Body Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ) ] ), array(), STERLING_VERSION );
-    endif;
     
     wp_enqueue_style( 'sterling-style', get_stylesheet_uri() );
-
-    wp_enqueue_style( 'bootstrap css', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
-
-    wp_enqueue_style( 'fontawesome css', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
     
-    wp_enqueue_style( 'animate css', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
-
-    wp_enqueue_style( 'custom css', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
-
-    wp_enqueue_script( 'sterling-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-    wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-    wp_enqueue_script( 'bootstrap js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
+    // Google Fonts Enqueue
+    if( array_key_exists( get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ), $fonts ) && array_key_exists ( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ), $fonts ) ) :
+        wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ) ] . '|' . $fonts[ get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ) ] ), array(), STERLING_VERSION );
+    endif;
     
-    wp_enqueue_script( 'sticky js', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
-    
-    wp_enqueue_script( 'bigSlide js', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
+    wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
+    wp_enqueue_style( 'sterling-custom', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
 
-    wp_enqueue_script( 'custom js', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'sterling-navigation', get_template_directory_uri() . '/js/navigation.js', array(), STERLING_VERSION, true );
+    wp_enqueue_script( 'sterling-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), STERLING_VERSION, true );
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-            wp_enqueue_script( 'comment-reply' );
+        wp_enqueue_script( 'comment-reply' );
     }
+
 }
 add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 
@@ -221,18 +208,6 @@ function sterling_custom_css() { ?>
         #header-panel-links a:hover {
             color: <?php echo $skin_color; ?>;
         }
-        
-        /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-            BOXED CONTENT SETTINGS
-        ________________________________________________________________________________________________*/
-        
-        <?php if ( get_theme_mod( 'sterling_toggle_boxed_content_shadow', 'on' ) == 'off' ) : ?>
-            
-            div#page.sterling-site-wrapper {
-                box-shadow: none !important;
-            }
-        
-        <?php endif; ?>
             
         /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
             HEADER BAR HEIGHTS
@@ -240,19 +215,19 @@ function sterling_custom_css() { ?>
             
         @media (min-width:992px) {
             #top-bar .row {
-               height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+               height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
             }  
             #site-branding img {
-               max-height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+               max-height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
             }  
         }
 
         @media (max-width:991px) {
             #top-bar .row {
-               height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;
+               height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;
             }   
             #site-branding img {
-               max-height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;   
+               max-height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;   
             }  
         }
         
@@ -263,7 +238,7 @@ function sterling_custom_css() { ?>
         <?php if ( get_theme_mod( 'sterling_custom_logo_height_toggle', 'off' ) == 'on' ) : ?>
         
             #site-branding img {
-                height: <?php echo esc_attr( get_theme_mod( 'sterling_custom_logo_height', 96 ) ); ?>px;
+                height: <?php echo intval( get_theme_mod( 'sterling_custom_logo_height', 96 ) ); ?>px;
             }
         
         <?php endif; ?>

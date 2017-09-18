@@ -7,7 +7,7 @@ $wp_customize->add_panel( 'sterling_header', array (
 ) );
 
     $wp_customize->add_section( 'sterling_heights_section', array (
-        'title'                 => __( 'Header Heights', 'sterling' ),
+        'title'                 => __( 'Nav Bar Heights', 'sterling' ),
         'panel'                 => 'sterling_header'
     ) );
 
@@ -20,8 +20,8 @@ $wp_customize->add_panel( 'sterling_header', array (
         $wp_customize->add_control( 'sterling_custom_header_height_desktop', array(
             'type'                  => 'number',
             'section'               => 'sterling_heights_section',
-            'label'                 => __( 'Site Header Height - Desktop', 'sterling' ),
-            'description'           => __( 'Adjust the height of the header for desktop screens (Browsers 992px and wider)', 'sterling' ),
+            'label'                 => __( 'Navigation Bar Height - Desktop', 'sterling' ),
+            'description'           => __( 'Adjust the height of the navigation bar header for desktop screens (Browsers 992px and wider)', 'sterling' ),
             'input_attrs'           => array(
                 'min' => 56,
                 'max' => 500,
@@ -37,8 +37,8 @@ $wp_customize->add_panel( 'sterling_header', array (
         $wp_customize->add_control( 'sterling_custom_header_height_mobile', array(
             'type'                  => 'number',
             'section'               => 'sterling_heights_section',
-            'label'                 => __( 'Site Header Height - Mobile', 'sterling' ),
-            'description'           => __( 'Adjust the height of the header for desktop screens (Browsers 991px and narrower)', 'sterling' ),
+            'label'                 => __( 'Navigation Bar Height - Mobile', 'sterling' ),
+            'description'           => __( 'Adjust the height of the navigation bar header for desktop screens (Browsers 991px and narrower)', 'sterling' ),
             'input_attrs'           => array(
                 'min' => 56,
                 'max' => 500,

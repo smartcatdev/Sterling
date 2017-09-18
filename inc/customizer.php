@@ -28,11 +28,11 @@ function sterling_customize_register( $wp_customize ) {
         ) );
     }
 
-    include_once get_template_directory() . '/inc/customizer-panels/logo.php';
-    include_once get_template_directory() . '/inc/customizer-panels/header.php';
-    include_once get_template_directory() . '/inc/customizer-panels/appearance.php';
-    include_once get_template_directory() . '/inc/customizer-panels/footer.php';
-    include_once get_template_directory() . '/inc/customizer-panels/404.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/logo.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/header.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/appearance.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/footer.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/404.php';
 
     $wp_customize->get_section ( 'background_image' )->panel = 'sterling_appearance_panel';
     $wp_customize->get_section ( 'colors' )->panel = 'sterling_appearance_panel';

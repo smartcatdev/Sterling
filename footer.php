@@ -32,9 +32,9 @@ sterling_get_custom_footer(); ?>
 
                         <span class="sep"> | </span>
 
-                        <a id="sc_brand" href="https://smartcatdesign.net" rel="designer" style="display: inline-block !important" class="rel">
+                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel">
                             <?php esc_html_e( 'Designed by ', 'sterling' ); ?> 
-                            <img src="<?php echo get_template_directory_uri() . '/inc/images/smartcat_new_logo.png'?>" />
+                            <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/smartcat_new_logo.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'sterling'), 'Smartcat' ); ?>" />
                         </a>
 
                         <?php sterling_get_scrolltotop(); ?>

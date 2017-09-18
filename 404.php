@@ -48,6 +48,8 @@ get_header(); ?>
                     </div>
 
                 </div>
+                
+                <div class="clear"></div>
 
             </div>
 
@@ -57,8 +59,6 @@ get_header(); ?>
 
 <?php
 
-sterling_get_scrolltotop();
- 
 sterling_get_custom_footer();
 
 get_footer();
