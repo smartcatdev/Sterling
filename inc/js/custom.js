@@ -115,13 +115,24 @@
     });  
     
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    //  Mobile Menu- Big Slide.js
+    //  Mobile Menu - Big Slide.js
     //__________________________________________________________________________
     
     $( '.menu-link' ).bigSlide({
         menu: ( '#mobile-menu nav#menu' ),
         side: 'right'
     });
-    
+
+    //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    //  Mobile Menu - Inject Expansion Icons
+    //__________________________________________________________________________
+
+    $('#mobile-menu ul#primary-menu > li.menu-item-has-children').prepend( '<span class="fa fa-chevron-right"></span>' );
+
+    $( '#mobile-menu ul#primary-menu > li.menu-item-has-children' ).on( 'click', function() {
+        $(this).find( 'span' ).stop().toggleClass('submenu-rotated');
+        $(this).find( '> ul.sub-menu' ).stop().slideToggle( 400 );
+    });
+     
  });
 

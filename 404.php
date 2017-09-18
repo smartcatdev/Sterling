@@ -17,7 +17,7 @@ get_header(); ?>
 
                 <div class="row">
 
-                    <div class="col-sm-6 not-found-large">
+                    <div class="col-sm-12 not-found-large">
 
                         <h1>
                             <?php esc_html_e( '404', 'sterling' ); ?>
@@ -25,7 +25,7 @@ get_header(); ?>
 
                     </div>
 
-                    <div class="col-sm-6 not-found-text">
+                    <div class="col-sm-12 not-found-text">
 
                         <section class="error-404 not-found">
 

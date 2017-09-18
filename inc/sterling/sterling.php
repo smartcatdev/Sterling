@@ -370,7 +370,7 @@ function sterling_get_header_panel( ) {
 
                     <?php else : ?>
 
-                        <?php single_post_title('<h1 class="entry-title">', '</h1>'); ?>
+                        <?php single_post_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
                     <?php endif; ?>
                    

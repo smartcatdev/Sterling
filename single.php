@@ -62,8 +62,8 @@ get_header(); ?>
 
                                     <?php if ( get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
 
-                                        <a href="<?php echo get_comment_link(); ?>">
-                                            <?php echo get_comments_number() . ' '; ?>Comments
+                                        <a href="#comments">
+                                            <?php _e( get_comments_number() . ' Comments', 'sterling' ); ?>
                                         </a>
 
                                     <?php endif; ?>
@@ -112,12 +112,18 @@ get_header(); ?>
                                     </div>
 
                                     <div id="single-post-author-title">
+                                        
                                         <h4>
                                             <?php esc_html_e( 'About '); ?><?php the_author_meta( 'display_name' ); ?>
                                         </h4>
-                                        <p>
-                                            <?php the_author_meta( 'description' ); ?>
-                                        </p>
+                                        
+                                        <?php if ( get_the_author_meta( 'description' ) ) : ?>
+                                        
+                                            <p>
+                                                <?php the_author_meta( 'description' ); ?>
+                                            </p>
+                                            
+                                        <?php endif; ?>
 
                                     </div>
 
