@@ -52,27 +52,13 @@
 
                         <span id="content-divider"></span>
 
-                        <?php $tags = get_the_tags(); ?> 
-
-                        <?php if ( !empty( $tags ) && is_array( $tags ) ) : ?>
+                        <?php if ( has_tag() ) : ?>
 
                             <div id="single-post-tags">
-
-                                <?php _e( 'Tags:', 'sterling' ); ?>
-
-                                <?php foreach ( $tags as $tag ) : ?>
-
-                                    <a class="tag-btn" href="<?php echo esc_url( home_url( '/' ) ); ?>/tag/<?php echo ( $tag->slug ); ?>">
-                                        <?php echo ( $tag->name ) . ', '; ?>
-                                    </a>
-
-                                <?php endforeach; ?>
-
+                                <?php echo get_the_tag_list( __( 'Tags: ', 'sterling' ), ', ' ); ?>
                             </div>
 
                         <?php endif; ?>
-
-                        
 
                         <div id="single-post-author-info">
                             <div id="single-post-author-img" style="background-image: url(<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ); ?>);">

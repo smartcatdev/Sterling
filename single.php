@@ -86,23 +86,7 @@ get_header(); ?>
                             <?php if ( has_tag() ) : ?>
 
                                 <div id="single-post-tags">
-
-                                    <?php $tags = get_the_tags(); ?> 
-
-                                    Tags: 
-
-                                    <?php if ( get_the_tags() ) : ?>
-
-                                        <?php foreach ( $tags as $tag ) : ?>
-
-                                            <a class="tag-btn" href="<?php echo esc_url( home_url( '/' ) );?>/tag/<?php echo ( $tag->slug );?>">
-                                                <?php echo ( $tag->name ) . ', '; ?>
-                                            </a>
-
-                                        <?php endforeach; ?>
-
-                                    <?php endif; ?>
-
+                                    <?php echo get_the_tag_list( __( 'Tags: ', 'sterling' ), ', ' ); ?>
                                 </div>
 
                             <?php endif; ?>
