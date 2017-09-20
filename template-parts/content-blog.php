@@ -12,7 +12,7 @@ endif;
 
     <a href="<?php the_permalink(); ?>">
 
-        <div class="col-md-6 col-md-push-6" id="blog-img" style="background-image: url( <?php echo esc_url( $thumbnail_image ); ?> );">
+        <div class="col-md-6 col-md-push-6" id="blog-img" style="background-image: url(<?php echo esc_url( $thumbnail_image ); ?>);">
         </div>
 
     </a>
@@ -25,7 +25,9 @@ endif;
 
             <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" ) : ?>
 
-                <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
+                <i>
+                    <?php echo esc_html( date_i18n( get_option( 'date_format' ) ) ); ?>
+                </i>
 
             <?php endif; ?>
             <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" && get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on"  ) : ?>
@@ -43,7 +45,7 @@ endif;
             <p><?php the_excerpt(); ?></p>
 
             <a href="<?php the_permalink(); ?>" class="btn-sterling primary">
-                <?php _e( 'Read More', 'sterling' ); ?>
+                <?php esc_html_e( 'Read More', 'sterling' ); ?>
             </a>
 
         </div>

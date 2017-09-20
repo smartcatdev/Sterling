@@ -26,7 +26,7 @@ sterling_get_custom_footer(); ?>
                         <a href="<?php echo esc_url( get_theme_mod('sterling_company_url', 'http://www.wordpress.org/' ) ); ?>">
                             <?php
                                 /* translators: %s: CMS name, i.e. WordPress. */
-                                printf( esc_attr( get_theme_mod( 'sterling_company_name', __( 'Wordpress', 'sterling' ) ) ) );
+                                printf( esc_attr( get_theme_mod( 'sterling_company_name', __( 'WordPress', 'sterling' ) ) ) );
                             ?>
                         </a>
 

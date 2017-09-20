@@ -8,34 +8,36 @@
 
             <div class="row">
 
-                <div id="single-post" class="col-md-<?php echo sterling_get_container_width(); ?>">
+                <div id="single-post" class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
 
-                    <?php while (have_posts()) : the_post(); ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
 
                         <div id="single-post-title">
 
                             <?php if ( has_post_thumbnail() ) : ?>
                             
-                            <div id="single-post-title-img" style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> )">
-                                <?php echo get_the_post_thumbnail(); ?>
+                            <div id="single-post-title-img" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url() ); ?>)">
+                                <?php the_post_thumbnail( 'large' ); ?>
                             </div>
 
                             <?php endif; ?>
                             
                             <div id="single-post-title-text">
 
-                                <a href="<?php echo get_the_author_meta('user_url'); ?>">
-                                    By <?php echo get_the_author_meta('display_name'); ?>
+                                <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>">
+                                    <?php _e( 'By', 'sterling' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
                                 </a>
 
                                 <span></span>
 
-                                <p><?php echo get_the_date('m/d/Y'); ?></p>
+                                <p>
+                                    <?php echo esc_html( date_i18n( get_option( 'date_format' ) ) ); ?>
+                                </p>
 
                                 <span></span>
 
-                                <a href="<?php echo get_comment_link(); ?>">
-                                    <?php echo get_comments_number() . ' '; ?>Comments
+                                <a href="<?php echo esc_url( get_comment_link() ); ?>">
+                                    <?php echo esc_html( get_comments_number() . ' ' ); ?><?php _e( 'Comments', 'sterling' ); ?>
                                 </a>
 
                             </div>
@@ -50,32 +52,38 @@
 
                         <span id="content-divider"></span>
 
-                        <div id="single-post-tags">
+                        <?php $tags = get_the_tags(); ?> 
 
-                            <?php $tags = get_the_tags(); ?> 
+                        <?php if ( !empty( $tags ) && is_array( $tags ) ) : ?>
 
-                            Tags: 
+                            <div id="single-post-tags">
 
-                            <?php if (get_the_tags()) : ?>
+                                <?php _e( 'Tags:', 'sterling' ); ?>
 
-                                <?php foreach ($tags as $tag) : ?>
+                                <?php foreach ( $tags as $tag ) : ?>
 
-                                    <a class="tag-btn" href="<?php bloginfo('url'); ?>/tag/<?php echo ( $tag->slug ); ?>">
+                                    <a class="tag-btn" href="<?php echo esc_url( home_url( '/' ) ); ?>/tag/<?php echo ( $tag->slug ); ?>">
                                         <?php echo ( $tag->name ) . ', '; ?>
                                     </a>
 
                                 <?php endforeach; ?>
 
-                            <?php endif; ?>
+                            </div>
 
-                        </div>
+                        <?php endif; ?>
+
+                        
 
                         <div id="single-post-author-info">
-                            <div id="single-post-author-img" style="background-image: url( <?php echo get_avatar_url(get_the_author_meta('ID'), 64) ?> ) ">
+                            <div id="single-post-author-img" style="background-image: url(<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ); ?>);">
                             </div>
                             <div id="single-post-author-title">
-                                <h4>About <?php the_author_meta('display_name'); ?></h4>
-                                <p><?php the_author_meta('description'); ?></p>
+                                <h4>
+                                    <?php _e( 'About ', 'sterling' ); ?><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+                                </h4>
+                                <p>
+                                    <?php echo esc_html( get_the_author_meta( 'description' ) ); ?>
+                                </p>
                             </div>
                         </div>
 

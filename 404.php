@@ -30,17 +30,17 @@ get_header(); ?>
                         <section class="error-404 not-found">
 
                             <h2 class="page-title">
-                                <?php esc_html_e( get_theme_mod( 'sterling_404_title', __( 'Oops!', 'sterling' ) ) ); ?>
+                                <?php echo get_theme_mod( 'sterling_404_title', __( 'Oops!', 'sterling' ) ); ?>
                             </h2>
 
                             <div class="page-content">
                                 <p>
-                                    <?php esc_html_e( get_theme_mod( 'sterling_404_message', __( "We're sorry, something seems to have gone wrong.", 'sterling' ) ) ); ?>
+                                    <?php echo get_theme_mod( 'sterling_404_message', __( "We're sorry, something seems to have gone wrong.", 'sterling' ) ); ?>
                                 </p>
                             </div><!-- .page-content -->    
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                <?php esc_html_e( __( 'Return to Home', 'sterling' ) ); ?>
+                                <?php esc_html_e( 'Return to Home', 'sterling' ); ?>
                             </a>
 
                         </section><!-- .error-404 -->
@@ -58,7 +58,5 @@ get_header(); ?>
     </div><!-- #primary -->
 
 <?php
-
-sterling_get_custom_footer();
 
 get_footer();

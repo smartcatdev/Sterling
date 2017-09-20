@@ -17,7 +17,7 @@ get_header(); ?>
 
                     <div class="row search-page">
 
-                        <div class="col-md-<?php esc_attr_e( sterling_get_container_width() ); ?>">
+                        <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
 
                             <?php
                             if ( have_posts() ) : ?>

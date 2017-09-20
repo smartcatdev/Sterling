@@ -1,19 +1,17 @@
 === Sterling ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Contributors: smartcat
+Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography, food-and-drink
 
-Requires at least: 4.0
+Requires at least: 4.6
 Tested up to: 4.8
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
-License URI: LICENSE
-
-A starter theme called Sterling.
+License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
 == Description ==
 
-Description
+Sterling is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Sterling is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://sterling.smartcatdev.wpengine.com/
 
 == Installation ==
 
@@ -25,14 +23,69 @@ Description
 
 = Does this theme support any plugins? =
 
+Sterling includes support for the Our Team Showcase plugin.
 Sterling includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
-* Initial release
+= 1.0.0 - 2017 =
+* Initial Release
 
 == Credits ==
 
 * Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+
+1. Underscores starter theme - Copyright: Automattic, automattic.com 
+    - URL                   http://underscores.me/
+    - Licence               Licensed under GPLv2 or later    
+    - Licence URL           http://www.gnu.org/licenses/gpl.html
+
+2. Bootstrap by Twitter
+    - URL                   https://github.com/twbs/bootstrap/blob/master/LICENSE
+    - License               MIT
+    - License URL           http://opensource.org/licenses/MIT
+
+3. Font Awesome
+    - URL                   http://fortawesome.github.io/Font-Awesome/#license
+    - License               SIL Open Font & MIT
+    - License URL (MIT)     http://opensource.org/licenses/MIT
+    - License URL (OFL)     http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+
+4. Google Fonts
+    - URL                   https://www.google.com/fonts/
+    - License               SIL Open Font
+    - License URL           http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+
+5. Images in screenshot
+    - URL                   URL1
+                            URL2
+    - License               CC0
+    - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en
+              
+6. Animate
+    - URL                   https://github.com/daneden/animate.css#license
+    - License               MIT
+    - License URL           http://www.opensource.org/licenses/mit-license.php
+
+7. TGM Plugin Activation  
+    - URL                   http://tgmpluginactivation.com/
+    - License               Licensed under GPLv2 or later
+    - License URL           http://www.gnu.org/licenses/gpl.html
+
+8. Other Images
+    - URL                   URL1
+                            URL2
+                            URL3
+    - License               CC0
+    - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en 
+
+10. bigSlide.js
+    - URL                   http://ascott1.github.io/bigSlide.js/
+    - License               MIT
+    - License URL           http://www.opensource.org/licenses/mit-license.php
+
+11. Sticky.js
+    - URL                   https://github.com/garand/sticky
+    - License               MIT
+    - License URL           https://github.com/garand/sticky/blob/master/LICENSE.md

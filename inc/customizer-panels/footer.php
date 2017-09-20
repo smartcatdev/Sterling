@@ -14,58 +14,58 @@ $wp_customize->add_panel( 'sterling_footer', array (
         $wp_customize->add_setting( 'sterling_twitter_link', array (
             'default'               => '',
             'transport'             => 'refresh',
-            'sanitize_callback'     => 'sanitize_text_field',
+            'sanitize_callback'     => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'sterling_twitter_link', array (
             'type'                  => 'text',
             'section'               => 'sterling_social_links',
-            'label'                 => __( 'Twitter Address', 'sterling' ),
+            'label'                 => __( 'Twitter URL', 'sterling' ),
         ) );
         
         // Facebook Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_facebook_link', array (
             'default'               => '',
             'transport'             => 'refresh',
-            'sanitize_callback'     => 'sanitize_text_field',
+            'sanitize_callback'     => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'sterling_facebook_link', array (
             'type'                  => 'text',
             'section'               => 'sterling_social_links',
-            'label'                 => __( 'Facebook Address', 'sterling' ),
+            'label'                 => __( 'Facebook URL', 'sterling' ),
         ) );
         
         // Instagram Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_instagram_link', array (
             'default'               => '',
             'transport'             => 'refresh',
-            'sanitize_callback'     => 'sanitize_text_field',
+            'sanitize_callback'     => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'sterling_instagram_link', array (
             'type'                  => 'text',
             'section'               => 'sterling_social_links',
-            'label'                 => __( 'Instagram Address', 'sterling' ),
+            'label'                 => __( 'Instagram URL', 'sterling' ),
         ) );
         
         // Dribbble Link---------------------------------------------------------
         $wp_customize->add_setting( 'sterling_dribbble_link', array (
             'default'               => '',
             'transport'             => 'refresh',
-            'sanitize_callback'     => 'sanitize_text_field',
+            'sanitize_callback'     => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'sterling_dribbble_link', array (
             'type'                  => 'text',
             'section'               => 'sterling_social_links',
-            'label'                 => __( 'Dribbble Address', 'sterling' ),
+            'label'                 => __( 'Dribbble URL', 'sterling' ),
         ) );
         
     $wp_customize->add_section( 'sterling_footer_name', array (
-        'title'                 => __( 'Company Name', 'sterling' ),
+        'title'                 => __( 'Company Branding', 'sterling' ),
         'panel'                 => 'sterling_footer'
     ) );
     
         // Footer Company Name---------------------------------------------------
         $wp_customize->add_setting( 'sterling_company_name', array (
-            'default'               => __( 'Wordpress', 'sterling' ),
+            'default'               => __( 'WordPress', 'sterling' ),
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );

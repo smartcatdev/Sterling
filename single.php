@@ -9,7 +9,7 @@ get_header(); ?>
 
                 <div class="row">
 
-                    <div id="single-post" class="col-md-<?php echo sterling_get_container_width(); ?>">
+                    <div id="single-post" class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
@@ -18,8 +18,8 @@ get_header(); ?>
                                 <?php if ( has_post_thumbnail() &&
                                            get_theme_mod( 'sterling_single_page_img_toggle', 'on' ) == 'on') : ?>
 
-                                    <div id="single-post-title-img" style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> )">
-                                        <?php echo get_the_post_thumbnail(); ?>
+                                    <div id="single-post-title-img" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url() ); ?>)">
+                                        <?php the_post_thumbnail( 'large' ); ?>
                                     </div>
 
                                 <?php endif; ?>
@@ -28,8 +28,8 @@ get_header(); ?>
 
                                     <?php if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' ) : ?>
 
-                                        <a href="<?php echo get_the_author_meta( 'user_url' ); ?>">
-                                            By <?php echo get_the_author_meta( 'display_name' ); ?>
+                                        <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>">
+                                            <?php _e( 'By', 'sterling' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
                                         </a>
 
                                     <?php endif; ?>
@@ -40,9 +40,12 @@ get_header(); ?>
                                         <span></span>
 
                                     <?php endif; ?>
+                                        
                                     <?php if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' ) : ?>
 
-                                        <p><?php echo get_the_date( 'm/d/Y' ); ?></p>
+                                        <p>
+                                            <?php echo esc_html( date_i18n( get_option( 'date_format' ) ) ); ?>
+                                        </p>
 
                                     <?php endif; ?>
                                     <?php if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' &&
@@ -92,8 +95,8 @@ get_header(); ?>
 
                                         <?php foreach ( $tags as $tag ) : ?>
 
-                                            <a class="tag-btn" href="<?php bloginfo( 'url' );?>/tag/<?php echo ( $tag->slug );?>">
-                                                     <?php echo ( $tag->name ) . ', '; ?>
+                                            <a class="tag-btn" href="<?php echo esc_url( home_url( '/' ) );?>/tag/<?php echo ( $tag->slug );?>">
+                                                <?php echo ( $tag->name ) . ', '; ?>
                                             </a>
 
                                         <?php endforeach; ?>
@@ -108,13 +111,13 @@ get_header(); ?>
 
                                 <div id="single-post-author-info">
 
-                                    <div id="single-post-author-img" style="background-image: url( <?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ) ?> ) ">
+                                    <div id="single-post-author-img" style="background-image: url(<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ); ?>);">
                                     </div>
 
                                     <div id="single-post-author-title">
                                         
                                         <h4>
-                                            <?php esc_html_e( 'About '); ?><?php the_author_meta( 'display_name' ); ?>
+                                            <?php esc_html_e( 'About', 'sterling' ); ?> <?php the_author_meta( 'display_name' ); ?>
                                         </h4>
                                         
                                         <?php if ( get_the_author_meta( 'description' ) ) : ?>

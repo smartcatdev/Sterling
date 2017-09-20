@@ -4,7 +4,7 @@ $wp_customize->add_section( 'sterling_404_text', array (
     'priority'              => 4
 ) );
 
-    // 404 Title-------------------------------------------------------------
+    // 404 Title ---------------------------------------------------------------
     $wp_customize->add_setting( 'sterling_404_title', array (
         'default'               => __( 'Oops!', 'sterling' ),
         'transport'             => 'refresh',
@@ -16,7 +16,7 @@ $wp_customize->add_section( 'sterling_404_text', array (
         'label'                 => __( '404 Title', 'sterling' ),
     ) );
     
-    // 404 Message-------------------------------------------------------------
+    // 404 Message -------------------------------------------------------------
     $wp_customize->add_setting( 'sterling_404_message', array (
         'default'               => __( "We're sorry, something seems to have gone wrong.", 'sterling' ),
         'transport'             => 'refresh',

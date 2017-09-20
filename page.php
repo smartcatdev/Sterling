@@ -22,7 +22,7 @@ get_header(); ?>
 
                 <div class="row">
 
-                    <div class="col-md-<?php echo sterling_get_container_width(); ?> page-title">
+                    <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?> page-title">
 
                         <?php while ( have_posts() ) : the_post(); ?>
 

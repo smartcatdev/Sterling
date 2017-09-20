@@ -54,7 +54,7 @@ $wp_customize->add_panel( 'sterling_header', array (
         $wp_customize->add_setting( 'sterling_location_link', array (
             'default'               => '',
             'transport'             => 'refresh',
-            'sanitize_callback'     => 'sanitize_text_field',
+            'sanitize_callback'     => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'sterling_location_link', array (
             'type'                  => 'text',

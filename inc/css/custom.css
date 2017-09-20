@@ -260,11 +260,6 @@ div#header-panel-content .entry-title {
 .logged-in.admin-bar #close-search-btn {
     top: 40px;
 }
-@media (max-width:600px) {
-    body.logged-in.admin-bar #wpadminbar {
-        position: fixed;
-    }    
-}
 #search-icon {
     margin: 10px;
     width: 40px;
@@ -966,3 +961,11 @@ Search
     }
 }
 /*</editor-fold>*/
+
+section.no-results.not-found {
+    padding: 50px 0;
+}
+section.no-results.not-found .page-header {
+    margin: 0;
+    padding: 0;
+}

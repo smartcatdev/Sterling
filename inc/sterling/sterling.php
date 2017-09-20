@@ -21,7 +21,7 @@ function sterling_scripts() {
 
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
-    wp_enqueue_script( 'bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -39,24 +39,25 @@ add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 function sterling_widgets_init() {
     
     register_sidebar( array(
-            'name'          => esc_html__( 'Sidebar Right', 'sterling' ),
-            'id'            => 'sidebar',
-            'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
-	) );
+        'name'          => esc_html__( 'Sidebar Right', 'sterling' ),
+        'id'            => 'sidebar',
+        'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
     
     register_sidebar( array(
-            'name'          => esc_html__( 'Footer', 'sterling' ),
-            'id'            => 'footer',
-            'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
-            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section></div>',
-            'before_title'  => '<h4 class="widget-title">',
-            'after_title'   => '</h4>',
+        'name'          => esc_html__( 'Footer', 'sterling' ),
+        'id'            => 'footer',
+        'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+        'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section></div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
     ) );
+    
 }
 add_action( 'widgets_init', 'sterling_widgets_init' );
 
@@ -400,11 +401,11 @@ add_filter( 'get_the_archive_title', function( $title ) {
     elseif( is_author() ) :
         $title = get_the_author();
     elseif ( is_year() ) :
-        $title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
+        $title = sprintf( __( 'Year: %s', 'sterling' ), date_i18n( __( 'Y', 'sterling' ) ) );
     elseif ( is_month() ) :
-        $title = sprintf( __( 'Month: %s' ), get_the_date( _x( 'F Y', 'monthly archives date format' ) ) );
+        $title = sprintf( __( 'Month: %s', 'sterling' ), date_i18n( __( 'F Y', 'sterling' ) ) );
     elseif ( is_day() ) :
-        $title = sprintf( __( 'Day: %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );
+        $title = sprintf( __( 'Day: %s', 'sterling' ), date_i18n( __( 'F j, Y', 'sterling' ) ) );
     else :
         $title = single_cat_title( '', false );
     endif;

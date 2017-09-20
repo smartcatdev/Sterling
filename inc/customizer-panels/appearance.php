@@ -52,7 +52,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
         'panel'                 => 'sterling_appearance_panel'
     ) );
     
-    if( ! function_exists( 'sterling_pro_init') ) :
+    if ( ! function_exists( 'sterling_pro_init') ) :
         
         // Color Choice Family
         $wp_customize->add_setting( 'sterling_skins_color', array (

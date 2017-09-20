@@ -123,7 +123,7 @@ add_action( 'after_setup_theme', 'sterling_setup' );
  * @global int $content_width
  */
 function sterling_content_width() {
-    $GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 1170 );
+    $GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 1350 );
 }
 add_action( 'after_setup_theme', 'sterling_content_width', 0 );
 
