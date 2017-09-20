@@ -9,48 +9,54 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-            
-		<main id="main" class="site-main">
-                    
-                    <div class="container">
+    <div id="primary" class="content-area">
 
-                        <div class="row">
-                            
-                            <div class="col-sm-6 not-found-large">
+        <main id="main" class="site-main">
 
-                                <h1>404</h1>
+            <div class="container">
 
-                            </div>
-                            
-                            <div class="col-sm-6 not-found-text">
-                                
-                                <section class="error-404 not-found">
-                                    
-                                        <h1 class="page-title"><?php echo esc_attr( get_theme_mod( 'sterling_404_title', 'Oops!' ) ); ?></h1>
+                <div class="row">
 
-                                        <div class="page-content">
-                                                <p><?php echo esc_attr( get_theme_mod( 'sterling_404_message', "WE'RE SORRY, BUT SOMETHING WENT WRONG." ) ); ?></p>
-                                        </div><!-- .page-content -->    
-                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                                Return to Home
-                                        </a>
+                    <div class="col-sm-12 not-found-large">
 
-                                </section><!-- .error-404 -->
-                                
-                            </div>
+                        <h1>
+                            <?php esc_html_e( '404', 'sterling' ); ?>
+                        </h1>
 
-                        </div>
-                        
                     </div>
-                    
-		</main><!-- #main -->
+
+                    <div class="col-sm-12 not-found-text">
+
+                        <section class="error-404 not-found">
+
+                            <h2 class="page-title">
+                                <?php echo get_theme_mod( 'sterling_404_title', __( 'Oops!', 'sterling' ) ); ?>
+                            </h2>
+
+                            <div class="page-content">
+                                <p>
+                                    <?php echo get_theme_mod( 'sterling_404_message', __( "We're sorry, something seems to have gone wrong.", 'sterling' ) ); ?>
+                                </p>
+                            </div><!-- .page-content -->    
+
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                <?php esc_html_e( 'Return to Home', 'sterling' ); ?>
+                            </a>
+
+                        </section><!-- .error-404 -->
+
+                    </div>
+
+                </div>
                 
-	</div><!-- #primary -->
+                <div class="clear"></div>
+
+            </div>
+
+        </main><!-- #main -->
+
+    </div><!-- #primary -->
 
 <?php
-sterling_get_scrolltotop();
- 
-sterling_get_custom_footer();
 
 get_footer();

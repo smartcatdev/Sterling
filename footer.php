@@ -9,42 +9,45 @@
  * @package Sterling
  */
 
+sterling_get_custom_footer(); ?>
 
-sterling_get_custom_footer();
-?>
+    </div><!-- #content -->
 
-	</div><!-- #content -->
+    <footer id="colophon" class="site-footer">
 
-	<footer id="colophon" class="site-footer">
-            
-            <div class="container-fluid" id="footer">
-                
-                <div class="row">
-                    
-                    <div class="container">
-                        
-                        <div class="site-info">
-                                <a href="<?php echo esc_url( get_theme_mod('sterling_company_url', 'www.wordpress.org') ); ?>"><?php
-                                        /* translators: %s: CMS name, i.e. WordPress. */
-                                        printf( esc_attr( get_theme_mod('sterling_company_name', 'Wordpress') ) );
-                                ?></a>
-                                <span class="sep"> | </span>
-                                <?php
-                                        /* translators: 1: Theme name, 2: Theme author. */
-                                        printf( esc_html__( 'Designed by %2$s.', 'sterling' ), 'Sterling', '<a href="https://www.smartcatdesign.net/">Smartcat</a>' );
-                                ?>
-                                
-                                <?php sterling_get_scrolltotop(); ?>
-                                    
-                        </div><!-- .site-info -->
-                
-                    </div>
-                
+        <div class="container-fluid" id="footer">
+
+            <div class="row">
+
+                <div class="container">
+
+                    <div class="site-info">
+
+                        <a href="<?php echo esc_url( get_theme_mod('sterling_company_url', 'http://www.wordpress.org/' ) ); ?>">
+                            <?php
+                                /* translators: %s: CMS name, i.e. WordPress. */
+                                printf( esc_attr( get_theme_mod( 'sterling_company_name', __( 'WordPress', 'sterling' ) ) ) );
+                            ?>
+                        </a>
+
+                        <span class="sep"> | </span>
+
+                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel">
+                            <?php esc_html_e( 'Designed by ', 'sterling' ); ?> 
+                            <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/smartcat_new_logo.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'sterling'), 'Smartcat' ); ?>" />
+                        </a>
+
+                        <?php sterling_get_scrolltotop(); ?>
+
+                    </div><!-- .site-info -->
+
                 </div>
-                                
+
             </div>
-            
-	</footer><!-- #colophon -->
+
+        </div>
+
+    </footer><!-- #colophon -->
         
 </div><!-- #page -->
 

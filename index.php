@@ -14,144 +14,56 @@
     
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div id="primary" class="content-area">
 
-		<?php
-		if ( have_posts() ) :
+    <main id="main" class="site-main">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+        <?php if ( have_posts() ) : ?>
 
-			<?php endif; ?>
+            <?php if ( is_home() && ! is_front_page() ) : ?>
 
-                        <?php $ctr = 0; ?>   
+                <header>
+                    <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+                </header>
 
-                <div class="container-fluid push" id="blog-posts">
-                    
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <?php endif; ?>
 
-                        <div class="row">
+            <?php $ctr = 0; ?>   
 
-                            <?php if ( $ctr % 2 ) : ?>
+            <div class="container-fluid push" id="blog-posts">
 
-                                <a href="<?php the_permalink(); ?>">
+                <?php while ( have_posts() ) : the_post();
 
-                                    <div class="col-md-6" id="blog-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> );">
+                    if ( $ctr % 2 ) :
 
-                                           <?php the_post_thumbnail(); ?>
+                        get_template_part( 'template-parts/content', 'blog-flip' );
 
-                                    </div>    
+                    else : 
 
-                                </a>
+                        get_template_part( 'template-parts/content', 'blog' );
 
-                                <div class="col-md-6" id="blog-info">
+                    endif;
 
-                                    <div id="blog-info-content">
+                    $ctr++;
 
-                                        <h2><?php the_title(); ?></h2>
-                                        
-                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" ) : ?>
-                                        
-                                            <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
-                                  
-                                        <?php endif; ?>
-                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" && 
-                                                   get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on"  ) : ?>
-                                        
-                                            <span class="divider"></span>
-                                            
-                                        <?php endif; ?>
-                                        
-                                        <?php if ( get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on" ) : ?>    
-                                            
-                                            <i><?php comments_number(); ?></i>
-                                            
-                                        <?php endif; ?>
-                                            
-                                        <p><?php the_excerpt(); ?></p>
+                endwhile; ?> 
 
-                                        <a class="btn-sterling primary" href="<?php the_permalink(); ?>">
-                                            Read More
-                                        </a>
+                <div class="row">
 
-                                    </div>
+                    <?php the_posts_pagination( array( 'mid_size' => 1 ) ); ?>
 
-                                </div>
+                </div>
+                
+            </div>
+        
+        <?php else : ?>
 
-                            <?php else: ?>
+            <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-                                <a href="<?php the_permalink(); ?>">
+        <?php endif; ?>
 
-                                    <div class="col-md-6 col-md-push-6" id="blog-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> );">
+    </main><!-- #main -->
 
+</div><!-- #primary -->
 
-                                        <?php the_post_thumbnail(); ?>
-
-
-                                    </div>
-
-                                </a>
-
-                                <div class="col-md-6 col-md-pull-6" id="blog-info">
-
-                                    <div id="blog-info-content">
-
-                                        <h2><?php the_title(); ?></h2>
-                                        
-                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" ) : ?>
-                                        
-                                            <i><?php echo esc_html( get_the_date( 'm/d/Y' ) ); ?></i>
-                                  
-                                        <?php endif; ?>
-                                        <?php if ( get_theme_mod( 'sterling_blog_date_toggle', 'on' ) == "on" && 
-                                                   get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on"  ) : ?>
-                                        
-                                            <span class="divider"></span>
-                                            
-                                        <?php endif; ?>
-                                        
-                                        <?php if ( get_theme_mod( 'sterling_blog_comments_toggle', 'on' ) == "on" ) : ?>    
-                                            
-                                            <i><?php comments_number(); ?></i>
-                                            
-                                        <?php endif; ?>
-
-                                        <p><?php the_excerpt(); ?></p>
-
-                                        <a href="<?php the_permalink(); ?>" class="btn-sterling primary">
-                                            Read More
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            <?php endif; ?>
-
-                            <?php $ctr++; ?> 
-
-                        </div>
-
-                    <?php endwhile; ?>    
-
-                    <?php endif; ?>
-
-                </div> <?php
-
-			the_posts_pagination( array( 'mid_size' => 1 ) );
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php 
-
-get_footer();
+<?php get_footer();
