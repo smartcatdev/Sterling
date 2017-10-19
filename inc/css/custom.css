@@ -806,8 +806,12 @@ Mobile Menu
     -webkit-transition: .2s all ease-in-out;
 }
 
-div#main-navigation-wrapper ul li {
-    margin: 7px 15px;
+div#main-navigation-wrapper ul.sub-menu {
+    
+}
+
+div#main-navigation-wrapper ul.sub-menu li {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 #mobile-menu ul#primary-menu > li.menu-item-has-children span.submenu-rotated {

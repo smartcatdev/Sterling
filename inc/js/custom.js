@@ -25,7 +25,13 @@
             $( ".site-header" ).unstick();
         }
     });
-    
+
+    $( '.menu-primary-container .menu > li > ul.sub-menu' ).css({
+        
+        paddingTop : sterlingTheme.headerDesktopHeight/2
+        
+    })
+     
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     //  Mobile Opacity Layer
     //__________________________________________________________________________
