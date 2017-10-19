@@ -13,8 +13,8 @@ get_header(); ?>
 
 <?php if ( $front != 'posts' ) : ?>
 
-    <?php if ( function_exists( 'sterling_slider' ) ) { sterling_slider(); } ?>
-    
+    <?php do_action( 'render_scslider', true ); ?>
+
     <?php do_action( 'sterling_after_slider' ); ?>
     
     <?php do_action( 'sterling_before_content' ); ?>
