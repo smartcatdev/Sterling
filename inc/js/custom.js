@@ -26,6 +26,12 @@
         }
     });
     
+    $( '.menu-primary-container .menu > li > ul.sub-menu' ).css({
+        
+        top : sterlingTheme.headerDesktopHeight/2
+        
+    })
+    
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     //  Mobile Opacity Layer
     //__________________________________________________________________________

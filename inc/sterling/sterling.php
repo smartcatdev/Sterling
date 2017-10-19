@@ -24,6 +24,10 @@ function sterling_scripts() {
     wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
+    wp_localize_script( 'sterling-custom', 'sterlingTheme', array(
+        'headerDesktopHeight'      => intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) )
+    ) );
+    
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -213,12 +217,15 @@ function sterling_custom_css() { ?>
         ________________________________________________________________________________________________*/
             
         @media (min-width:992px) {
+            
             #top-bar .row {
                height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
             }  
             #site-branding img {
                max-height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
-            }  
+            } 
+            
+            
         }
 
         @media (max-width:991px) {
