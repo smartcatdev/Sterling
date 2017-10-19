@@ -340,13 +340,30 @@ function sterling_all_posts_array( $include_pages = false ) {
  */
 add_action( 'sterling_header_panel', 'sterling_get_header_panel' );
 function sterling_get_header_panel( ) { 
+
+
+    /**
+     * Theme Integration with Smartcat Slider plugin
+     */
+    $post_id = null;
     
-    if ( get_post_meta( get_the_ID(), 'scslider_toggle', true ) == 'on' ) {
+    if( is_home() ){
+        
+        $post_id = get_option( 'page_for_posts' );
+        
+    }else {
+        
+        $post_id = get_the_ID();
+        
+    }
+    
+    if ( get_post_meta( $post_id, 'scslider_toggle', true ) == 'on' ) {
         
         do_action( 'render_scslider', true );
         return;
         
     }
+    // ------- end
     
     if ( has_header_image() ): ?>
         
