@@ -8,6 +8,14 @@ body {
     background-color: #404040;
 }
 
+a:hover {
+    text-decoration: none;
+}
+input:focus,
+textarea:focus{
+    outline: none;
+}
+
 input[type=submit] {
     border-radius: 0;
     font-size: inherit;
@@ -122,6 +130,8 @@ div#header-icons .header-icon:last-of-type {
        width: 20%;
        text-align: right;
     }   
+    
+    
 }
 
 
@@ -176,14 +186,43 @@ div#mobile-menu > #menu {
     background-repeat: no-repeat;
     background-size: cover;
 }
+#header-panel > .row{
+    background: rgba( 0,0,0,0.2 );
+}
 #header-panel * {
     text-align: center;
     font-family: Trirong;
     color: white;
 }
 #header-panel-content {
-    padding: 90px 0;
+    height: 500px;
+    padding: 40px 0;
+    display: table;
+    width: 100%;
 }
+
+@media( max-width: 991px ) {
+    
+    #header-panel-content {
+        padding: 60px 0;
+    }
+    
+}
+
+@media( max-width: 767px ) {
+    
+    #header-panel-content {
+        padding: 40px 0;
+    }
+    
+}
+
+#header-panel-content .header-panel-inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
 div#header-panel-content .entry-title {
     margin-top: 0;
     text-transform: capitalize;
@@ -199,6 +238,12 @@ div#header-panel-content .entry-title {
     display: inline-block;
     padding-left: 10px;
 }
+
+#secondary-menu .children {
+    display: none;
+}
+
+
 #secondary-menu li:not(:only-child) {
     padding: 0 20px;
     transition: 0.3s ease-in-out;
@@ -659,8 +704,13 @@ Mobile Menu
 }
 #primary-menu > li {
     text-align: left;
-    margin: 25px;
+    margin: 0px;
     transition: 0.3s ease-in-out;
+}
+
+#primary-menu > li > a {
+    margin: 15px;
+    
 }
 #menu li {
     text-align: left;
@@ -807,11 +857,16 @@ Mobile Menu
 }
 
 div#main-navigation-wrapper ul.sub-menu {
-    
+    background: #fff;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 div#main-navigation-wrapper ul.sub-menu li {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+div#main-navigation-wrapper ul.sub-menu li a {
+    margin: 7px;
 }
 
 #mobile-menu ul#primary-menu > li.menu-item-has-children span.submenu-rotated {

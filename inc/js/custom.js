@@ -26,11 +26,14 @@
         }
     });
 
-    $( '.menu-primary-container .menu > li > ul.sub-menu' ).css({
-        
-        paddingTop : sterlingTheme.headerDesktopHeight/2
-        
-    })
+
+//    var menuTopDist = ( sterlingTheme.headerDesktopHeight/2 ) - parseInt( $( '#main-navigation-wrapper .menu > li > a' ).css( 'font-size' ) )
+//    var menuTopDist = ( sterlingTheme.headerDesktopHeight/2 )
+//    $( '#main-navigation-wrapper .menu > li > ul.sub-menu' ).css({
+//        
+//        paddingTop : menuTopDist
+//        
+//    })
      
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     //  Mobile Opacity Layer

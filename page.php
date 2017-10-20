@@ -21,11 +21,21 @@ get_header(); ?>
             <div class="container" id="page-container">
 
                 <div class="row">
+                    
+                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
 
+                        <div class="col-md-3" id="page-sidebar">
+
+                            <?php get_sidebar(); ?>
+
+                        </div>
+                    
+                    <?php endif; ?>
+                    
                     <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?> page-title">
 
                         <?php while ( have_posts() ) : the_post(); ?>
-
+                        
                             <?php if ( has_post_thumbnail() ) : ?>
 
                                 <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
@@ -47,11 +57,15 @@ get_header(); ?>
 
                     </div>
 
-                    <div class="col-md-3" id="page-sidebar">
+                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
 
-                        <?php get_sidebar(); ?>
+                        <div class="col-md-3" id="page-sidebar">
 
-                    </div>
+                            <?php get_sidebar(); ?>
+
+                        </div>
+                    
+                    <?php endif; ?>
 
                 </div>    
 

@@ -83,10 +83,10 @@ if ( ! function_exists( 'sterling_setup' ) ) :
         ) );
         
         register_default_headers( array(
-        'camera' => array(
-            'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
-            'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
-            'description'   => __( 'camera', 'sterling' )
+            'camera' => array(
+                'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
+                'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
+                'description'   => __( 'camera', 'sterling' )
         ) ) );
 
         // Set up the WordPress core custom background feature.
@@ -127,10 +127,6 @@ function sterling_content_width() {
 }
 add_action( 'after_setup_theme', 'sterling_content_width', 0 );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -146,6 +142,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+require get_template_directory() . '/inc/sterling/SterlingPostMeta.php';
 
 /**
  * Load the theme functions file.

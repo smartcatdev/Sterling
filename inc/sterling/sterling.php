@@ -24,6 +24,11 @@ function sterling_scripts() {
     wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
+    wp_localize_script( 'sterling-custom', 'sterlingTheme', array(
+        'headerDesktopHeight'       => intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ),
+                
+    ) );
+    
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -145,7 +150,8 @@ function sterling_custom_css() { ?>
             color: <?php echo $skin_color; ?>;
         }
         
-        .current-menu-item a, 
+        .current-menu-item > a,
+        #primary-menu > li.current-menu-ancestor > a,
         #top-bar .menu-primary-container #primary-menu li > .sub-menu > li > .sub-menu > li:hover a {
             color: <?php echo $skin_color; ?> !important;
         }
@@ -254,50 +260,55 @@ add_action('wp_head', 'sterling_custom_css');
  * 
  * @return array of fonts
  */
-function sterling_fonts(){
-    
-    $font_family_array = array(
-        
-        'Abel, sans-serif'                                  => 'Abel',
-        'Arvo, serif'                                       => 'Arvo:400,400i,700',
-        'Bangers, cursive'                                  => 'Bangers',
-        'Courgette, cursive'                                => 'Courgette',
-        'Domine, serif'                                     => 'Domine',
-        'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
-        'Droid Sans, sans-serif'                            => 'Droid+Sans:400,700',
-        'Economica, sans-serif'                             => 'Economica:400,700',
-        'Josefin Sans, sans-serif'                          => 'Josefin+Sans:300,400,600,700',
-        'Itim, cursive'                                     => 'Itim',
-        'Lato, sans-serif'                                  => 'Lato:100,300,400,700,900,300italic,400italic',
-        'Lobster Two, cursive'                              => 'Lobster+Two',
-        'Lora, serif'                                       => 'Lora',
-        'Lilita One, cursive'                               => 'Lilita+One',
-        'Montserrat, sans-serif'                            => 'Montserrat:400,700',
-        'Noto Serif, serif'                                 => 'Noto+Serif',
-        'Old Standard TT, serif'                            => 'Old+Standard+TT:400,400i,700',
-        'Open Sans, sans-serif'                             => 'Open Sans',
-        'Open Sans Condensed, sans-serif'                   => 'Open+Sans+Condensed:300,300i,700',
-        'Orbitron, sans-serif'                              => 'Orbitron',
-        'Oswald, sans-serif'                                => 'Oswald:300,400',
-        'Poiret One, cursive'                               => 'Poiret+One',
-        'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
-        'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
-        'Raleway, sans-serif'                               => 'Raleway:200,300,400,500,700',
-        'Roboto, sans-serif'                                => 'Roboto:100,300,400,500',
-        'Roboto Condensed, sans-serif'                      => 'Roboto+Condensed:400,300,700',
-        'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
-        'Shrikhand, cursive'                                => 'Shrikhand',
-        'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
-        'Teko, sans-serif'                                  => 'Teko:300,400,600',
-        'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
-        'Trirong, serif'                                    => 'Trirong:400,700',
-        'Ubuntu, sans-serif'                                => 'Ubuntu',
-        'Vollkorn, serif'                                   => 'Vollkorn:400,400i,700',
-        'Voltaire, sans-serif'                              => 'Voltaire',
-        
-    );
-    
-    return $font_family_array;
+
+if( !function_exists( 'sterling_fonts' ) ) {
+
+    function sterling_fonts(){
+
+        $font_family_array = array(
+
+            'Abel, sans-serif'                                  => 'Abel',
+            'Arvo, serif'                                       => 'Arvo:400,400i,700',
+            'Bangers, cursive'                                  => 'Bangers',
+            'Courgette, cursive'                                => 'Courgette',
+            'Domine, serif'                                     => 'Domine',
+            'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
+            'Droid Sans, sans-serif'                            => 'Droid+Sans:400,700',
+            'Economica, sans-serif'                             => 'Economica:400,700',
+            'Josefin Sans, sans-serif'                          => 'Josefin+Sans:300,400,600,700',
+            'Itim, cursive'                                     => 'Itim',
+            'Lato, sans-serif'                                  => 'Lato:100,300,400,700,900,300italic,400italic',
+            'Lobster Two, cursive'                              => 'Lobster+Two',
+            'Lora, serif'                                       => 'Lora',
+            'Lilita One, cursive'                               => 'Lilita+One',
+            'Montserrat, sans-serif'                            => 'Montserrat:400,700',
+            'Noto Serif, serif'                                 => 'Noto+Serif',
+            'Old Standard TT, serif'                            => 'Old+Standard+TT:400,400i,700',
+            'Open Sans, sans-serif'                             => 'Open Sans',
+            'Open Sans Condensed, sans-serif'                   => 'Open+Sans+Condensed:300,300i,700',
+            'Orbitron, sans-serif'                              => 'Orbitron',
+            'Oswald, sans-serif'                                => 'Oswald:300,400',
+            'Poiret One, cursive'                               => 'Poiret+One',
+            'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
+            'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
+            'Raleway, sans-serif'                               => 'Raleway:200,300,400,500,700',
+            'Roboto, sans-serif'                                => 'Roboto:100,300,400,500',
+            'Roboto Condensed, sans-serif'                      => 'Roboto+Condensed:400,300,700',
+            'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
+            'Shrikhand, cursive'                                => 'Shrikhand',
+            'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
+            'Teko, sans-serif'                                  => 'Teko:300,400,600',
+            'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
+            'Trirong, serif'                                    => 'Trirong:400,700',
+            'Ubuntu, sans-serif'                                => 'Ubuntu',
+            'Vollkorn, serif'                                   => 'Vollkorn:400,400i,700',
+            'Voltaire, sans-serif'                              => 'Voltaire',
+
+        );
+
+        return apply_filters( 'sterling_fonts', $font_family_array );
+
+    }
     
 }
 
@@ -365,45 +376,59 @@ function sterling_get_header_panel( ) {
     }
     // ------- end
     
-    if ( has_header_image() ): ?>
+    if ( has_header_image() && get_post_meta( $post_id, 'sterling_disable_header', true ) !== 'hide' ) : ?>
         
         <?php $image = get_header_image(); ?>
     
         <div id="header-panel" class="container-fluid" style="background-image: url(<?php echo esc_url( $image ); ?>)">
 
-            <div class="row">
+            <div class="row overlay">
 
-                <div id="header-panel-content">
+                <div id="header-panel-content" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
                     
-                    <?php if( is_archive() ) : ?>
+                    <div class="header-panel-inner">
 
-                        <?php the_archive_title('<h1 class="entry-title">', '</h1>'); ?>
+                        <?php if( is_archive() ) : ?>
+                            
+                            <h1 class="entry-title"><?php echo esc_attr( get_the_archive_title() ); ?></h1>
+                        
+                        <?php elseif( is_search() ) : ?>
 
-                    <?php elseif( is_search() ) : ?>
+                            <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'sterling' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-                        <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'sterling' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                        <?php elseif( is_home() && !is_front_page() ) : ?>
 
-                    <?php elseif( is_home() && !is_front_page() ) : ?>
+                            <h1 class="entry-title animated slideInDown"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
 
-                        <?php single_post_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                        <?php elseif( is_home() ) : ?>
 
-                    <?php elseif( is_home() ) : ?>
+                            <h1 class="entry-title animated slideInDown"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></h1>
 
-                        <h1 class="entry-title"><?php bloginfo( 'name' ); ?></h1>
+                        <?php else : ?>
 
-                    <?php else : ?>
+                            <h1 class="entry-title"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
+                            
+                        <?php endif; ?>
 
-                        <?php single_post_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                        <div id="header-panel-links">
 
-                    <?php endif; ?>
-                   
-                    <div id="header-panel-links">
+                            <?php
+                            
+                            if( has_nav_menu( 'menu-secondary' ) ) :
+                                
+                                wp_nav_menu( array(
+                                    'theme_location' => 'menu-secondary',
+                                    'menu_id'        => 'secondary-menu',
+                                    'container_class'=> is_home() ? 'animated slideInUp' : '',
+                                ) );
 
-                        <?php wp_nav_menu( array(
-                            'theme_location' => 'menu-secondary',
-                            'menu_id'        => 'secondary-menu',
-                        ) ); ?>
+                                
+                            endif;
+                            
+                            ?>
 
+                        </div>
+                        
                     </div>
 
                 </div>

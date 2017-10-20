@@ -10,7 +10,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
     // ---------------------------------------------
     $wp_customize->add_section( 'sterling_fonts_section', array(
         'title'                 => __( 'Fonts', 'sterling'),
-        'description'           => __( 'Customize the fonts in use on your header', 'sterling' ),
+        'description'           => __( 'Select one of the following Google fonts', 'sterling' ),
         'panel'                 => 'sterling_appearance_panel',
         'priority'              => 3
     ) );

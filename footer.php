@@ -31,12 +31,16 @@ sterling_get_custom_footer(); ?>
                         </a>
 
                         <span class="sep"> | </span>
-
-                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel">
-                            <?php esc_html_e( 'Designed by ', 'sterling' ); ?> 
+                        
+                        <?php if( get_theme_mod( 'sterling_sc_branding', 'on' ) == 'on' ) : ?>
+                        
+                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel" title="<?php printf( esc_attr__( '%s Logo', 'sterling'), 'Smartcat' ); ?>">
+                            <?php _e( 'Designed by ', 'sterling' ); ?> 
                             <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/smartcat_new_logo.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'sterling'), 'Smartcat' ); ?>" />
                         </a>
-
+                        
+                        <?php endif; ?>
+                        
                         <?php sterling_get_scrolltotop(); ?>
 
                     </div><!-- .site-info -->

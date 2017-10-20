@@ -1,14 +1,14 @@
 <?php
 
-$wp_customize->add_panel( 'sterling_header', array (
-    'title'                 => __( 'Header', 'sterling' ),
+$wp_customize->add_panel( 'sterling_general', array (
+    'title'                 => __( 'General', 'sterling' ),
     'description'           => __( 'Customize your header', 'sterling' ),
     'priority'              => 2
 ) );
 
     $wp_customize->add_section( 'sterling_heights_section', array (
         'title'                 => __( 'Nav Bar Heights', 'sterling' ),
-        'panel'                 => 'sterling_header'
+        'panel'                 => 'sterling_general'
     ) );
 
         // Header Height Desktop
@@ -47,7 +47,7 @@ $wp_customize->add_panel( 'sterling_header', array (
 
     $wp_customize->add_section( 'sterling_contact_links', array (
         'title'                 => __( 'Contact Links', 'sterling' ),
-        'panel'                 => 'sterling_header'
+        'panel'                 => 'sterling_general'
     ) );
     
         //  Location Link---------------------------------------------------------

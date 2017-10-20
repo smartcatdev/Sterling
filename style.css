@@ -564,12 +564,10 @@ a:active {
 	position: absolute;
 	top: 100%;
 	left: -999em;
+	left: -999em;
 	z-index: 99999;
 }
 
-#main-navigation ul.sub-menu li {
-    background: #fff;
-}
 
 .main-navigation ul ul ul {
 	left: -999em;

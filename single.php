@@ -9,6 +9,16 @@ get_header(); ?>
 
                 <div class="row">
 
+                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
+
+                        <div class="col-md-3" id="single-post-sidebar">
+
+                            <?php get_sidebar(); ?>
+
+                        </div>
+
+                    <?php endif; ?>
+                    
                     <div id="single-post" class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
 
                         <?php while ( have_posts() ) : the_post(); ?>
@@ -127,11 +137,15 @@ get_header(); ?>
 
                     </div>
 
-                    <div id="single-post-sidebar" class="col-md-3">
+                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
 
-                        <?php get_sidebar(); ?>
+                        <div class="col-md-3" id="single-post-sidebar">
 
-                    </div>
+                            <?php get_sidebar(); ?>
+
+                        </div>
+                    
+                    <?php endif; ?>
 
                 </div>    
 

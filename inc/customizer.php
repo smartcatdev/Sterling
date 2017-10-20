@@ -29,17 +29,34 @@ function sterling_customize_register( $wp_customize ) {
     }
 
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/logo.php';
-    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/header.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/general.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/appearance.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/footer.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/404.php';
 
     $wp_customize->get_section ( 'background_image' )->panel = 'sterling_appearance_panel';
     $wp_customize->get_section ( 'colors' )->panel = 'sterling_appearance_panel';
-    $wp_customize->get_section ( 'header_image' )->panel = 'sterling_header';
-
+    $wp_customize->get_section ( 'header_image' )->priority = 1;
     $wp_customize->get_section ( 'title_tagline' )->priority = 1;
+    $wp_customize->get_section ( 'title_tagline' )->title = __( 'Site Identity & Logo', 'sterling' );
 
+    // Custom Logo Height Value
+    $wp_customize->add_setting( 'sterling_header_height', array (
+        'default'               => 50,
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'sterling_sanitize_integer',
+    ) );
+    $wp_customize->add_control( 'sterling_header_height', array(
+        'type'                  => 'number',
+        'section'               => 'header_image',
+        'label'                 => __( 'Custom Header Height', 'sterling' ),
+        'description'           => __( 'Set in percentage.', 'sterling' ),
+        'input_attrs'           => array(
+            'min' => 20,
+            'max' => 100,
+            'step' => 5,
+    ) ) );
+    
 }
 add_action( 'customize_register', 'sterling_customize_register' );
 
