@@ -16,7 +16,7 @@
 
                             <?php if ( has_post_thumbnail() ) : ?>
                             
-                            <div id="single-post-title-img" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url() ); ?>)">
+                            <div id="single-post-title-img">
                                 <?php the_post_thumbnail( 'large' ); ?>
                             </div>
 
@@ -61,8 +61,11 @@
                         <?php endif; ?>
 
                         <div id="single-post-author-info">
-                            <div id="single-post-author-img" style="background-image: url(<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ); ?>);">
+                            
+                            <div id="single-post-author-img">
+                                <?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
                             </div>
+                            
                             <div id="single-post-author-title">
                                 <h4>
                                     <?php _e( 'About ', 'sterling' ); ?><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>

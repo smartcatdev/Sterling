@@ -38,8 +38,8 @@ get_header(); ?>
                         
                             <?php if ( has_post_thumbnail() ) : ?>
 
-                                <div id="page-title-img" style="background-image: url( <?php the_post_thumbnail_url(); ?> ">
-                                        <?php the_post_thumbnail(); ?>
+                                <div id="page-title-img">
+                                    <?php the_post_thumbnail(); ?>
                                 </div>
 
                             <?php endif; ?>

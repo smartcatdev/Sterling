@@ -558,10 +558,8 @@ Single Post
     margin: 0 5px;
 }
 #single-post-title-img img {
-    visibility: hidden;
 }
 #single-post-title-img {
-    height: 300px;
     background-size: cover !important;
     background-position: 50% 50% !important;
 }
@@ -900,11 +898,8 @@ Page
     transform: rotate(-45deg);
 }
 #page-title-img img {
-    visibility: hidden;
 }
 #page-title-img {
-    background-position: 50% 50%;
-    height: 270px;
     margin-bottom: 45px;
 }
 .page-title h1 {
