@@ -398,10 +398,14 @@ function kenza_get_header_panel( ) {
 
                                 <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'kenza' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-                            <?php elseif( is_home() || is_front_page() ) : ?>
+                            <?php elseif( is_home() && ! is_front_page() ) : ?>
 
                                 <h1 class="entry-title animated slideInDown"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
 
+                            <?php elseif( is_home() ) : ?>
+                                
+                                <h1 class="entry-title animated slideInDown"><?php bloginfo( 'name' ); ?></h1>
+                                
                             <?php else : ?>
 
                                 <h1 class="entry-title"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>

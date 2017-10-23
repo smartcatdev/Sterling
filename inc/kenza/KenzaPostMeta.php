@@ -3,7 +3,7 @@
 class Kenza_Post_Style_Meta_Box {
 
     public function __construct() {
-
+        
         if ( is_admin() ) {
             add_action( 'load-post.php', array ( $this, 'init_metabox' ) );
             add_action( 'load-post-new.php', array ( $this, 'init_metabox' ) );
