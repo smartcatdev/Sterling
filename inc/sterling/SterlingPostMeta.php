@@ -32,25 +32,11 @@ class Sterling_Post_Style_Meta_Box {
         $sterling_disable_header = get_post_meta( $post->ID, 'sterling_disable_header', true );
         $sterling_sidebar = get_post_meta( $post->ID, 'sterling_sidebar', true );
 
-        // Set default values.
-        if ( empty( $sterling_disable_header ) )
-            $sterling_disable_header = 'show';
         if ( empty( $sterling_sidebar ) )
             $sterling_sidebar = 'sterling_rsidebar';
 
         // Form fields.
         echo '<table class="form-table">';
-
-        echo '	<tr>';
-        echo '		<th><label for="sterling_disable_header" class="sterling_disable_header_label">' . __( 'Site header', 'sterling' ) . '</label></th>';
-        echo '		<td>';
-        echo '			<select id="sterling_disable_header" name="sterling_disable_header" class="sterling_disable_header_field">';
-        echo '			<option value="show" ' . selected( $sterling_disable_header, 'show', false ) . '> ' . __( 'Show', 'sterling' ) . '</option>';
-        echo '			<option value="hide" ' . selected( $sterling_disable_header, 'hide', false ) . '> ' . __( 'Hide', 'sterling' ) . '</option>';
-        echo '			</select>';
-//        echo '			<p class="description">' . __( 'How do you want the featured image to show ?', 'sterling' ) . '</p>';
-        echo '		</td>';
-        echo '	</tr>';
 
         echo '	<tr>';
         echo '		<th><label for="sterling_sidebar" class="sterling_sidebar_label">' . __( 'Sidebar Location', 'sterling' ) . '</label></th>';
@@ -80,11 +66,9 @@ class Sterling_Post_Style_Meta_Box {
             return;
         
         // Sanitize user input.
-        $sterling_new_disable_header = isset( $_POST[ 'sterling_disable_header' ] ) ? $_POST[ 'sterling_disable_header' ] : '';
         $sterling_new_sidebar = isset( $_POST[ 'sterling_sidebar' ] ) ? $_POST[ 'sterling_sidebar' ] : '';
 
         // Update the meta field in the database.
-        update_post_meta( $post_id, 'sterling_disable_header', $sterling_new_disable_header );
         update_post_meta( $post_id, 'sterling_sidebar', $sterling_new_sidebar );
     }
 

@@ -58,8 +58,9 @@ Sterling includes support for Infinite Scroll in Jetpack.
     - License URL           http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 
 5. Images in screenshot
-    - URL                   URL1
-                            URL2
+    - URL                   https://pixabay.com/en/yashica-filter-camera-vintage-711794/
+                            https://pixabay.com/en/fall-leaves-trail-foliage-1432252/
+                            https://pixabay.com/en/wedding-flower-bouquet-beauty-2700495/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en
               

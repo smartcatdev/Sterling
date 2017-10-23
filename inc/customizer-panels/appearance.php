@@ -66,7 +66,7 @@ $wp_customize->add_panel( 'sterling_appearance_panel', array (
             'label'                 => __( 'Site Skin Color', 'sterling' ),
             'description'           => __( 'Select the color of the theme', 'sterling' ),
             'choices'               => array(
-                'e5bc6e' => __( 'Gold', 'sterling' ),
+                'c1a564' => __( 'Gold', 'sterling' ),
                 'e8280b' => __( 'Red', 'sterling' ),
             ),
         ) );     

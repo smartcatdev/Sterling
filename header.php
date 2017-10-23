@@ -124,7 +124,7 @@
                                     <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '' ) ); ?>">
 
                                         <div class="header-icon">
-                                            <i class="fa fa-envelope"></i>
+                                            <i class="fa fa-envelope-o"></i>
                                         </div>
 
                                     </a>

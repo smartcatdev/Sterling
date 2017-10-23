@@ -9,7 +9,11 @@
     
 $front = get_option( 'show_on_front' ); 
 
-get_header(); ?>
+get_header(); 
+
+do_action( 'sterling_fp_afterheader' );
+
+?>
 
 <?php if ( $front != 'posts' ) : ?>
 

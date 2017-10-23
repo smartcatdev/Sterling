@@ -11,70 +11,79 @@
  *
  * @package Sterling
  */
+get_header();
+?>
 
-get_header(); ?>
+<div id="primary" class="content-area">
 
-    <div id="primary" class="content-area">
-            
-        <main id="main" class="site-main">
-                    
-            <div class="container" id="page-container">
+    <main id="main" class="site-main">
 
-                <div class="row">
-                    
-                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
+        <div class="container" id="page-container">
 
-                        <div class="col-md-3" id="page-sidebar">
+            <div class="row">
 
-                            <?php get_sidebar(); ?>
+                <div class="col-md-10 col-md-offset-1">
 
-                        </div>
-                    
-                    <?php endif; ?>
-                    
-                    <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?> page-title">
+                    <div class="row">
 
-                        <?php while ( have_posts() ) : the_post(); ?>
-                        
-                            <?php if ( has_post_thumbnail() ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
 
-                                <div id="page-title-img">
-                                    <?php the_post_thumbnail(); ?>
-                                </div>
+                            <div class="col-md-4" id="page-sidebar">
 
-                            <?php endif; ?>
+                                <?php get_sidebar(); ?>
 
-                            <p>
-                                <?php the_content(); ?>
-                            </p>
+                            </div>
 
-                            <?php  // If comments are open or we have at least one comment, load up the comment template.
-                            if ( comments_open() || get_comments_number() ) :
+                        <?php endif; ?>
+
+                        <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?> page-title">
+
+                            <?php while ( have_posts() ) : the_post(); ?>
+
+                                <?php if ( has_post_thumbnail() ) : ?>
+
+                                    <div id="page-title-img">
+                                        <?php the_post_thumbnail(); ?>
+                                    </div>
+
+                                <?php endif; ?>
+
+                                <h1><?php the_title(); ?></h1>
+
+                                <p>
+                                    <?php the_content(); ?>
+                                </p>
+
+                                <?php
+                                // If comments are open or we have at least one comment, load up the comment template.
+                                if ( comments_open() || get_comments_number() ) :
                                     comments_template();
-                            endif;
+                                endif;
 
-                        endwhile; // End of the loop.  ?>
-
-                    </div>
-
-                    <?php if( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
-
-                        <div class="col-md-3" id="page-sidebar">
-
-                            <?php get_sidebar(); ?>
+                            endwhile; // End of the loop.  
+                            ?>
 
                         </div>
-                    
-                    <?php endif; ?>
 
+                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
+
+                            <div class="col-md-4" id="page-sidebar">
+
+                                <?php get_sidebar(); ?>
+
+                            </div>
+
+                        <?php endif; ?>
+
+                    </div>    
                 </div>    
+            </div>    
 
-            </div>
+        </div>
 
-        </main><!-- #main -->
+    </main><!-- #main -->
 
-    </div><!-- #primary -->
+</div><!-- #primary -->
 
 <?php
-
 get_footer();

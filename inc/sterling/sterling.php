@@ -22,6 +22,7 @@ function sterling_scripts() {
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
     wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'sterling-parallax', get_template_directory_uri() . '/inc/js/plx.js', null, STERLING_VERSION );
     wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
 
     wp_localize_script( 'sterling-custom', 'sterlingTheme', array(
@@ -44,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
 function sterling_widgets_init() {
     
     register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar Right', 'sterling' ),
+        'name'          => esc_html__( 'Sidebar', 'sterling' ),
         'id'            => 'sidebar',
         'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -156,7 +157,7 @@ function sterling_custom_css() { ?>
             color: <?php echo $skin_color; ?> !important;
         }
         
-        .header-icon, 
+        /*.header-icon,*/ 
         .read-more-btn, 
         .custom-footer-social-icon, 
         .page-numbers.current,
@@ -199,7 +200,6 @@ function sterling_custom_css() { ?>
             border-top-color:  <?php echo $skin_color; ?>;
         }
         
-        .header-icon:hover, 
         .read-more-btn:hover, 
         .custom-footer-social-icon:hover, 
         .page-numbers:hover, 
@@ -376,70 +376,77 @@ function sterling_get_header_panel( ) {
     }
     // ------- end
     
-    if ( has_header_image() && get_post_meta( $post_id, 'sterling_disable_header', true ) !== 'hide' ) : ?>
+    if ( ( is_home() || is_front_page() || is_archive() || is_search() ) && has_header_image() ) : ?>
         
         <?php $image = get_header_image(); ?>
     
-        <div id="header-panel" class="container-fluid" style="background-image: url(<?php echo esc_url( $image ); ?>)">
+        <div id="header-panel" class="container-fluid" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
 
-            <div class="row overlay">
+            <div class="row ">
 
-                <div id="header-panel-content" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
-                    
-                    <div class="header-panel-inner">
+                <div class="parallax" data-plx-img="<?php echo esc_url( $image ); ?>" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
+                
+                    <div id="header-panel-content">
 
-                        <?php if( is_archive() ) : ?>
-                            
-                            <h1 class="entry-title"><?php echo esc_attr( get_the_archive_title() ); ?></h1>
-                        
-                        <?php elseif( is_search() ) : ?>
+                        <div class="header-panel-inner">
 
-                            <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'sterling' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                            <?php if( is_archive() ) : ?>
 
-                        <?php elseif( is_home() && !is_front_page() ) : ?>
+                                <h1 class="entry-title"><?php echo esc_attr( get_the_archive_title() ); ?></h1>
 
-                            <h1 class="entry-title animated slideInDown"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
+                            <?php elseif( is_search() ) : ?>
 
-                        <?php elseif( is_home() ) : ?>
+                                <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'sterling' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-                            <h1 class="entry-title animated slideInDown"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></h1>
+                            <?php elseif( is_home() || is_front_page() ) : ?>
 
-                        <?php else : ?>
+                                <h1 class="entry-title animated slideInDown"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
 
-                            <h1 class="entry-title"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
-                            
-                        <?php endif; ?>
+                            <?php else : ?>
 
-                        <div id="header-panel-links">
+                                <h1 class="entry-title"><?php echo esc_attr( single_post_title( null, false ) ); ?></h1>
 
-                            <?php
-                            
-                            if( has_nav_menu( 'menu-secondary' ) ) :
-                                
-                                wp_nav_menu( array(
-                                    'theme_location' => 'menu-secondary',
-                                    'menu_id'        => 'secondary-menu',
-                                    'container_class'=> is_home() ? 'animated slideInUp' : '',
-                                ) );
+                            <?php endif; ?>
 
-                                
-                            endif;
-                            
-                            ?>
+                            <div id="header-panel-links">
+
+                                <?php
+
+                                if( has_nav_menu( 'menu-secondary' ) ) :
+
+                                    wp_nav_menu( array(
+                                        'theme_location' => 'menu-secondary',
+                                        'menu_id'        => 'secondary-menu',
+                                        'container_class'=> is_home() || is_front_page() ? 'animated slideInUp' : '',
+                                    ) );
+
+
+                                endif;
+
+                                ?>
+
+                            </div>
 
                         </div>
-                        
-                    </div>
 
+                    </div>
+                    
                 </div>
 
             </div>
-
+            
+            <?php if( is_front_page() && !is_home() ) : ?>
+                <!--<div class="header-angle">
+                    <svg width="100%" height="100" viewBox="0 0 100 102" preserveAspectRatio="none"> <path d="M0 0 L50 90 L100 0 V100 H0" fill="#FFF"></path></svg>
+                </div>-->
+            <?php endif; ?>
+            
         </div>
     
     <?php endif;
     
 }
+
 
 add_filter( 'get_the_archive_title', function( $title ) {
 
@@ -592,6 +599,7 @@ function sterling_get_scrolltotop() { ?>
 
 function sterling_get_container_width() {
     
-    return is_active_sidebar( 'sidebar' ) ? 9 : 12;
+    return is_active_sidebar( 'sidebar' ) ? 8 : 12;
     
 }
+
