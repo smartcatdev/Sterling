@@ -3,30 +3,30 @@
 /**
  * Enqueue scripts and styles.
  */
-function sterling_scripts() {
+function kenza_scripts() {
     
-    $fonts = sterling_fonts();
+    $fonts = kenza_fonts();
     
-    wp_enqueue_style( 'sterling-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'kenza-style', get_stylesheet_uri() );
     
     // Google Fonts Enqueue
-    if( array_key_exists( get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ), $fonts ) && array_key_exists ( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ), $fonts ) ) :
-        wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'sterling_font_primary', 'Trirong, serif' ) ] . '|' . $fonts[ get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif' ) ] ), array(), STERLING_VERSION );
+    if( array_key_exists( get_theme_mod( 'kenza_font_primary', 'Trirong, serif' ), $fonts ) && array_key_exists ( get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif' ), $fonts ) ) :
+        wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'kenza_font_primary', 'Trirong, serif' ) ] . '|' . $fonts[ get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif' ) ] ), array(), KENZA_VERSION );
     endif;
     
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, STERLING_VERSION );
-    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, STERLING_VERSION );
-    wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.css', null, STERLING_VERSION );
-    wp_enqueue_style( 'sterling-custom', get_template_directory_uri() . '/inc/css/custom.css', null, STERLING_VERSION );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, KENZA_VERSION );
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', null, KENZA_VERSION );
+    wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.css', null, KENZA_VERSION );
+    wp_enqueue_style( 'kenza-custom', get_template_directory_uri() . '/inc/css/custom.css', null, KENZA_VERSION );
 
-    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), STERLING_VERSION );
-    wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), STERLING_VERSION );
-    wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), STERLING_VERSION );
-    wp_enqueue_script( 'sterling-parallax', get_template_directory_uri() . '/inc/js/plx.js', null, STERLING_VERSION );
-    wp_enqueue_script( 'sterling-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), STERLING_VERSION );
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array("jquery"), KENZA_VERSION );
+    wp_enqueue_script( 'jquery-sticky', get_template_directory_uri() . '/inc/js/jquery.sticky.js', array("jquery"), KENZA_VERSION );
+    wp_enqueue_script( 'jquery-bigSlide', get_template_directory_uri() . '/inc/js/bigSlide.min.js', array("jquery"), KENZA_VERSION );
+    wp_enqueue_script( 'kenza-parallax', get_template_directory_uri() . '/inc/js/plx.js', null, KENZA_VERSION );
+    wp_enqueue_script( 'kenza-custom', get_template_directory_uri() . '/inc/js/custom.js', array("jquery"), KENZA_VERSION );
 
-    wp_localize_script( 'sterling-custom', 'sterlingTheme', array(
-        'headerDesktopHeight'       => intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ),
+    wp_localize_script( 'kenza-custom', 'kenzaTheme', array(
+        'headerDesktopHeight'       => intval( get_theme_mod( 'kenza_custom_header_height_desktop', 96 ) ),
                 
     ) );
     
@@ -35,19 +35,19 @@ function sterling_scripts() {
     }
 
 }
-add_action( 'wp_enqueue_scripts', 'sterling_scripts' );
+add_action( 'wp_enqueue_scripts', 'kenza_scripts' );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function sterling_widgets_init() {
+function kenza_widgets_init() {
     
     register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar', 'sterling' ),
+        'name'          => esc_html__( 'Sidebar', 'kenza' ),
         'id'            => 'sidebar',
-        'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+        'description'   => esc_html__( 'Add widgets here.', 'kenza' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h2 class="widget-title">',
@@ -55,9 +55,9 @@ function sterling_widgets_init() {
     ) );
     
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer', 'sterling' ),
+        'name'          => esc_html__( 'Footer', 'kenza' ),
         'id'            => 'footer',
-        'description'   => esc_html__( 'Add widgets here.', 'sterling' ),
+        'description'   => esc_html__( 'Add widgets here.', 'kenza' ),
         'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section></div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -65,9 +65,9 @@ function sterling_widgets_init() {
     ) );
     
 }
-add_action( 'widgets_init', 'sterling_widgets_init' );
+add_action( 'widgets_init', 'kenza_widgets_init' );
 
-function sterling_hex2rgba( $color, $opacity = false ) {
+function kenza_hex2rgba( $color, $opacity = false ) {
  
     $default = 'rgb(0,0,0)';
     
@@ -106,7 +106,7 @@ function sterling_hex2rgba( $color, $opacity = false ) {
         
 }
 
-function sterling_custom_css() { ?>
+function kenza_custom_css() { ?>
 
     <style type="text/css">
         
@@ -118,7 +118,7 @@ function sterling_custom_css() { ?>
         #header-panel *, 
         h1,h2,h3,h4,h5,h6, 
         .site-title a {
-             font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_primary', 'Trirong, serif') ); ?>;
+             font-family: <?php echo esc_attr( get_theme_mod( 'kenza_font_primary', 'Trirong, serif') ); ?>;
         }
         
         p, 
@@ -126,15 +126,15 @@ function sterling_custom_css() { ?>
         div, 
         input, 
         textarea {
-            font-family: <?php echo esc_attr( get_theme_mod( 'sterling_font_body', 'Titillium Web, sans-serif') ); ?>;
+            font-family: <?php echo esc_attr( get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif') ); ?>;
         }
         
         /*¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
             BODY COLORS
         ________________________________________________________________________________________________*/
         
-        <?php $skin_color       = esc_attr( sterling_hex2rgba( get_theme_mod( 'sterling_skins_color', 'e5bc6e' ) ) ); ?>
-        <?php $skin_hover_color = esc_attr( sterling_hex2rgba( get_theme_mod( 'sterling_skins_color', 'e5bc6e' ), 0.65 ) ); ?>
+        <?php $skin_color       = esc_attr( kenza_hex2rgba( get_theme_mod( 'kenza_skins_color', 'e5bc6e' ) ) ); ?>
+        <?php $skin_hover_color = esc_attr( kenza_hex2rgba( get_theme_mod( 'kenza_skins_color', 'e5bc6e' ), 0.65 ) ); ?>
         
         h1,h2,h3,h4,h5,h6,
         th,
@@ -164,7 +164,7 @@ function sterling_custom_css() { ?>
         input[type="submit"], 
         .not-found-text a, 
         #search-icon, 
-        .btn-sterling.primary {
+        .btn-kenza.primary {
             background-color: <?php echo $skin_color; ?>;
             color: #ffffff;
         }
@@ -220,19 +220,19 @@ function sterling_custom_css() { ?>
             
         @media (min-width:992px) {
             #top-bar .row {
-               height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+               height: <?php echo intval( get_theme_mod( 'kenza_custom_header_height_desktop', 96 ) ); ?>px;   
             }  
             #site-branding img {
-               max-height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_desktop', 96 ) ); ?>px;   
+               max-height: <?php echo intval( get_theme_mod( 'kenza_custom_header_height_desktop', 96 ) ); ?>px;   
             }  
         }
 
         @media (max-width:991px) {
             #top-bar .row {
-               height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;
+               height: <?php echo intval( get_theme_mod( 'kenza_custom_header_height_mobile', 64 ) ); ?>px;
             }   
             #site-branding img {
-               max-height: <?php echo intval( get_theme_mod( 'sterling_custom_header_height_mobile', 64 ) ); ?>px;   
+               max-height: <?php echo intval( get_theme_mod( 'kenza_custom_header_height_mobile', 64 ) ); ?>px;   
             }  
         }
         
@@ -240,10 +240,10 @@ function sterling_custom_css() { ?>
             CUSTOM LOGO HEIGHT
         ________________________________________________________________________________________________*/
         
-        <?php if ( get_theme_mod( 'sterling_custom_logo_height_toggle', 'off' ) == 'on' ) : ?>
+        <?php if ( get_theme_mod( 'kenza_custom_logo_height_toggle', 'off' ) == 'on' ) : ?>
         
             #site-branding img {
-                height: <?php echo intval( get_theme_mod( 'sterling_custom_logo_height', 96 ) ); ?>px;
+                height: <?php echo intval( get_theme_mod( 'kenza_custom_logo_height', 96 ) ); ?>px;
             }
         
         <?php endif; ?>
@@ -253,7 +253,7 @@ function sterling_custom_css() { ?>
     <?php 
     
 }
-add_action('wp_head', 'sterling_custom_css');
+add_action('wp_head', 'kenza_custom_css');
 
 /**
  * Returns all available fonts as an array
@@ -261,9 +261,9 @@ add_action('wp_head', 'sterling_custom_css');
  * @return array of fonts
  */
 
-if( !function_exists( 'sterling_fonts' ) ) {
+if( !function_exists( 'kenza_fonts' ) ) {
 
-    function sterling_fonts(){
+    function kenza_fonts(){
 
         $font_family_array = array(
 
@@ -306,7 +306,7 @@ if( !function_exists( 'sterling_fonts' ) ) {
 
         );
 
-        return apply_filters( 'sterling_fonts', $font_family_array );
+        return apply_filters( 'kenza_fonts', $font_family_array );
 
     }
     
@@ -319,7 +319,7 @@ if( !function_exists( 'sterling_fonts' ) ) {
  * @param boolean $include_pages
  * @return array of posts
  */
-function sterling_all_posts_array( $include_pages = false ) {
+function kenza_all_posts_array( $include_pages = false ) {
     
     $posts = get_posts( array(
         'post_type'        => $include_pages ? array( 'post', 'page' ) : 'post',
@@ -330,7 +330,7 @@ function sterling_all_posts_array( $include_pages = false ) {
     ));
     
     $posts_array = array(
-        'none'  => __( 'None', 'sterling' ),
+        'none'  => __( 'None', 'kenza' ),
     );
     
     foreach ( $posts as $post ) :
@@ -349,8 +349,8 @@ function sterling_all_posts_array( $include_pages = false ) {
  * Creates header using images from Custom Header
  * @param string $details Extra info to print into header
  */
-add_action( 'sterling_header_panel', 'sterling_get_header_panel' );
-function sterling_get_header_panel( ) { 
+add_action( 'kenza_header_panel', 'kenza_get_header_panel' );
+function kenza_get_header_panel( ) { 
 
 
     /**
@@ -380,11 +380,11 @@ function sterling_get_header_panel( ) {
         
         <?php $image = get_header_image(); ?>
     
-        <div id="header-panel" class="container-fluid" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
+        <div id="header-panel" class="container-fluid" style="height: <?php echo esc_attr( get_theme_mod( 'kenza_header_height', 50 ) ); ?>vh">
 
             <div class="row ">
 
-                <div class="parallax" data-plx-img="<?php echo esc_url( $image ); ?>" style="height: <?php echo esc_attr( get_theme_mod( 'sterling_header_height', 50 ) ); ?>vh">
+                <div class="parallax" data-plx-img="<?php echo esc_url( $image ); ?>" style="height: <?php echo esc_attr( get_theme_mod( 'kenza_header_height', 50 ) ); ?>vh">
                 
                     <div id="header-panel-content">
 
@@ -396,7 +396,7 @@ function sterling_get_header_panel( ) {
 
                             <?php elseif( is_search() ) : ?>
 
-                                <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'sterling' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                                <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'kenza' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
                             <?php elseif( is_home() || is_front_page() ) : ?>
 
@@ -457,11 +457,11 @@ add_filter( 'get_the_archive_title', function( $title ) {
     elseif( is_author() ) :
         $title = get_the_author();
     elseif ( is_year() ) :
-        $title = sprintf( __( 'Year: %s', 'sterling' ), date_i18n( __( 'Y', 'sterling' ) ) );
+        $title = sprintf( __( 'Year: %s', 'kenza' ), date_i18n( __( 'Y', 'kenza' ) ) );
     elseif ( is_month() ) :
-        $title = sprintf( __( 'Month: %s', 'sterling' ), date_i18n( __( 'F Y', 'sterling' ) ) );
+        $title = sprintf( __( 'Month: %s', 'kenza' ), date_i18n( __( 'F Y', 'kenza' ) ) );
     elseif ( is_day() ) :
-        $title = sprintf( __( 'Day: %s', 'sterling' ), date_i18n( __( 'F j, Y', 'sterling' ) ) );
+        $title = sprintf( __( 'Day: %s', 'kenza' ), date_i18n( __( 'F j, Y', 'kenza' ) ) );
     else :
         $title = single_cat_title( '', false );
     endif;
@@ -472,16 +472,16 @@ add_filter( 'get_the_archive_title', function( $title ) {
 
 
 /**
- * Creates sterling custom footer
+ * Creates kenza custom footer
  */
-function sterling_get_custom_footer() { ?>
+function kenza_get_custom_footer() { ?>
     
     <?php 
     
-    $social_urls['twitter']     = get_theme_mod( 'sterling_twitter_link', '' );
-    $social_urls['facebook']    = get_theme_mod( 'sterling_facebook_link', '' );
-    $social_urls['instagram']   = get_theme_mod( 'sterling_instagram_link', '' );
-    $social_urls['dribbble']    = get_theme_mod( 'sterling_dribbble_link', '' );
+    $social_urls['twitter']     = get_theme_mod( 'kenza_twitter_link', '' );
+    $social_urls['facebook']    = get_theme_mod( 'kenza_facebook_link', '' );
+    $social_urls['instagram']   = get_theme_mod( 'kenza_instagram_link', '' );
+    $social_urls['dribbble']    = get_theme_mod( 'kenza_dribbble_link', '' );
     $valid_social_urls          = 0;
     
     foreach ( $social_urls as $social_url ) {
@@ -587,7 +587,7 @@ function sterling_get_custom_footer() { ?>
 <?php }
 
 
-function sterling_get_scrolltotop() { ?>
+function kenza_get_scrolltotop() { ?>
     
     <span id="scrolltotop-btn">
         
@@ -597,7 +597,7 @@ function sterling_get_scrolltotop() { ?>
     
 <?php }
 
-function sterling_get_container_width() {
+function kenza_get_container_width() {
     
     return is_active_sidebar( 'sidebar' ) ? 8 : 12;
     

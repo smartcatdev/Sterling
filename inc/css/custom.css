@@ -68,11 +68,11 @@ input[type="search"] {
 a:visited {
     color: #337ab7;
 }
-.btn-sterling {
+.btn-kenza {
     padding: 10px 15px !important;
     cursor: pointer;
 }
-.btn-sterling.secondary {
+.btn-kenza.secondary {
     background-color: #151515;
     color: white;
 }
@@ -82,7 +82,7 @@ a:visited {
 Header
 */
 /*<editor-fold desc="Header">*/
-.sterling-site-wrapper {
+.kenza-site-wrapper {
     width: 100%;
     max-width: 1350px;
     margin: 0 auto;

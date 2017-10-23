@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Sterling
+ * @package Kenza
  */
 get_header();
 ?>
@@ -26,7 +26,7 @@ get_header();
 
                     <div class="row">
 
-                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), 'kenza_sidebar', true ) == 'kenza_lsidebar' ) : ?>
 
                             <div class="col-md-4" id="page-sidebar">
 
@@ -36,7 +36,7 @@ get_header();
 
                         <?php endif; ?>
 
-                        <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?> page-title">
+                        <div class="col-md-<?php echo intval( kenza_get_container_width() ); ?> page-title">
 
                             <?php while ( have_posts() ) : the_post(); ?>
 
@@ -65,7 +65,7 @@ get_header();
 
                         </div>
 
-                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), 'kenza_sidebar', true ) != 'kenza_lsidebar' ) : ?>
 
                             <div class="col-md-4" id="page-sidebar">
 

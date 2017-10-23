@@ -12,7 +12,7 @@
 
                     <div class="row">
 
-                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) == 'sterling_lsidebar' ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), 'kenza_sidebar', true ) == 'kenza_lsidebar' ) : ?>
 
                             <div class="col-md-4" id="single-post-sidebar">
 
@@ -22,7 +22,7 @@
 
                         <?php endif; ?>
 
-                        <div id="single-post" class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
+                        <div id="single-post" class="col-md-<?php echo intval( kenza_get_container_width() ); ?>">
 
                             <?php while ( have_posts() ) : the_post(); ?>
 
@@ -30,7 +30,7 @@
 
                                     <?php
                                     if ( has_post_thumbnail() &&
-                                            get_theme_mod( 'sterling_single_page_img_toggle', 'on' ) == 'on' ) :
+                                            get_theme_mod( 'kenza_single_page_img_toggle', 'on' ) == 'on' ) :
                                         ?>
 
                                         <div id="single-post-title-img">
@@ -44,24 +44,24 @@
                                         
                                         <h1><?php the_title(); ?></h1>
                                         
-                                        <?php if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' ) : ?>
+                                        <?php if ( get_theme_mod( 'kenza_single_page_author_toggle', 'on' ) == 'on' ) : ?>
 
                                             <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>">
-                                                <?php _e( 'By', 'sterling' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+                                                <?php _e( 'By', 'kenza' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
                                             </a>
 
                                         <?php endif; ?>
 
                                         <?php
-                                        if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' &&
-                                                get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' ) :
+                                        if ( get_theme_mod( 'kenza_single_page_author_toggle', 'on' ) == 'on' &&
+                                                get_theme_mod( 'kenza_single_page_date_toggle', 'on' ) == 'on' ) :
                                             ?>
 
                                             <span></span>
 
                                         <?php endif; ?>
 
-                                        <?php if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' ) : ?>
+                                        <?php if ( get_theme_mod( 'kenza_single_page_date_toggle', 'on' ) == 'on' ) : ?>
 
                                             <p>
                                                 <?php echo esc_html( date_i18n( get_option( 'date_format' ) ) ); ?>
@@ -69,8 +69,8 @@
 
                                         <?php endif; ?>
                                         <?php
-                                        if ( get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'on' &&
-                                                get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' ) :
+                                        if ( get_theme_mod( 'kenza_single_page_date_toggle', 'on' ) == 'on' &&
+                                                get_theme_mod( 'kenza_single_page_comments_toggle', 'on' ) == 'on' ) :
                                             ?>
 
                                             <span></span>
@@ -78,19 +78,19 @@
                                         <?php endif; ?>
 
                                         <?php
-                                        if ( get_theme_mod( 'sterling_single_page_author_toggle', 'on' ) == 'on' &&
-                                                get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' &&
-                                                get_theme_mod( 'sterling_single_page_date_toggle', 'on' ) == 'off' ) :
+                                        if ( get_theme_mod( 'kenza_single_page_author_toggle', 'on' ) == 'on' &&
+                                                get_theme_mod( 'kenza_single_page_comments_toggle', 'on' ) == 'on' &&
+                                                get_theme_mod( 'kenza_single_page_date_toggle', 'on' ) == 'off' ) :
                                             ?>
 
                                             <span></span>
 
                                         <?php endif; ?>    
 
-                                        <?php if ( get_theme_mod( 'sterling_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
+                                        <?php if ( get_theme_mod( 'kenza_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
 
                                             <a href="#comments">
-                                                <?php _e( get_comments_number() . ' Comments', 'sterling' ); ?>
+                                                <?php _e( get_comments_number() . ' Comments', 'kenza' ); ?>
                                             </a>
 
                                         <?php endif; ?>
@@ -110,12 +110,12 @@
                                 <?php if ( has_tag() ) : ?>
 
                                     <div id="single-post-tags">
-                                        <?php echo get_the_tag_list( __( 'Tags: ', 'sterling' ), ', ' ); ?>
+                                        <?php echo get_the_tag_list( __( 'Tags: ', 'kenza' ), ', ' ); ?>
                                     </div>
 
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'sterling_single_page_about_author_toggle', 'on' ) == 'on' ) : ?>
+                                <?php if ( get_theme_mod( 'kenza_single_page_about_author_toggle', 'on' ) == 'on' ) : ?>
 
                                     <div id="single-post-author-info">
 
@@ -126,7 +126,7 @@
                                         <div id="single-post-author-title">
 
                                             <h4>
-                                                <?php esc_html_e( 'About', 'sterling' ); ?> <?php the_author_meta( 'display_name' ); ?>
+                                                <?php esc_html_e( 'About', 'kenza' ); ?> <?php the_author_meta( 'display_name' ); ?>
                                             </h4>
 
                                             <?php if ( get_the_author_meta( 'description' ) ) : ?>
@@ -154,7 +154,7 @@
 
                         </div>
 
-                        <?php if ( get_post_meta( get_the_ID(), 'sterling_sidebar', true ) != 'sterling_lsidebar' ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), 'kenza_sidebar', true ) != 'kenza_lsidebar' ) : ?>
 
                             <div class="col-md-4" id="single-post-sidebar">
 

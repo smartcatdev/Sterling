@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Sterling Theme Customizer
+ * Kenza Theme Customizer
  *
- * @package Sterling
+ * @package Kenza
  */
 
 /**
@@ -11,7 +11,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function sterling_customize_register( $wp_customize ) {
+function kenza_customize_register( $wp_customize ) {
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -20,11 +20,11 @@ function sterling_customize_register( $wp_customize ) {
     if ( isset( $wp_customize->selective_refresh ) ) {
         $wp_customize->selective_refresh->add_partial( 'blogname', array(
             'selector'        => '.site-title a',
-            'render_callback' => 'sterling_customize_partial_blogname',
+            'render_callback' => 'kenza_customize_partial_blogname',
         ) );
         $wp_customize->selective_refresh->add_partial( 'blogdescription', array(
             'selector'        => '.site-description',
-            'render_callback' => 'sterling_customize_partial_blogdescription',
+            'render_callback' => 'kenza_customize_partial_blogdescription',
         ) );
     }
 
@@ -34,23 +34,23 @@ function sterling_customize_register( $wp_customize ) {
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/footer.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/404.php';
 
-    $wp_customize->get_section ( 'background_image' )->panel = 'sterling_appearance_panel';
-    $wp_customize->get_section ( 'colors' )->panel = 'sterling_appearance_panel';
+    $wp_customize->get_section ( 'background_image' )->panel = 'kenza_appearance_panel';
+    $wp_customize->get_section ( 'colors' )->panel = 'kenza_appearance_panel';
     $wp_customize->get_section ( 'header_image' )->priority = 1;
     $wp_customize->get_section ( 'title_tagline' )->priority = 1;
-    $wp_customize->get_section ( 'title_tagline' )->title = __( 'Site Identity & Logo', 'sterling' );
+    $wp_customize->get_section ( 'title_tagline' )->title = __( 'Site Identity & Logo', 'kenza' );
 
     // Custom Logo Height Value
-    $wp_customize->add_setting( 'sterling_header_height', array (
+    $wp_customize->add_setting( 'kenza_header_height', array (
         'default'               => 50,
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'sterling_sanitize_integer',
+        'sanitize_callback'     => 'kenza_sanitize_integer',
     ) );
-    $wp_customize->add_control( 'sterling_header_height', array(
+    $wp_customize->add_control( 'kenza_header_height', array(
         'type'                  => 'number',
         'section'               => 'header_image',
-        'label'                 => __( 'Custom Header Height', 'sterling' ),
-        'description'           => __( 'Set in percentage.', 'sterling' ),
+        'label'                 => __( 'Custom Header Height', 'kenza' ),
+        'description'           => __( 'Set in percentage.', 'kenza' ),
         'input_attrs'           => array(
             'min' => 20,
             'max' => 100,
@@ -58,14 +58,14 @@ function sterling_customize_register( $wp_customize ) {
     ) ) );
     
 }
-add_action( 'customize_register', 'sterling_customize_register' );
+add_action( 'customize_register', 'kenza_customize_register' );
 
 /**
  * Render the site title for the selective refresh partial.
  *
  * @return void
  */
-function sterling_customize_partial_blogname() {
+function kenza_customize_partial_blogname() {
     bloginfo( 'name' );
 }
 
@@ -74,21 +74,21 @@ function sterling_customize_partial_blogname() {
  *
  * @return void
  */
-function sterling_customize_partial_blogdescription() {
+function kenza_customize_partial_blogdescription() {
     bloginfo( 'description' );
 }
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function sterling_customize_preview_js() {
-    wp_enqueue_script( 'sterling-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), STERLING_VERSION, true );
+function kenza_customize_preview_js() {
+    wp_enqueue_script( 'kenza-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), KENZA_VERSION, true );
 }
-add_action( 'customize_preview_init', 'sterling_customize_preview_js' );
+add_action( 'customize_preview_init', 'kenza_customize_preview_js' );
 
-function sterling_sanitize_font( $input ) {
+function kenza_sanitize_font( $input ) {
     
-    $valid_keys = sterling_fonts();
+    $valid_keys = kenza_fonts();
     
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;
@@ -98,11 +98,11 @@ function sterling_sanitize_font( $input ) {
     
 }
 
-function sterling_sanitize_on_off_toggle( $input ) {
+function kenza_sanitize_on_off_toggle( $input ) {
     
     $valid_keys = array(
-        'on'        => __( 'On', 'sterling' ),
-        'off'       => __( 'Off', 'sterling' ),
+        'on'        => __( 'On', 'kenza' ),
+        'off'       => __( 'Off', 'kenza' ),
     );
     
     if ( array_key_exists( $input, $valid_keys ) ) {
@@ -113,7 +113,7 @@ function sterling_sanitize_on_off_toggle( $input ) {
     
 }
 
-function sterling_sanitize_integer( $input ) {
+function kenza_sanitize_integer( $input ) {
     return intval( $input );
 }
 
@@ -123,7 +123,7 @@ function sterling_sanitize_integer( $input ) {
  * @param type $setting
  * @return string validated color choice
  */
-function sterling_sanitize_color( $input, $setting ) {
+function kenza_sanitize_color( $input, $setting ) {
     
     // Ensure input is a slug
     $input = sanitize_key( $input );
