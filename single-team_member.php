@@ -8,7 +8,7 @@
 
             <div class="row">
 
-                <div id="single-post" class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
+                <div id="single-post" class="col-md-<?php echo intval( kenza_get_container_width() ); ?>">
 
                     <?php while ( have_posts() ) : the_post(); ?>
 
@@ -16,7 +16,7 @@
 
                             <?php if ( has_post_thumbnail() ) : ?>
                             
-                            <div id="single-post-title-img" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url() ); ?>)">
+                            <div id="single-post-title-img">
                                 <?php the_post_thumbnail( 'large' ); ?>
                             </div>
 
@@ -25,7 +25,7 @@
                             <div id="single-post-title-text">
 
                                 <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>">
-                                    <?php _e( 'By', 'sterling' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+                                    <?php _e( 'By', 'kenza' ); ?> <?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
                                 </a>
 
                                 <span></span>
@@ -37,7 +37,7 @@
                                 <span></span>
 
                                 <a href="<?php echo esc_url( get_comment_link() ); ?>">
-                                    <?php echo esc_html( get_comments_number() . ' ' ); ?><?php _e( 'Comments', 'sterling' ); ?>
+                                    <?php echo esc_html( get_comments_number() . ' ' ); ?><?php _e( 'Comments', 'kenza' ); ?>
                                 </a>
 
                             </div>
@@ -55,17 +55,20 @@
                         <?php if ( has_tag() ) : ?>
 
                             <div id="single-post-tags">
-                                <?php echo get_the_tag_list( __( 'Tags: ', 'sterling' ), ', ' ); ?>
+                                <?php echo get_the_tag_list( __( 'Tags: ', 'kenza' ), ', ' ); ?>
                             </div>
 
                         <?php endif; ?>
 
                         <div id="single-post-author-info">
-                            <div id="single-post-author-img" style="background-image: url(<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 64 ) ); ?>);">
+                            
+                            <div id="single-post-author-img">
+                                <?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
                             </div>
+                            
                             <div id="single-post-author-title">
                                 <h4>
-                                    <?php _e( 'About ', 'sterling' ); ?><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+                                    <?php _e( 'About ', 'kenza' ); ?><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
                                 </h4>
                                 <p>
                                     <?php echo esc_html( get_the_author_meta( 'description' ) ); ?>

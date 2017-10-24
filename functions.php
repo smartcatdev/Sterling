@@ -1,13 +1,13 @@
 <?php
 /**
- * Sterling functions and definitions
+ * Kenza functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Sterling
+ * @package Kenza
  */
 
-if ( ! function_exists( 'sterling_setup' ) ) :
+if ( ! function_exists( 'kenza_setup' ) ) :
 
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -16,19 +16,19 @@ if ( ! function_exists( 'sterling_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function sterling_setup() {
+    function kenza_setup() {
 
-        if ( !defined( 'STERLING_VERSION' ) ):
-            define( 'STERLING_VERSION', "0.0.1" );
+        if ( !defined( 'KENZA_VERSION' ) ):
+            define( 'KENZA_VERSION', "0.0.1" );
         endif;
         
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on Sterling, use a find and replace
-         * to change 'sterling' to the name of your theme in all the template files.
+         * If you're building a theme based on Kenza, use a find and replace
+         * to change 'kenza' to the name of your theme in all the template files.
          */
-        load_theme_textdomain( 'sterling', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'kenza', get_template_directory() . '/languages' );
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -50,8 +50,8 @@ if ( ! function_exists( 'sterling_setup' ) ) :
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
-            'menu-primary'      => esc_html__( 'Primary', 'sterling' ),
-            'menu-secondary'    => esc_html__( 'Secondary', 'sterling' ),
+            'menu-primary'      => esc_html__( 'Primary', 'kenza' ),
+            'menu-secondary'    => esc_html__( 'Secondary', 'kenza' ),
         ) );
 
         /*
@@ -83,14 +83,14 @@ if ( ! function_exists( 'sterling_setup' ) ) :
         ) );
         
         register_default_headers( array(
-        'camera' => array(
-            'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
-            'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
-            'description'   => __( 'camera', 'sterling' )
+            'camera' => array(
+                'url'           => get_template_directory_uri() . '/inc/images/header.jpg',
+                'thumbnail_url' => get_template_directory_uri() . '/inc/images/header.jpg',
+                'description'   => __( 'camera', 'kenza' )
         ) ) );
 
         // Set up the WordPress core custom background feature.
-        add_theme_support( 'custom-background', apply_filters( 'sterling_custom_background_args', array(
+        add_theme_support( 'custom-background', apply_filters( 'kenza_custom_background_args', array(
             'default-color' => '404040',
             'default-image' => '',
         ) ) );
@@ -113,7 +113,7 @@ if ( ! function_exists( 'sterling_setup' ) ) :
     }
     
 endif;
-add_action( 'after_setup_theme', 'sterling_setup' );
+add_action( 'after_setup_theme', 'kenza_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -122,15 +122,11 @@ add_action( 'after_setup_theme', 'sterling_setup' );
  *
  * @global int $content_width
  */
-function sterling_content_width() {
-    $GLOBALS['content_width'] = apply_filters( 'sterling_content_width', 1350 );
+function kenza_content_width() {
+    $GLOBALS['content_width'] = apply_filters( 'kenza_content_width', 1350 );
 }
-add_action( 'after_setup_theme', 'sterling_content_width', 0 );
+add_action( 'after_setup_theme', 'kenza_content_width', 0 );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -147,10 +143,12 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+require get_template_directory() . '/inc/kenza/KenzaPostMeta.php';
+
 /**
  * Load the theme functions file.
  */
-require get_template_directory() . '/inc/sterling/sterling.php';
+require get_template_directory() . '/inc/kenza/kenza.php';
 
 /**
  * Load the TGM file.

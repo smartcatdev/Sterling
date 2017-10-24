@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Sterling
+ * @package Kenza
  */
 
 get_header(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
 
                     <div class="row search-page">
 
-                        <div class="col-md-<?php echo intval( sterling_get_container_width() ); ?>">
+                        <div class="col-md-<?php echo intval( kenza_get_container_width() ); ?>">
 
                             <?php
                             if ( have_posts() ) : ?>

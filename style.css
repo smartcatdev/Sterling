@@ -1,13 +1,13 @@
 /*
-Theme Name: Sterling
-Theme URI: https://smartcatdesign.net/downloads/sterling-pro/
-Author: Smartcat Solutions Inc.
+Theme Name: Kenza
+Theme URI: https://smartcatdesign.net/downloads/kenza-pro/
+Author: Smartcat
 Author URI: https://smartcatdesign.net/
-Description: Sterling is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Sterling is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://sterling.smartcatdev.wpengine.com/
+Description: Kenza is a theme that is perfect for a blog, photographer or photography website, or a wedding website. It's fully responsive with a very unique checkered style blog.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
-Text Domain: sterling
+Text Domain: kenza
 Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography, food-and-drink
 
 Copyright 2017 Smartcat Solutions Inc.
@@ -15,7 +15,7 @@ Copyright 2017 Smartcat Solutions Inc.
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Sterling is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Kenza is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -559,13 +559,15 @@ a:active {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	/*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
 	float: left;
 	position: absolute;
 	top: 100%;
 	left: -999em;
+	left: -999em;
 	z-index: 99999;
 }
+
 
 .main-navigation ul ul ul {
 	left: -999em;

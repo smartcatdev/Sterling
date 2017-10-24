@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Sterling
+ * @package Kenza
  */
 
 ?>
@@ -24,7 +24,7 @@
 
 <body <?php body_class(); ?>>
     
-<div id="page" class="sterling-site-wrapper">
+<div id="page" class="kenza-site-wrapper">
     
     <header id="masthead" class="site-header">
 
@@ -103,9 +103,9 @@
 
                             <div id="mobile-menu-social-link">
 
-                                <?php if ( get_theme_mod( 'sterling_location_link', '' ) != '' ) : ?>
+                                <?php if ( get_theme_mod( 'kenza_location_link', '' ) != '' ) : ?>
 
-                                    <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '' ) ); ?>">
+                                    <a href="<?php echo esc_url( get_theme_mod( 'kenza_location_link', '' ) ); ?>">
 
                                         <div class="header-icon">
                                             <i class="fa fa-map-marker"></i>
@@ -119,12 +119,12 @@
                                     <i class="fa fa-search"></i>
                                 </div>
 
-                                <?php if ( get_theme_mod( 'sterling_email_link', '' ) != '' ) : ?>
+                                <?php if ( get_theme_mod( 'kenza_email_link', '' ) != '' ) : ?>
 
-                                    <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '' ) ); ?>">
+                                    <a href="<?php echo esc_attr( get_theme_mod( 'kenza_email_link', '' ) ); ?>">
 
                                         <div class="header-icon">
-                                            <i class="fa fa-envelope"></i>
+                                            <i class="fa fa-envelope-o"></i>
                                         </div>
 
                                     </a>
@@ -140,13 +140,15 @@
                     <div id="main-navigation-wrapper">
 
                         <nav id="site-navigation" class="main-navigation">
-                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sterling' ); ?></button>
+                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kenza' ); ?></button>
+                            
                             <?php
                                 wp_nav_menu( array(
                                     'theme_location' => 'menu-primary',
                                     'menu_id'        => 'primary-menu',
                                 ) );
                             ?>
+                                
                         </nav><!-- #site-navigation -->
 
                     </div>
@@ -155,9 +157,9 @@
 
                 <div id="header-icons" class="col-sm-3">
 
-                    <?php if ( get_theme_mod( 'sterling_location_link', '' ) != '' ) : ?>
+                    <?php if ( get_theme_mod( 'kenza_location_link', '' ) != '' ) : ?>
 
-                        <a href="<?php echo esc_url( get_theme_mod( 'sterling_location_link', '' ) ); ?>">
+                        <a href="<?php echo esc_url( get_theme_mod( 'kenza_location_link', '' ) ); ?>">
 
                             <div class="header-icon">
 
@@ -175,9 +177,9 @@
 
                     </div>
 
-                    <?php if ( get_theme_mod( 'sterling_email_link', '' ) != '' ) : ?>
+                    <?php if ( get_theme_mod( 'kenza_email_link', '' ) != '' ) : ?>
 
-                        <a href="<?php echo esc_attr( get_theme_mod( 'sterling_email_link', '' ) ); ?>">
+                        <a href="<?php echo esc_attr( get_theme_mod( 'kenza_email_link', '' ) ); ?>">
 
                             <div class="header-icon">
 
@@ -196,7 +198,7 @@
         </div>
 
     </header><!-- #masthead -->
-
-    <?php do_action( 'sterling_header_panel' ); ?>
+    
+    <?php do_action( 'kenza_header_panel' ); ?>
 
     <div id="content" class="site-content">

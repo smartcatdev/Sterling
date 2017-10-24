@@ -1,4 +1,4 @@
-=== Sterling ===
+=== Kenza ===
 
 Contributors: smartcat
 Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography, food-and-drink
@@ -11,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
 == Description ==
 
-Sterling is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Sterling is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://sterling.smartcatdev.wpengine.com/
+Kenza is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Kenza is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://kenza.smartcatdev.wpengine.com/
 
 == Installation ==
 
@@ -23,8 +23,8 @@ Sterling is an elegant & responsive multi-purpose theme with tons of customizabl
 
 = Does this theme support any plugins? =
 
-Sterling includes support for the Our Team Showcase plugin.
-Sterling includes support for Infinite Scroll in Jetpack.
+Kenza includes support for the Our Team Showcase plugin.
+Kenza includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
@@ -58,8 +58,9 @@ Sterling includes support for Infinite Scroll in Jetpack.
     - License URL           http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 
 5. Images in screenshot
-    - URL                   URL1
-                            URL2
+    - URL                   https://pixabay.com/en/yashica-filter-camera-vintage-711794/
+                            https://pixabay.com/en/fall-leaves-trail-foliage-1432252/
+                            https://pixabay.com/en/wedding-flower-bouquet-beauty-2700495/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en
               

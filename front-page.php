@@ -4,20 +4,22 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Sterling
+ * @package Kenza
  */
     
 $front = get_option( 'show_on_front' ); 
 
-get_header(); ?>
+get_header(); 
+
+do_action( 'kenza_fp_afterheader' );
+
+?>
 
 <?php if ( $front != 'posts' ) : ?>
 
-    <?php if ( function_exists( 'sterling_slider' ) ) { sterling_slider(); } ?>
+    <?php do_action( 'kenza_after_slider' ); ?>
     
-    <?php do_action( 'sterling_after_slider' ); ?>
-    
-    <?php do_action( 'sterling_before_content' ); ?>
+    <?php do_action( 'kenza_before_content' ); ?>
     
 <?php endif; ?>
 
@@ -87,7 +89,7 @@ get_header(); ?>
         
         <?php if ( $front != 'posts' ) : ?>
            
-            <?php do_action( 'sterling_after_content' ); ?>
+            <?php do_action( 'kenza_after_content' ); ?>
 
         <?php endif; ?>
 
