@@ -190,7 +190,12 @@ div#mobile-menu div#primary-menu ul li {
     padding: 5px 0px 5px 5px;
     border-bottom: thin solid #404040;
 }
-
+div#mobile-menu .sub-menu li:last-child {
+    border-bottom: none !important;
+}
+#mobile-menu .menu .menu-item-has-children .sub-menu {
+    display: none;
+}
 #mobile-menu ul#primary-menu {
     padding: 15px 15px 15px 10px;
 }
@@ -1123,4 +1128,43 @@ section.no-results.not-found .page-header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.kenza-footer-calltoaction {
+    height: 150px;
+    display: table;
+    width: 100%;
+}
+.kenza-footer-calltoaction > .row,
+.kenza-footer-calltoaction > .row > .kenza-footer-cta-button,
+.kenza-footer-calltoaction > .row > .kenza-footer-cta-title {
+    height: 100%;
+}
+.kenza-footer-calltoaction .kenza-footer-cta-button {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kenza-footer-calltoaction .kenza-footer-cta-title h2 {
+    color: #fff;
+}
+.kenza-footer-calltoaction .kenza-footer-cta-title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kenza-footer-calltoaction .kenza-footer-cta-title h2 {
+    margin-top: 0 !important;
+}
+@media screen and ( max-width:767px ) {
+    .kenza-footer-calltoaction .kenza-footer-cta-title {
+        margin-top: 35px;
+    }
+    .kenza-footer-calltoaction > .row,
+    .kenza-footer-calltoaction > .row > .kenza-footer-cta-button,
+    .kenza-footer-calltoaction > .row > .kenza-footer-cta-title {
+        height: auto !important;
+        margin-bottom: 15px;
+    }
 }
