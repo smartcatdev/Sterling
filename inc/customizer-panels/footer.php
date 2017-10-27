@@ -86,4 +86,41 @@ $wp_customize->add_panel( 'kenza_footer', array (
             'section'               => 'kenza_footer_name',
             'label'                 => __( 'Company URL', 'kenza' ),
         ) );
+$wp_customize->add_section( 'kenza_footer_cta', array (
+        'title'                 => __( 'Footer Call to Action', 'kenza' ),
+        'panel'                 => 'kenza_footer'
+    ) );
 
+    $wp_customize->add_setting( 'kenza_footer_cta_post', array (
+        'default'               => 0,
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'kenza_sanitize_post'
+    ) );
+    
+    $wp_customize->add_control( 'kenza_footer_cta_post', array(
+        'type'                  => 'select',
+        'section'               => 'kenza_footer_cta',
+        'label'                 => __( 'Selected Featured Post', 'kenza' ),
+        'choices'               => kenza_all_posts_array( true )
+    ) );
+    
+    $wp_customize->add_setting( 'kenza_footer_cta_button_text', array (
+        'default'               => 'Read More',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'sanitize_text_field'
+    ) );
+    
+    $wp_customize->add_control( 'kenza_footer_cta_button_text', array(
+        'type'                  => 'text',
+        'section'               => 'kenza_footer_cta',
+        'label'                 => __( 'Button Text', 'kenza' )
+    ) );
+
+function kenza_sanitize_post( $input ) {
+    $valid_keys = kenza_all_posts_array( true );
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }
+}

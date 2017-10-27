@@ -13,6 +13,28 @@ kenza_get_custom_footer(); ?>
 
     </div><!-- #content -->
 
+    <?php if ( is_home() || is_front_page() ) : ?>
+    
+        <div class="kenza-footer-calltoaction container-fluid">
+
+            <?php $post = get_post( get_theme_mod( 'kenza_footer_cta_post', 'none' ) ) ?>
+
+            <div class="row">
+
+                <div class="kenza-footer-cta-title col-sm-6">
+                    <h2><?php echo esc_attr( get_the_title( $post->ID ) ) ?></h2>
+                </div>
+
+                <div class="kenza-footer-cta-button col-sm-6">
+                    <a class="btn-kenza secondary" href="<?php echo esc_url( the_permalink( $post->ID ) ) ?>"><?php echo esc_attr( get_theme_mod( 'kenza_footer_cta_button_text', 'Read More' ) ) ?></a>
+                </div>
+
+            </div>
+
+        </div>
+    
+    <?php endif; ?>
+    
     <footer id="colophon" class="site-footer">
 
         <div class="container-fluid" id="footer">
