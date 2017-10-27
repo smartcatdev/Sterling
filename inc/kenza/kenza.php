@@ -172,7 +172,8 @@ function kenza_custom_css() { ?>
         #blog-info .divider, 
         #content-divider, 
         #single-post-title span, 
-        #scrolltotop-btn {
+        #scrolltotop-btn,
+        .kenza-footer-calltoaction{
             background: <?php echo $skin_color; ?>;
         }
         

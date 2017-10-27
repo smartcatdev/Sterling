@@ -6,97 +6,104 @@
  *
  * @package Kenza
  */
-    
-$front = get_option( 'show_on_front' ); 
 
-get_header(); 
 
-do_action( 'kenza_fp_afterheader' );
+do_action( 'kenza_alternate_homepage' );
 
-?>
+if ( ! defined( 'KENZA_PRO_URL' ) || get_theme_mod( 'kenza_frontpage_template' ) != 'alt-frontpage' ) {
 
-<?php if ( $front != 'posts' ) : ?>
+    $front = get_option( 'show_on_front' ); 
 
-    <?php do_action( 'kenza_after_slider' ); ?>
-    
-    <?php do_action( 'kenza_before_content' ); ?>
-    
-<?php endif; ?>
+    get_header(); 
 
-<div id="primary" class="content-area">
+    do_action( 'kenza_fp_afterheader' );
 
-    <main id="main" class="site-main">
+    ?>
 
-        <div class="container<?php echo $front == 'posts' ? '-fluid' : ''; ?> push" id="blog-posts">
-        
-            <?php if ( have_posts() ) : ?>
-            
-                <?php if ( is_home() && ! is_front_page() ) : ?>
+    <?php if ( $front != 'posts' ) : ?>
 
-                    <header>
-                        <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                    </header>
+        <?php do_action( 'kenza_after_slider' ); ?>
 
-                <?php endif; ?>
+        <?php do_action( 'kenza_before_content' ); ?>
 
-                <?php 
-    
-                $ctr = 0;
-                
-                while ( have_posts() ) : the_post();
+    <?php endif; ?>
 
-                    if ( $front == 'posts' ) :
+    <div id="primary" class="content-area">
 
-                        if ( $ctr % 2 ) :
-                        
-                            get_template_part( 'template-parts/content', 'blog-flip' );
-                        
-                        else : 
-                            
-                            get_template_part( 'template-parts/content', 'blog' );
-                            
+        <main id="main" class="site-main">
+
+            <div class="container<?php echo $front == 'posts' ? '-fluid' : ''; ?> push" id="blog-posts">
+
+                <?php if ( have_posts() ) : ?>
+
+                    <?php if ( is_home() && ! is_front_page() ) : ?>
+
+                        <header>
+                            <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+                        </header>
+
+                    <?php endif; ?>
+
+                    <?php 
+
+                    $ctr = 0;
+
+                    while ( have_posts() ) : the_post();
+
+                        if ( $front == 'posts' ) :
+
+                            if ( $ctr % 2 ) :
+
+                                get_template_part( 'template-parts/content', 'blog-flip' );
+
+                            else : 
+
+                                get_template_part( 'template-parts/content', 'blog' );
+
+                            endif;
+
+                            $ctr++;
+
+                        else :
+
+                            get_template_part( 'template-parts/content', 'page-home' );
+
                         endif;
-                        
-                        $ctr++;
-                        
-                    else :
 
-                        get_template_part( 'template-parts/content', 'page-home' );
+                    endwhile; 
 
-                    endif;
+                    ?>   
 
-                endwhile; 
+                    <?php if ( $front == 'posts' ) : ?>
 
-                ?>   
+                        <div class="row">
 
-                <?php if ( $front == 'posts' ) : ?>
-                
-                    <div class="row">
-            
-                        <?php the_posts_pagination( array( 'mid_size' => 1 ) ); ?>
+                            <?php the_posts_pagination( array( 'mid_size' => 1 ) ); ?>
 
-                    </div>
-                        
+                        </div>
+
+                    <?php endif; ?>
+
+                <?php else : ?>
+
+                    <?php get_template_part( 'template-parts/content', 'none' ); ?>
+
                 <?php endif; ?>
 
-            <?php else : ?>
+            </div> 
 
-                <?php get_template_part( 'template-parts/content', 'none' ); ?>
+            <?php if ( $front != 'posts' ) : ?>
+
+                <?php do_action( 'kenza_after_content' ); ?>
 
             <?php endif; ?>
 
-        </div> 
-        
-        <?php if ( $front != 'posts' ) : ?>
-           
-            <?php do_action( 'kenza_after_content' ); ?>
+        </main><!-- #main -->
 
-        <?php endif; ?>
+    </div><!-- #primary -->
 
-    </main><!-- #main -->
+    <?php 
 
-</div><!-- #primary -->
+    get_footer();
 
-<?php 
-
-get_footer();
+}

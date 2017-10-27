@@ -33,9 +33,11 @@ function kenza_customize_register( $wp_customize ) {
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/appearance.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/footer.php';
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/404.php';
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer-panels/frontpage.php';
 
     $wp_customize->get_section ( 'background_image' )->panel = 'kenza_appearance_panel';
     $wp_customize->get_section ( 'colors' )->panel = 'kenza_appearance_panel';
+    $wp_customize->get_section ( 'static_front_page' )->panel = 'kenza_frontpage_panel';
     $wp_customize->get_section ( 'header_image' )->priority = 1;
     $wp_customize->get_section ( 'title_tagline' )->priority = 1;
     $wp_customize->get_section ( 'title_tagline' )->title = __( 'Site Identity & Logo', 'kenza' );
