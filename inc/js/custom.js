@@ -119,10 +119,16 @@
     //  Mobile Menu - Big Slide.js
     //__________________________________________________________________________
     
+    var menuWidth = '25em';
+    
+    if ( $( window ).width() < 414 ) {
+        menuWidth = '12em';
+    }
+    
     $( '.menu-link' ).bigSlide({
         menu: ( '#mobile-menu nav#menu' ),
         side: 'right',
-        menuWidth: '25em'
+        menuWidth: menuWidth
     });
 
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
