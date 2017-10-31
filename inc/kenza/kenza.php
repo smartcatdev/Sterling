@@ -27,6 +27,7 @@ function kenza_scripts() {
 
     wp_localize_script( 'kenza-custom', 'kenzaTheme', array(
         'headerDesktopHeight'       => intval( get_theme_mod( 'kenza_custom_header_height_desktop', 96 ) ),
+        'templateDirectory'         => get_template_directory_uri(),
                 
     ) );
     

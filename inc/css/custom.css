@@ -188,7 +188,7 @@ div#mobile-menu div#primary-menu ul {
 #mobile-menu ul#primary-menu li,
 div#mobile-menu div#primary-menu ul li {
     padding: 5px 0px 5px 5px;
-    border-bottom: thin solid #404040;
+    border-bottom: 2px solid #212121;
 }
 div#mobile-menu .sub-menu li:last-child {
     border-bottom: none !important;
@@ -196,7 +196,7 @@ div#mobile-menu .sub-menu li:last-child {
 #mobile-menu .menu .menu-item-has-children .sub-menu {
     display: none;
 }
-#mobile-menu ul#primary-menu {
+#mobile-menu ul#primary-menu li {
     padding: 15px 15px 15px 10px;
 }
 
@@ -263,15 +263,6 @@ div#mobile-menu > #menu {
     left: 0;
     background: rgba(0,0,0,0.25);
     background: url( ../images/pattern-dotted.png ) repeat rgba(0,0,0,0.25)
-}
-
-@media( max-width: 991px ) {
-    
-}
-
-@media( max-width: 767px ) {
-    
-    
 }
 
 #header-panel-content .header-panel-inner {
@@ -744,8 +735,8 @@ Mobile Menu
 /*<editor-fold desc="Mobile Menu">*/
 .panel {
     position: fixed;
-    right: -250px;
-    width: 250px; 
+    right: -300px;
+    width: 300px; 
 }
 #mobile-menu-social-link {
     text-align: center;
@@ -771,25 +762,26 @@ Mobile Menu
 #menu a {
     color: white;
 }
-#mobile-menu #primary-menu > li {
-    margin: 15px;
+#mobile-menu #primary-menu > li:not(.menu-item-has-children) a {
+    margin: 21px;
 }
 #primary-menu > li {
     text-align: left;
     margin: 0px;
     transition: 0.3s ease-in-out;
 }
-
+.menu-item-has-children .sub-menu {
+    margin-left: 9px !important;
+    padding-left: 25px !important;
+}
 #primary-menu > li > a {
-    margin: 15px;
     font-weight: 500;
+}
+.menu-item-has-children ul.sub-menu li {
     text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: .085em;
 }
-
-#primary-menu li.menu-item-has-children > a:after{
-    content: " +";
-}
-
 #menu li {
     text-align: left;
     transition: 0.3s ease-in-out;
@@ -812,10 +804,9 @@ Mobile Menu
 }
 #mobile-menu #menu .menu-primary-container #primary-menu li > .sub-menu {
     display: none;
-    border: 0 !important;
     margin-left: 0;
     margin: 5px 0 0;
-    padding-left: 15px;
+    padding-left: 15px !important;
     background: none;
     padding-top: 0;
 }
@@ -835,7 +826,8 @@ Mobile Menu
 }
 #mobile-menu #primary-menu li {
     margin: 0; 
-    padding: 7px 0 !important;
+    padding: 10px 0 !important;
+    padding-left: 9px !important;
 }
 #mobile-menu .menu-primary-container #primary-menu li:first-child {
     margin-top: 10px;
@@ -1167,4 +1159,27 @@ section.no-results.not-found .page-header {
         height: auto !important;
         margin-bottom: 15px;
     }
+}
+.header-icon.search-btn img {
+    height: 29px;
+}
+.header-icon.search-btn {
+    position: absolute;
+    right: 11px;
+    top: 20px;
+}
+.img-has-children {
+    height: 17px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.img-has-children.submenu-rotated {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+#primary #mobile-menu #primary-menu .menu-item-has-children .sub-menu .menu-item {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
 }

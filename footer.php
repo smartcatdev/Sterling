@@ -12,8 +12,8 @@
 kenza_get_custom_footer(); ?>
 
     </div><!-- #content -->
-
-    <?php if ( is_home() || is_front_page() ) : ?>
+    
+    <?php if ( ( is_home() || is_front_page() ) && get_theme_mod( 'kenza_footer_cta_post', 'none' ) != 'none' ) : ?>
     
         <div class="kenza-footer-calltoaction container-fluid">
 
