@@ -6,14 +6,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Kenza
+ * @package Kenzakenza_get_custom_footer(); ?>
+
  */
 
-kenza_get_custom_footer(); ?>
-
-    </div><!-- #content -->
-    
-    <?php if ( ( is_home() || is_front_page() ) && get_theme_mod( 'kenza_footer_cta_post', 'none' ) != 'none' ) : ?>
+if ( ( is_home() || is_front_page() ) && get_theme_mod( 'kenza_footer_cta_post', 'none' ) != 'none' ) : ?>
     
         <div class="kenza-footer-calltoaction container-fluid">
 
@@ -33,8 +30,12 @@ kenza_get_custom_footer(); ?>
 
         </div>
     
-    <?php endif; ?>
-    
+    <?php endif;
+
+kenza_get_custom_footer(); ?>
+
+    </div><!-- #content -->
+            
     <footer id="colophon" class="site-footer">
 
         <div class="container-fluid" id="footer">

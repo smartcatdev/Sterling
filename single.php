@@ -101,7 +101,7 @@
 
                                 <div id="single-post-content">
 
-                                    <?php echo get_the_content(); ?>
+                                    <?php the_content(); ?>
 
                                 </div>
 

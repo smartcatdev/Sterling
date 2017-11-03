@@ -772,7 +772,7 @@ Mobile Menu
 }
 body #mobile-menu #primary-menu .menu-item-has-children .sub-menu {
     margin-left: 9px !important;
-    padding-left: 35px !important;
+    padding-left: 25px !important;
 }
 #mobile-menu .menu-item-has-children a {
     margin-left: 0;
@@ -1186,7 +1186,7 @@ section.no-results.not-found .page-header {
     padding-top: 2px !important;
     padding-bottom: 2px !important;
 }
-.logged-in #mobile-overlay {
+.logged-in.admin-bar #mobile-overlay {
     top: 32px !important;
 }
 #mobile-overlay .menu-link {

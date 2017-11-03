@@ -10,8 +10,6 @@
 
 do_action( 'kenza_alternate_homepage' );
 
-if ( ! defined( 'KENZA_PRO_URL' ) || get_theme_mod( 'kenza_frontpage_template' ) != 'alt-frontpage' ) {
-
     $front = get_option( 'show_on_front' ); 
 
     get_header(); 
@@ -105,5 +103,3 @@ if ( ! defined( 'KENZA_PRO_URL' ) || get_theme_mod( 'kenza_frontpage_template' )
     <?php 
 
     get_footer();
-
-}
