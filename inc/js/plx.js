@@ -21,7 +21,7 @@ function parallaxImages() {
         var img = plx[i].getAttribute('data-plx-img');
         var plxImg = document.createElement("div");
         plxImg.className += " plx-img";
-        plxImg.style.height = (height + (height / 2)) + 'px';
+        plxImg.style.height = (height + (height / 4)) + 'px';
         plxImg.style.backgroundImage = 'url(' + img + ')';
         plx[i].insertBefore(plxImg, plx[i].firstChild);
     }
