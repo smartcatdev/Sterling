@@ -92,7 +92,7 @@ $wp_customize->add_section( 'kenza_footer_cta', array (
     ) );
 
     $wp_customize->add_setting( 'kenza_footer_cta_post', array (
-        'default'               => 0,
+        'default'               => 'none',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'kenza_sanitize_post'
     ) );

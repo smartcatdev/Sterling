@@ -119,19 +119,26 @@
     //  Mobile Menu - Big Slide.js
     //__________________________________________________________________________
     
+    var menuWidth = '25em';
+    
+    if ( $( window ).width() < 414 ) {
+        menuWidth = '12em';
+    }
+    
     $( '.menu-link' ).bigSlide({
         menu: ( '#mobile-menu nav#menu' ),
-        side: 'right'
+        side: 'right',
+        menuWidth: menuWidth
     });
 
     //¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     //  Mobile Menu - Inject Expansion Icons
     //__________________________________________________________________________
 
-    $('#mobile-menu ul#primary-menu > li.menu-item-has-children').prepend( '<span class="fa fa-chevron-right"></span>' );
+    $('#mobile-menu ul#primary-menu > li.menu-item-has-children').prepend( '<img class="img-has-children" src="' + kenzaTheme.templateDirectory + '/inc/images/lnr-chevron-right.svg" />' );
 
     $( '#mobile-menu ul#primary-menu > li.menu-item-has-children' ).on( 'click', function() {
-        $(this).find( 'span' ).stop().toggleClass('submenu-rotated');
+        $(this).find( '.img-has-children' ).stop().toggleClass( 'submenu-rotated' );
         $(this).find( '> ul.sub-menu' ).stop().slideToggle( 400 );
     });
      

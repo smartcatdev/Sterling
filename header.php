@@ -86,15 +86,20 @@
 
                 <div id="main-navigation" class="col-sm-6">
 
-                    <div id="mobile-overlay" class="push"></div>
+                    <div id="mobile-overlay" class="push">
+                        <a href="#menu" class="menu-link">
+                            <img src="<?php echo get_template_directory_uri() . '/inc/images/mobile-menu-close.png' ?>"/>
+                        </a>
+                        <div class="header-icon search-btn">
+                            <img src="<?php echo get_template_directory_uri() . '/inc/images/lnr-magnifier.svg' ?>"/>
+                        </div>
+                    </div>
 
                     <a href="#menu" class="menu-link"><i class="fa fa-bars fa-2x"></i></a>
 
                     <div id="mobile-menu">
 
                         <nav id="menu" class="panel" role="navigation">
-
-                            <a href="#menu" class="menu-link"><i class="fa fa-times"></i></a> 
 
                             <?php wp_nav_menu( array(
                                  'theme_location' => 'menu-primary',
@@ -114,10 +119,6 @@
                                     </a>
 
                                 <?php endif; ?>
-
-                                <div class="header-icon search-btn menu-link ">
-                                    <i class="fa fa-search"></i>
-                                </div>
 
                                 <?php if ( get_theme_mod( 'kenza_email_link', '' ) != '' ) : ?>
 
