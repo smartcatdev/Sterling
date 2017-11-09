@@ -141,13 +141,28 @@
                     <div id="main-navigation-wrapper">
 
                         <nav id="site-navigation" class="main-navigation">
-                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kenza' ); ?></button>
+                            <!--<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kenza' ); ?></button>-->
                             
-                            <?php
+                            <?php if( has_nav_menu( 'menu-primary' ) ) :
+                                
                                 wp_nav_menu( array(
                                     'theme_location' => 'menu-primary',
                                     'menu_id'        => 'primary-menu',
+                                    'container'         => ''
                                 ) );
+                            
+                                elseif( current_user_can( 'edit_theme_options' ) ) : ?>
+                                    
+                                    <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php _e( 'Add a primary menu', 'kenza' ); ?></a>
+                                    
+                                <?php else :
+                            
+                                    wp_page_menu();
+                                    
+                                endif; ?>
+                            
+                            <?php
+
                             ?>
                                 
                         </nav><!-- #site-navigation -->

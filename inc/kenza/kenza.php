@@ -442,9 +442,9 @@ function kenza_get_header_panel( ) {
             </div>
             
             <?php if( is_front_page() && !is_home() ) : ?>
-                <!--<div class="header-angle">
+                <div class="header-angle">
                     <svg width="100%" height="100" viewBox="0 0 100 102" preserveAspectRatio="none"> <path d="M0 0 L50 90 L100 0 V100 H0" fill="#FFF"></path></svg>
-                </div>-->
+                </div>
             <?php endif; ?>
             
         </div>

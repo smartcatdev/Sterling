@@ -49,7 +49,7 @@ kenza_get_custom_footer(); ?>
                         <a href="<?php echo esc_url( get_theme_mod('kenza_company_url', 'http://www.wordpress.org/' ) ); ?>">
                             <?php
                                 /* translators: %s: CMS name, i.e. WordPress. */
-                                printf( esc_attr( get_theme_mod( 'kenza_company_name', __( 'WordPress', 'kenza' ) ) ) );
+                                printf( esc_attr( get_theme_mod( 'kenza_company_name', __( 'Powered by WordPress', 'kenza' ) ) ) );
                             ?>
                         </a>
 
