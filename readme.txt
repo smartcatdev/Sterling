@@ -4,8 +4,8 @@ Contributors: smartcat
 Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography
 
 Requires at least: 4.6
-Tested up to: 4.8
-Stable tag: 1.0.0
+Tested up to: 4.8.3
+Stable tag: 1.0.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
