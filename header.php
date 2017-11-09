@@ -88,10 +88,10 @@
 
                     <div id="mobile-overlay" class="push">
                         <a href="#menu" class="menu-link">
-                            <img src="<?php echo get_template_directory_uri() . '/inc/images/mobile-menu-close.png' ?>"/>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/mobile-menu-close.png' ); ?>"/>
                         </a>
                         <div class="header-icon search-btn">
-                            <img src="<?php echo get_template_directory_uri() . '/inc/images/lnr-magnifier.svg' ?>"/>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/lnr-magnifier.svg' ); ?>"/>
                         </div>
                     </div>
 

@@ -454,9 +454,7 @@ function kenza_get_header_panel( ) {
     
 }
 
-
-add_filter( 'get_the_archive_title', function( $title ) {
-
+function kenza_get_the_archive_title() {
     if( is_category() ) :
         $title = single_cat_title( '', false );
     elseif( is_tag() ) :
@@ -473,9 +471,8 @@ add_filter( 'get_the_archive_title', function( $title ) {
         $title = single_cat_title( '', false );
     endif;
     
-    return $title;
-    
-});
+    return $title;    
+}
 
 
 /**
