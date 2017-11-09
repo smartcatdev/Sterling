@@ -37,6 +37,7 @@ function kenza_customize_register( $wp_customize ) {
 
     $wp_customize->get_section ( 'background_image' )->panel = 'kenza_appearance_panel';
     $wp_customize->get_section ( 'colors' )->panel = 'kenza_appearance_panel';
+    $wp_customize->get_section ( 'colors' )->title = __( 'Background color', 'kenza' );
     $wp_customize->get_section ( 'static_front_page' )->panel = 'kenza_frontpage_panel';
     $wp_customize->get_section ( 'header_image' )->priority = 1;
     $wp_customize->get_section ( 'title_tagline' )->priority = 1;
