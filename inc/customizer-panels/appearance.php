@@ -56,7 +56,7 @@ $wp_customize->add_panel( 'kenza_appearance_panel', array (
         
         // Color Choice Family
         $wp_customize->add_setting( 'kenza_skins_color', array (
-            'default'               => 'c1a564',
+            'default'               => 'e5bc6e',
             'transport'             => 'refresh',
             'sanitize_callback'     => 'kenza_sanitize_color'
         ) );
