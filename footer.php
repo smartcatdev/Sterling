@@ -49,7 +49,7 @@ kenza_get_custom_footer(); ?>
                         <a href="<?php echo esc_url( get_theme_mod('kenza_company_url', 'http://www.wordpress.org/' ) ); ?>">
                             <?php
                                 /* translators: %s: CMS name, i.e. WordPress. */
-                                printf( esc_attr( get_theme_mod( 'kenza_company_name', __( 'WordPress', 'kenza' ) ) ) );
+                                printf( esc_attr( get_theme_mod( 'kenza_company_name', __( 'Powered by WordPress', 'kenza' ) ) ) );
                             ?>
                         </a>
 
@@ -57,9 +57,9 @@ kenza_get_custom_footer(); ?>
                         
                         <?php if( get_theme_mod( 'kenza_sc_branding', 'on' ) == 'on' ) : ?>
                         
-                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel" title="<?php printf( esc_attr__( '%s Logo', 'kenza'), 'Smartcat' ); ?>">
-                            <?php _e( 'Designed by ', 'kenza' ); ?> 
-                            <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/smartcat_new_logo.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'kenza'), 'Smartcat' ); ?>" />
+                        <a id="sc_brand" href="https://smartcatdesign.net/" rel="designer" style="display: inline-block !important" class="rel" title="<?php /* translators: %s: Designer name, i.e. Smartcat. */printf( esc_attr__( '%s Logo', 'kenza'), 'Smartcat' ); ?>">
+                            <?php esc_html_e( 'Designed by ', 'kenza' ); ?> 
+                            <img src="<?php echo esc_url( trailingslashit( get_template_directory_uri() ) . 'inc/images/smartcat_new_logo.png' ); ?>" alt="<?php /* translators: %s: Designer name, i.e. Smartcat. */printf( esc_attr__( '%s Logo', 'kenza'), 'Smartcat' ); ?>" />
                         </a>
                         
                         <?php endif; ?>

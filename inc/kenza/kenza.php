@@ -425,11 +425,12 @@ function kenza_get_header_panel( ) {
                                         'menu_id'        => 'secondary-menu',
                                         'container_class'=> is_home() || is_front_page() ? 'animated slideInUp' : '',
                                     ) );
+                                
+                                elseif( current_user_can( 'edit_theme_options' ) ) : ?>
+                                    
+                                    <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php _e( 'Add a secondary menu ?', 'kenza' ); ?></a>
 
-
-                                endif;
-
-                                ?>
+                                <?php endif; ?>
 
                             </div>
 
@@ -442,9 +443,9 @@ function kenza_get_header_panel( ) {
             </div>
             
             <?php if( is_front_page() && !is_home() ) : ?>
-                <!--<div class="header-angle">
+                <div class="header-angle">
                     <svg width="100%" height="100" viewBox="0 0 100 102" preserveAspectRatio="none"> <path d="M0 0 L50 90 L100 0 V100 H0" fill="#FFF"></path></svg>
-                </div>-->
+                </div>
             <?php endif; ?>
             
         </div>
@@ -453,9 +454,7 @@ function kenza_get_header_panel( ) {
     
 }
 
-
-add_filter( 'get_the_archive_title', function( $title ) {
-
+function kenza_get_the_archive_title() {
     if( is_category() ) :
         $title = single_cat_title( '', false );
     elseif( is_tag() ) :
@@ -472,9 +471,8 @@ add_filter( 'get_the_archive_title', function( $title ) {
         $title = single_cat_title( '', false );
     endif;
     
-    return $title;
-    
-});
+    return $title;    
+}
 
 
 /**

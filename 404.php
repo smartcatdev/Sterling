@@ -30,17 +30,17 @@ get_header(); ?>
                         <section class="error-404 not-found">
 
                             <h2 class="page-title">
-                                <?php echo get_theme_mod( 'kenza_404_title', __( 'Oops!', 'kenza' ) ); ?>
+                                <?php echo esc_html( get_theme_mod( 'kenza_404_title', __( 'Oops!', 'kenza' ) ) ); ?>
                             </h2>
 
                             <div class="page-content">
                                 <p>
-                                    <?php echo get_theme_mod( 'kenza_404_message', __( "We're sorry, something seems to have gone wrong.", 'kenza' ) ); ?>
+                                    <?php echo esc_html( get_theme_mod( 'kenza_404_message', __( "We're sorry, something seems to have gone wrong.", 'kenza' ) ) ); ?>
                                 </p>
                             </div><!-- .page-content -->    
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                <?php esc_html_e( 'Return to Home', 'kenza' ); ?>
+                                <?php echo esc_html( 'Return to Home', 'kenza' ); ?>
                             </a>
 
                         </section><!-- .error-404 -->

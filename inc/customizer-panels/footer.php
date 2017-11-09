@@ -65,7 +65,7 @@ $wp_customize->add_panel( 'kenza_footer', array (
     
         // Footer Company Name---------------------------------------------------
         $wp_customize->add_setting( 'kenza_company_name', array (
-            'default'               => __( 'WordPress', 'kenza' ),
+            'default'               => __( 'Powered by WordPress', 'kenza' ),
             'transport'             => 'refresh',
             'sanitize_callback'     => 'sanitize_text_field',
         ) );

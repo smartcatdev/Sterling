@@ -66,7 +66,7 @@ $wp_customize->add_panel( 'kenza_appearance_panel', array (
             'label'                 => __( 'Site Skin Color', 'kenza' ),
             'description'           => __( 'Select the color of the theme', 'kenza' ),
             'choices'               => array(
-                'c1a564' => __( 'Gold', 'kenza' ),
+                'e5bc6e' => __( 'Gold', 'kenza' ),
                 'e8280b' => __( 'Red', 'kenza' ),
             ),
         ) );     

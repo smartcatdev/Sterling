@@ -54,7 +54,7 @@ class Kenza_Post_Style_Meta_Box {
     public function save_metabox( $post_id, $post ) {
 
         // Add nonce for security and authentication.
-        $nonce_name = isset( $_POST[ 'kenza_nonce' ] ) ? $_POST[ 'kenza_nonce' ] : '';
+        $nonce_name = isset( $_POST[ 'kenza_nonce' ] ) ? wp_unslash( sanitize_text_field( $_POST[ 'kenza_nonce' ] ) ) : '';
         $nonce_action = 'kenza_nonce_action';
 
         // Check if a nonce is set.
@@ -66,7 +66,7 @@ class Kenza_Post_Style_Meta_Box {
             return;
         
         // Sanitize user input.
-        $kenza_new_sidebar = isset( $_POST[ 'kenza_sidebar' ] ) ? $_POST[ 'kenza_sidebar' ] : '';
+        $kenza_new_sidebar = isset( $_POST[ 'kenza_sidebar' ] ) ? wp_unslash( sanitize_text_field( $_POST[ 'kenza_sidebar' ] ) ) : '';
 
         // Update the meta field in the database.
         update_post_meta( $post_id, 'kenza_sidebar', $kenza_new_sidebar );
@@ -74,4 +74,4 @@ class Kenza_Post_Style_Meta_Box {
 
 }
 
-new Kenza_Post_Style_Meta_Box;
+new Kenza_Post_Style_Meta_Box;  
