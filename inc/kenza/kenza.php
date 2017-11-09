@@ -425,11 +425,12 @@ function kenza_get_header_panel( ) {
                                         'menu_id'        => 'secondary-menu',
                                         'container_class'=> is_home() || is_front_page() ? 'animated slideInUp' : '',
                                     ) );
+                                
+                                elseif( current_user_can( 'edit_theme_options' ) ) : ?>
+                                    
+                                    <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php _e( 'Add a secondary menu ?', 'kenza' ); ?></a>
 
-
-                                endif;
-
-                                ?>
+                                <?php endif; ?>
 
                             </div>
 
