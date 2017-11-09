@@ -79,7 +79,7 @@ if ( ! function_exists( 'kenza_setup' ) ) :
             'default-text-color'     => '',
             'admin-head-callback'    => '',
             'admin-preview-callback' => '',
-            'video'                  => true
+            'video'                  => false
         ) );
         
         register_default_headers( array(
