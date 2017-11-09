@@ -1,7 +1,7 @@
 === Kenza ===
 
 Contributors: smartcat
-Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography, food-and-drink
+Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography
 
 Requires at least: 4.6
 Tested up to: 4.8
