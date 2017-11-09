@@ -70,7 +70,7 @@ if ( ! function_exists( 'kenza_setup' ) ) :
         add_theme_support( 'custom-header', array( 
             'default-image'          => get_template_directory_uri() . '/inc/images/header.jpg',
             'width'                  => 1350,
-            'height'                 => 286,
+            'height'                 => 650,
             'flex-height'            => true,
             'flex-width'             => true,
             'uploads'                => true,
@@ -79,7 +79,7 @@ if ( ! function_exists( 'kenza_setup' ) ) :
             'default-text-color'     => '',
             'admin-head-callback'    => '',
             'admin-preview-callback' => '',
-            'video'                  => false
+            'video'                  => true
         ) );
         
         register_default_headers( array(
