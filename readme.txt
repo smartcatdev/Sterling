@@ -1,11 +1,11 @@
 === Kenza ===
 
 Contributors: smartcat
-Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography, food-and-drink
+Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography
 
 Requires at least: 4.6
-Tested up to: 4.8
-Stable tag: 1.0.0
+Tested up to: 4.8.3
+Stable tag: 1.0.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -27,6 +27,10 @@ Kenza includes support for the Our Team Showcase plugin.
 Kenza includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.0.1 - 2017 =
+* Code cleanup
+* Updated defaults for images
 
 = 1.0.0 - 2017 =
 * Initial Release
@@ -57,10 +61,10 @@ Kenza includes support for Infinite Scroll in Jetpack.
     - License               SIL Open Font
     - License URL           http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 
-5. Images in screenshot
-    - URL                   https://pixabay.com/en/yashica-filter-camera-vintage-711794/
-                            https://pixabay.com/en/fall-leaves-trail-foliage-1432252/
-                            https://pixabay.com/en/wedding-flower-bouquet-beauty-2700495/
+5. Images
+    - URL                   https://pixabay.com/en/wedding-flower-bouquet-beauty-2700495/
+                            https://pixabay.com/en/couple-model-wedding-love-man-2162950/
+                            https://pixabay.com/en/away-silent-way-tree-log-close-2900041/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en
               
@@ -74,19 +78,12 @@ Kenza includes support for Infinite Scroll in Jetpack.
     - License               Licensed under GPLv2 or later
     - License URL           http://www.gnu.org/licenses/gpl.html
 
-8. Other Images
-    - URL                   URL1
-                            URL2
-                            URL3
-    - License               CC0
-    - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en 
-
-10. bigSlide.js
+9. bigSlide.js
     - URL                   http://ascott1.github.io/bigSlide.js/
     - License               MIT
     - License URL           http://www.opensource.org/licenses/mit-license.php
 
-11. Sticky.js
+10. Sticky.js
     - URL                   https://github.com/garand/sticky
     - License               MIT
     - License URL           https://github.com/garand/sticky/blob/master/LICENSE.md
