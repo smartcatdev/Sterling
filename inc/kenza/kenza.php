@@ -207,6 +207,7 @@ function kenza_custom_css() { ?>
         .page-numbers:hover, 
         input[type=submit]:hover, 
         .not-found-text a:hover,
+        .btn-kenza.primary:hover,
         #search-icon:hover {
             background-color: <?php echo $skin_hover_color; ?>
         }
