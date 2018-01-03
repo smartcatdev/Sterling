@@ -114,6 +114,9 @@ Header
     transition: all 0.3s ease;
 }
 
+.header-icon .fa {
+    color: #7b7b7b
+}
 
 
 div#header-icons .header-icon:last-of-type {
@@ -1144,7 +1147,7 @@ section.no-results.not-found .page-header {
     color: #fff;
 }
 .kenza-footer-calltoaction .kenza-footer-cta-title {
-    text-align: center;
+    text-align: left;
     display: flex;
     align-items: center;
     justify-content: center;
