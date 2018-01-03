@@ -90,7 +90,7 @@
                                         <?php if ( get_theme_mod( 'kenza_single_page_comments_toggle', 'on' ) == 'on' ) : ?>
 
                                             <a href="#comments">
-                                                <?php _e( get_comments_number() . ' Comments', 'kenza' ); ?>
+                                                <?php get_comments_number() . __( ' Comments', 'kenza' ); ?>
                                             </a>
 
                                         <?php endif; ?>

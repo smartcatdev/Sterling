@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 function getTop(elem) {
     var box = elem.getBoundingClientRect();
     var body = document.body;

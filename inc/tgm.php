@@ -59,7 +59,6 @@ function kenza_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
                 array (
                     'name' => __( 'Our Team Showcase', 'kenza' ),
                     'slug' => 'our-team-enhanced',

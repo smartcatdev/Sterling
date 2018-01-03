@@ -1,17 +1,17 @@
 === Kenza ===
 
 Contributors: smartcat
-Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, photography
+Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, photography
 
 Requires at least: 4.6
-Tested up to: 4.8.3
-Stable tag: 1.0.1
+Tested up to: 4.9.1
+Stable tag: 1.0.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
 == Description ==
 
-Kenza is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Kenza is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://kenza.smartcatdev.wpengine.com/
+Kenza is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize backgrounds, colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Kenza is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://kenza.smartcatdev.wpengine.com/
 
 == Installation ==
 
@@ -27,6 +27,10 @@ Kenza includes support for the Our Team Showcase plugin.
 Kenza includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.0.2 - Jan 2018 =
+* Code cleanup
+* Updated Screenshot
 
 = 1.0.1 - 2017 =
 * Code cleanup
