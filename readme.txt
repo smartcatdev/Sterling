@@ -4,8 +4,8 @@ Contributors: smartcat
 Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, photography
 
 Requires at least: 4.6
-Tested up to: 4.9.1
-Stable tag: 1.0.2
+Tested up to: 4.9.2
+Stable tag: 1.0.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -29,6 +29,9 @@ Kenza includes support for the Our Team Showcase plugin.
 Kenza includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.0.3 - Feb 2018 =
+* Code cleanup
 
 = 1.0.2 - Jan 2018 =
 * Code cleanup

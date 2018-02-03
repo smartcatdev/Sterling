@@ -19,7 +19,7 @@ if ( ! function_exists( 'kenza_setup' ) ) :
     function kenza_setup() {
 
         if ( !defined( 'KENZA_VERSION' ) ):
-            define( 'KENZA_VERSION', "1.0.2" );
+            define( 'KENZA_VERSION', "1.0.3" );
         endif;
         
         /*
