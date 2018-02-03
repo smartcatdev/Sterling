@@ -11,7 +11,7 @@ function kenza_scripts() {
     
     // Google Fonts Enqueue
     if( array_key_exists( get_theme_mod( 'kenza_font_primary', 'Trirong, serif' ), $fonts ) && array_key_exists ( get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif' ), $fonts ) ) :
-        wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'kenza_font_primary', 'Trirong, serif' ) ] . '|' . $fonts[ get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif' ) ] ), array(), KENZA_VERSION );
+        wp_enqueue_style( 'kenza-google-fonts', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'kenza_font_primary', 'Trirong, serif' ) ] . '|' . $fonts[ get_theme_mod( 'kenza_font_body', 'Titillium Web, sans-serif' ) ] ), array(), KENZA_VERSION );
     endif;
     
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', null, KENZA_VERSION );
@@ -358,6 +358,7 @@ function kenza_get_header_panel( ) {
 
     /**
      * Theme Integration with Smartcat Slider plugin
+     * https://wordpress.org/plugins/smartcat-video-image-slider/
      */
     $post_id = null;
     
@@ -453,26 +454,6 @@ function kenza_get_header_panel( ) {
     
     <?php endif;
     
-}
-
-function kenza_get_the_archive_title() {
-    if( is_category() ) :
-        $title = single_cat_title( '', false );
-    elseif( is_tag() ) :
-        $title = single_tag_title( '', false );
-    elseif( is_author() ) :
-        $title = get_the_author();
-    elseif ( is_year() ) :
-        $title = sprintf( __( 'Year: %s', 'kenza' ), date_i18n( __( 'Y', 'kenza' ) ) );
-    elseif ( is_month() ) :
-        $title = sprintf( __( 'Month: %s', 'kenza' ), date_i18n( __( 'F Y', 'kenza' ) ) );
-    elseif ( is_day() ) :
-        $title = sprintf( __( 'Day: %s', 'kenza' ), date_i18n( __( 'F j, Y', 'kenza' ) ) );
-    else :
-        $title = single_cat_title( '', false );
-    endif;
-    
-    return $title;    
 }
 
 

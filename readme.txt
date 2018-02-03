@@ -12,6 +12,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 == Description ==
 
 Kenza is an elegant & responsive multi-purpose theme with tons of customizable features. It is well suited for wedding websites, food, travel, and photography blogs, as well as creative individuals. You can customize backgrounds, colors, fonts, the appearance of layout elements, and preview all your changes live. A theme that makes it easy for you to create a beautiful and professional looking site quickly and easily. Kenza is fully integrated with Our Team Showcase. This theme has many features that cannot usually be found in a free theme, and can be used by beginners and developers to build a great site quickly and efficiently. See the live demo here: http://kenza.smartcatdev.wpengine.com/
+Kenza theme, Copyright 2018 Smartcat Solutions Inc.
+This theme, like WordPress, is distributed under the terms of the GNU GPL.
 
 == Installation ==
 
