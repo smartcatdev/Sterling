@@ -1,17 +1,17 @@
 === Kenza ===
 
 Contributors: smartcat
-Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, photography
+Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, flexible-header, custom-background, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 
 Requires at least: 4.6
-Tested up to: 4.9.2
-Stable tag: 1.0.3
+Tested up to: 4.9.3
+Stable tag: 1.0.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
 == Description ==
 
-Kenza is a modern theme that is very easy to use. It features a Parallax header, a header image secondary menu, a great slide-in mobile navigation, and a unique vertical panel alternating blog. It is compatible with Our Team Showcase allowing you to feature your team in style. It is also compatible with Smartcat Slider, allowing you to add as many sliders as you want, with ease. See the live demo here: http://kenza.smartcatdev.wpengine.com/
+Kenza is a modern theme that is very easy to use. It features a Parallax header, primary and secondary menus, an amazing slide-in mobile navigation, a unique vertical panel alternating blog, a footer call-to-action, social icons, adjustable navigation height and background image. It is compatible with Our Team Showcase allowing you to feature your team in style. It is also compatible with Smartcat Slider, allowing you to add as many sliders as you want, with ease. There is a Pro version for Kenza, with tons more features, you can view the demo here: http://kenza.smartcatdev.wpengine.com/
 Kenza theme, Copyright 2018 Smartcat Solutions Inc.
 This theme, like WordPress, is distributed under the terms of the GNU GPL.
 
@@ -29,6 +29,9 @@ Kenza includes support for the Our Team Showcase plugin.
 Kenza includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.0.4 - Feb 2018 =
+* Update theme descriptions and bump version
 
 = 1.0.3 - Feb 2018 =
 * Code cleanup
