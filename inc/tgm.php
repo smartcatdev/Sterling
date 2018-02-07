@@ -64,6 +64,11 @@ function kenza_register_required_plugins() {
                     'slug' => 'our-team-enhanced',
                     'required' => false,
                 ),
+                array (
+                    'name'          => __( 'uCare - Support Ticket System', 'avenue' ),
+                    'slug'          => 'ucare-support-system',
+                    'required'      => false,
+                ),
 
 	);
 
