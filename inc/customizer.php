@@ -6,6 +6,19 @@
  * @package Kenza
  */
 
+
+
+function kenza_customize_enqueue() {
+    wp_enqueue_script( 'kenza-customizer-js', get_template_directory_uri() . '/inc/js/customizer.js', array( 'jquery', 'customize-controls' ), false, true );
+}
+
+if( !function_exists( 'kenza_pro_init' ) ) :
+    add_action( 'customize_controls_enqueue_scripts', 'kenza_customize_enqueue' );
+endif;
+
+
+
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
